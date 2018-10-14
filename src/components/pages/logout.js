@@ -1,5 +1,4 @@
 import React from 'react';
-import '$/css/home.css';
 import { logout } from '$/api/request';
 
 class Login extends React.Component {
