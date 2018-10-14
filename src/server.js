@@ -15,10 +15,9 @@ server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
   .get('/*', (req, res) => {
-
-		// STORE
-		const preloadedState = {counter: 0};
-		const store = setupStore(preloadedState);
+    // STORE
+    const preloadedState = { counter: 0 };
+    const store = setupStore(preloadedState);
 
     const context = {};
     const markup = renderToString(
@@ -26,11 +25,11 @@ server
             <Provider store={store}>
               <App />
             </Provider>
-				</StaticRouter>
+				</StaticRouter>,
     );
 
-		// Grab the initial state from our Redux store
-		const finalState = store.getState();
+    // Grab the initial state from our Redux store
+    const finalState = store.getState();
 
     if (context.url) {
       res.redirect(context.url);
@@ -44,15 +43,15 @@ server
         <title>Welcome to Razzle</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         ${
-          assets.client.css
-            ? `<link rel="stylesheet" href="${assets.client.css}">`
-            : ''
-        }
+  assets.client.css
+    ? `<link rel="stylesheet" href="${assets.client.css}">`
+    : ''
+}
         ${
-          process.env.NODE_ENV === 'production'
-            ? `<script src="${assets.client.js}" defer></script>`
-            : `<script src="${assets.client.js}" defer crossorigin></script>`
-        }
+  process.env.NODE_ENV === 'production'
+    ? `<script src="${assets.client.js}" defer></script>`
+    : `<script src="${assets.client.js}" defer crossorigin></script>`
+}
     </head>
     <body>
         <div id="root">${markup}</div>
@@ -60,7 +59,7 @@ server
           window.__PRELOADED_STATE__ = ${serialize(finalState)}
         </script>
     </body>
-</html>`
+</html>`,
       );
     }
   });

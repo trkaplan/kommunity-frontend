@@ -1,16 +1,16 @@
 import React from 'react';
 import '$/css/home.css';
-import {logout} from '$/api/request';
+import { logout } from '$/api/request';
 
 class Login extends React.Component {
-	constructor(props) {
+  constructor(props) {
     super(props);
-		this.handleLogoutClick = this.handleLogoutClick.bind(this);
-	}
+    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+  }
 
-	handleLogoutClick(e) {
-		logout();
-	}
+  handleLogoutClick(e) {
+    logout();
+  }
 
   render() {
     return (

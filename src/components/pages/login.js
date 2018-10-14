@@ -1,28 +1,28 @@
 import React from 'react';
 import '$/css/home.css';
-import {login} from '$/api/request';
+import { login } from '$/api/request';
 
 class Login extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			username: '',
-			password: '',
-		};
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: '',
+    };
 
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-	handleSubmit(e) {
-		e.preventDefault();
-		login(this.state.username, this.state.password);
-	}
+  handleSubmit(e) {
+    e.preventDefault();
+    login(this.state.username, this.state.password);
+  }
 
-	onChangeFactory(key) {
-		return e => {
-			this.setState({[key]: e.target.value});
-		};
-	}
+  onChangeFactory(key) {
+    return (e) => {
+      this.setState({ [key]: e.target.value });
+    };
+  }
 
   render() {
     return (

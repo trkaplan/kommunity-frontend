@@ -3,25 +3,25 @@ import axios from 'axios';
 export const instance = axios.create({
   baseURL: 'http://localhost:3008/',
   timeout: 5000,
-  headers: {'X-Custom-Header': 'foobar'}
+  headers: { 'X-Custom-Header': 'foobar' },
 });
 
 export const makeRequest = (type, path, body) => {
-	instance[type](path, body)
-		.then(function (response) {
-			console.log(response);
-		})
-		.catch(function (error) {
-			console.log(error);
-		});
+  instance[type](path, body)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
-instance.interceptors.response.use(function (response) {
-	// Do something with response data
-	return response.data;
-}, function (error) {
+instance.interceptors.response.use((response) => {
+  // Do something with response data
+  return response.data;
+}, (error) => {
   const code = error.response.data && error.response.data.code;
-	return Promise.reject({
-		code,
-	});
+  return Promise.reject(new Error({
+    code,
+  }));
 });

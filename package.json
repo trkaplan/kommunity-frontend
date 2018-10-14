@@ -7,8 +7,8 @@
     "build": "razzle build",
     "test": "razzle test --env=jsdom",
     "start:prod": "NODE_ENV=production node build/server.js",
-    "lint": "./node_modules/.bin/eslint .",
-    "fix-lint": "./node_modules/.bin/eslint --fix .",
+    "lint": "./node_modules/.bin/eslint ./src",
+    "fix-lint": "./node_modules/.bin/eslint --fix ./src",
     "check-if-not-committed": "node scripts/check-if-not-committed.js"
   },
   "pre-push": [
@@ -33,6 +33,7 @@
     "eslint": "^5.7.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-react": "^7.11.1",
     "pre-push": "^0.1.1"
   },
   "engines": {

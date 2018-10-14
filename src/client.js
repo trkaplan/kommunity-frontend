@@ -14,7 +14,7 @@ hydrate(
       <App />
     </Provider>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 if (module.hot) {
@@ -23,7 +23,7 @@ if (module.hot) {
       <Provider store={store}>
         <App />
       </Provider>,
-      document.getElementById('root')
+      document.getElementById('root'),
     );
   });
 }
