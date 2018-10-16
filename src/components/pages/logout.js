@@ -1,5 +1,5 @@
 import React from 'react';
-import { logout } from '$/api/request';
+import { logout } from '@/api/request';
 
 class Logout extends React.Component {
   constructor(props) {

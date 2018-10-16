@@ -1,22 +1,22 @@
 /* global window, document */
-import BrowserRouter from 'react-router-dom/BrowserRouter';
+import { BrowserRouter } from 'react-router-dom';
 import React from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import setupStore from '$/state/store';
-import App from '$/containers/app';
+import setupStore from '@/state/store';
+import App from '@/containers/app';
 
 // eslint-disable-next-line no-underscore-dangle
 const store = setupStore(window.__PRELOADED_STATE__);
-
+const getElement = document.getElementById('root');
 hydrate(
-  <BrowserRouter>
-    <Provider store={store}>
+  <Provider store={store}>
+    <BrowserRouter>
       <App />
-    </Provider>
-  </BrowserRouter>,
-  document.getElementById('root'),
+    </BrowserRouter>
+  </Provider>,
+  getElement,
 );
 
 if (module.hot) {
@@ -25,7 +25,7 @@ if (module.hot) {
       <Provider store={store}>
         <App />
       </Provider>,
-      document.getElementById('root'),
+      getElement,
     );
   });
 }
