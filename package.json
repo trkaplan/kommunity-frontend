@@ -13,8 +13,7 @@
   },
   "pre-push": [
     "check-if-not-committed",
-    "lint",
-    "test"
+    "lint"
   ],
   "dependencies": {
     "axios": "^0.18.0",
