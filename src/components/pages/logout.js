@@ -1,13 +1,13 @@
 import React from 'react';
 import { logout } from '$/api/request';
 
-class Login extends React.Component {
+class Logout extends React.Component {
   constructor(props) {
     super(props);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
   }
 
-  handleLogoutClick(e) {
+  handleLogoutClick() {
     logout();
   }
 
@@ -20,4 +20,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Logout;

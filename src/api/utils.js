@@ -9,10 +9,10 @@ export const instance = axios.create({
 export const makeRequest = (type, path, body) => {
   instance[type](path, body)
     .then((response) => {
-      console.log(response);
+      return response;
     })
     .catch((error) => {
-      console.log(error);
+      return error;
     });
 };
 

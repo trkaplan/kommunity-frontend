@@ -8,6 +8,7 @@ import serialize from 'serialize-javascript';
 
 import setupStore from '$/state/store';
 
+// eslint-disable-next-line import/no-dynamic-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();
@@ -21,11 +22,11 @@ server
 
     const context = {};
     const markup = renderToString(
-				<StaticRouter context={context} location={req.url}>
-            <Provider store={store}>
-              <App />
-            </Provider>
-				</StaticRouter>,
+      <StaticRouter context={context} location={req.url}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </StaticRouter>,
     );
 
     // Grab the initial state from our Redux store

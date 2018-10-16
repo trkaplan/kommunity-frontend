@@ -4,8 +4,16 @@
 			"plugin:react/recommended"
 		],
     "rules": {
+      "no-console": 2,
+      "class-methods-use-this": 0,
+      "import/no-unresolved": 0,
       "import/prefer-default-export": 0,
       "arrow-body-style": 0
+    },
+    "globals": {
+      "describe": true, 
+      "test": true, 
+      "expect": true 
     }
 }
 

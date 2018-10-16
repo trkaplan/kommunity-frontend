@@ -26,13 +26,13 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login">
-				<form onSubmit={this.handleSubmit}>
-					First name:
-					<input type="text" name="username" value={this.state.username} onChange={this.onChangeFactory('username')}/>
-					Last name:
-					<input type="password" name="password" value={this.state.password} onChange={this.onChangeFactory('password')} />
-					<input type="submit" value="Submit" />
-				</form>
+        <form onSubmit={this.handleSubmit}>
+          First name:
+          <input type="text" name="username" value={this.state.username} onChange={this.onChangeFactory('username')}/>
+          Last name:
+          <input type="password" name="password" value={this.state.password} onChange={this.onChangeFactory('password')} />
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     );
   }

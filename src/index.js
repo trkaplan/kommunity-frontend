@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import app from '$/server';
 import http from 'http';
 
@@ -19,6 +20,7 @@ if (module.hot) {
   module.hot.accept('./server', () => {
     console.log('🔁  HMR Reloading `./server`...');
     server.removeListener('request', currentApp);
+    // eslint-disable-next-line global-require
     const newApp = require('./server').default;
     server.on('request', newApp);
     currentApp = newApp;
