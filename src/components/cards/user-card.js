@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-const style = {
-  UserCard: {
+const styles = {
+  container: {
     width: '90%',
     height: '500px',
     marginLeft: '5%',
@@ -17,22 +17,24 @@ const style = {
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: '16px',
-
     textAlign: 'center',
   },
   accountSetting: {
     marginLeft: 'auto',
     marginRight: 'auto',
     color: 'red',
-    width: '125px',
+    width: '124px',
+  },
+  lists: {
+    fontSize: '20px',
   },
 };
 
 const UserCard = () => {
   return (
-    <div style={style.UserCard}>
-      <div style={style.img}>img</div>
-      <ul style={{ fontSize: '20px' }}>
+    <div style={styles.container}>
+      <div style={styles.img}>img</div>
+      <ul style={styles.lists}>
         <li>props in other information</li>
         <li>props in other information</li>
         <li>props in other information</li>
@@ -42,7 +44,7 @@ const UserCard = () => {
         <li>props in other information</li>
         <li>props in other information</li>
       </ul>
-      <div style={style.accountSetting}>Account Settings</div>
+      <div style={styles.accountSetting}>Account Settings</div>
     </div>
   );
 };
