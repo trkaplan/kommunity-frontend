@@ -1,0 +1,211 @@
+
+.navbar {
+    position: static !important;
+    background-color: rgba(255,255,255,0.0);
+    top: 29px;
+    height: 40px;
+    width: 1408px;
+    position: relative;
+    margin: 0;
+    left: 257px;
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+}
+
+ .signup {
+    background-color: rgba(255,255,255,0.0);
+    right: 0%;
+    top: 0%;
+    height: 100%;
+    width: 7.53%;
+    position: absolute;
+    margin: 0;
+    overflow: hidden;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+ .signup .background {
+    background-color: rgba(255,255,255,0.0);
+    top: 0%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    left: 0%;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+ .signup .button {
+    background-color: rgba(255,255,255,0.0);
+    top: 0%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    left: 0%;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+ .signup .button .background1 {
+    background-color: rgba(255,255,255,0.0);
+    top: 0%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    left: 0%;
+    border-radius: 20px;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+ .signup .button .button1 {
+    background-color: rgba(255,255,255,0.0);
+    bottom: 20.00%;
+    height: calc(0.00% + 22px);
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    left: 0%;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    font-family: 'Avenir-Heavy', Helvetica, Arial, serif;
+    font-size: 16.0px;
+    color: rgba(99, 115, 129, 1.0);
+    text-align: center;
+    line-height: 22.0px;
+}
+
+ .login {
+    background-color: rgba(255,255,255,0.0);
+    right: 9.80%;
+    bottom: 20.00%;
+    height: calc(0.00% + 22px);
+    width: 2.91%;
+    position: absolute;
+    margin: 0;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    font-family: 'Avenir-Medium', Helvetica, Arial, serif;
+    font-size: 16.0px;
+    color: rgba(99, 115, 129, 1.0);
+    text-align: left;
+    line-height: 22.0px;
+}
+
+ .mainmenu {
+    background-color: rgba(255,255,255,0.0);
+    right: 16.12%;
+    bottom: 20.00%;
+    height: 55.00%;
+    width: 67.33%;
+    position: absolute;
+    margin: 0;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+ .mainmenu .solutions {
+    background-color: rgba(255,255,255,0.0);
+    top: calc(50.00% - 11px);
+    height: calc(0.00% + 22px);
+    width: 7.07%;
+    position: absolute;
+    margin: 0;
+    left: 12.66%;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    font-family: 'Avenir-Medium', Helvetica, Arial, serif;
+    font-size: 16.0px;
+    color: rgba(99, 115, 129, 1.0);
+    text-align: left;
+    line-height: 22.0px;
+}
+
+ .mainmenu .communities {
+    background-color: rgba(255,255,255,0.0);
+    top: calc(50.00% - 11px);
+    height: calc(0.00% + 22px);
+    width: 10.13%;
+    position: absolute;
+    margin: 0;
+    left: 25.63%;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    font-family: 'Avenir-Medium', Helvetica, Arial, serif;
+    font-size: 16.0px;
+    color: rgba(99, 115, 129, 1.0);
+    text-align: left;
+    line-height: 22.0px;
+}
+
+ .mainmenu .features {
+    background-color: rgba(255,255,255,0.0);
+    top: calc(50.00% - 11px);
+    height: calc(0.00% + 22px);
+    width: 6.75%;
+    position: absolute;
+    margin: 0;
+    left: 0%;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    font-family: 'Avenir-Medium', Helvetica, Arial, serif;
+    font-size: 16.0px;
+    color: rgba(99, 115, 129, 1.0);
+    text-align: left;
+    line-height: 22.0px;
+}
+
+ .mainmenu .searchcommunities {
+    background-color: rgba(255,255,255,0.0);
+    right: 0%;
+    top: calc(50.00% - 11px);
+    height: calc(0.00% + 22px);
+    width: 15.61%;
+    position: absolute;
+    margin: 0;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    font-family: 'Avenir-Roman', Helvetica, Arial, serif;
+    font-size: 16.0px;
+    color: rgba(145, 158, 171, 1.0);
+    text-align: center;
+    line-height: 22.0px;
+    border: solid 2px rgb(99, 115, 129) !important;
+    border-radius: 15px !important;
+    height: 25px !important;
+    width: auto !important;
+}
+
+.logo {
+    background-color: rgba(255,255,255,0.0);
+    top: 10.00%;
+    height: calc(0.00% + 30px);
+    width: 11.43%;
+    position: absolute;
+    margin: 0;
+    left: 0%;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    font-family: 'Avenir-Heavy', Helvetica, Arial, serif;
+    font-size: 22.0px;
+    color: rgba(99, 115, 129, 1.0);
+    text-align: left;
+    line-height: 30.0px;
+}
