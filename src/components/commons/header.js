@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import '$/css/header.css';
 
 class Header extends Component {
-    render() {
-        return (
+  render() {
+    return (
             <div className="navbar">
                 <div className="signup">
                     <div className="background"></div>
@@ -22,12 +22,12 @@ class Header extends Component {
                     <Link to="/"><div className="solutions">Solutions</div></Link>
                     <Link to="/"><div className="communities">Communities</div></Link>
                     <Link to="/"><div className="features">Features</div></Link>
-                    <input className="searchcommunities" placeholder="Search Communities"/> 
+                    <input className="searchcommunities" placeholder="Search Communities"/>
                 </div>
                 <Link to="/"><div className="logo">kommunity.app</div></Link>
             </div>
-        )
-    }
+    );
+  }
 }
 
 export default Header;
