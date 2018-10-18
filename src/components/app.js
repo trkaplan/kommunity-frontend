@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import {
-  Home, Login, Logout,
-} from '@/components/pages';
+import Home from '@/components/pages/home';
+import Login from '@/components/pages/login';
+import Logout from '@/components/pages/logout';
 import '@/css/app.css';
 
 const App = () => (
