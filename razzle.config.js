@@ -1,3 +1,3 @@
 module.exports = {
-  // plugins: ['flow'],
+  plugins: ['flow'],
 };
