@@ -3,6 +3,7 @@ logs
 npm-debug.log*
 .DS_Store
 
+yarn.lock
 coverage
 node_modules
 build
