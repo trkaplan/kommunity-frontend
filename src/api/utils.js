@@ -16,7 +16,7 @@ export const makeRequest = (type, path, body) => {
     });
 };
 
-instance.interceptors.response.use((response) => {
+instance.interceptors.response.use((response:{}) => {
   // Do something with response data
   return response.data;
 }, (error) => {

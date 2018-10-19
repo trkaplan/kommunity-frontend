@@ -1,13 +1,11 @@
 import React from 'react';
-import Route from 'react-router-dom/Route';
-import Switch from 'react-router-dom/Switch';
+import { Route, Switch } from 'react-router-dom';
 
-import Home from '$/components/pages/home';
-import Login from '$/components/pages/login';
-import Logout from '$/components/pages/logout';
-import MemberProfile from '$/components/pages/member-profile';
-
-import '$/css/app.css';
+import Home from '@/components/pages/home';
+import Login from '@/components/pages/login';
+import Logout from '@/components/pages/logout';
+import MemberProfile from '@/components/pages/member-profile';
+import '@/css/app.css';
 
 const App = () => (
   <Switch>
