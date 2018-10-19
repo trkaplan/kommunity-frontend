@@ -42,7 +42,7 @@ const Footer = () => {
               <li
                 key={i}
                 style={(i !== links.length - 1) ? styles.link : styles.linkBorderless}>
-                  {title}
+                {title}
               </li>
             );
           })
