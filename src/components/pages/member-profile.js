@@ -33,7 +33,7 @@ class MemeberProfile extends React.Component {
   render() {
     return (
       <div style={style.container}>
-      <Header />
+        <Header />
         <div style={style.topImage}>big img</div>
         <div style={style.middle}>
           <div style={style.userInfo}>
