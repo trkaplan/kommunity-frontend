@@ -4,8 +4,8 @@ import React from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import setupStore from '$/state/store';
-import App from '$/containers/app';
+import setupStore from '@/state/store';
+import App from '@/containers/app';
 
 // eslint-disable-next-line no-underscore-dangle
 const store = setupStore(window.__PRELOADED_STATE__);

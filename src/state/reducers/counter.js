@@ -1,6 +1,6 @@
 import { SET_COUNTER, INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions';
 
-const counter = (state = 0, action) => {
+const counter = (state:any = 0, action:{type:string, payload:any}) => {
   switch (action.type) {
     case SET_COUNTER:
       return action.payload;
