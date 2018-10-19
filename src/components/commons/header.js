@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { white, lightGray } from '$/css/common';
 
 const styles = {
   navbar: {
     display: 'flex',
     alignItems: 'center',
     minHeight: '4rem',
-    backgroundColor: 'white',
+    backgroundColor: white,
   },
   logo: {
     display: 'inline-block',
     lineHeight: 'inherit',
-    color: '#637381',
+    color: lightGray,
     textDecoration: 'none',
     fontWeight: 'bold',
   },
@@ -20,10 +21,9 @@ const styles = {
   },
   li: {
     display: 'flex',
-    textAlign: '-webkit-match-parent',
   },
   link: {
-    color: '#637381',
+    color: lightGray,
     textDecoration: 'none',
     display: 'block',
     padding: '.5rem 1rem',
@@ -37,15 +37,15 @@ const styles = {
     padding: '.375rem .75rem',
     borderRadius: '.25rem',
     fontSize: '1rem',
-    color: '#637381',
+    color: lightGray,
   },
   signup: {
     textDecoration: 'none',
     fontWeight: 'bold',
-    color: '#637381',
+    color: lightGray,
     padding: '.375rem .75rem',
     border: '1px solid transparent',
-    borderColor: '#637381',
+    borderColor: lightGray,
     borderRadius: '.25rem',
   },
 };
