@@ -4,6 +4,8 @@ const styles = {
   footer: {
     backgroundColor: '#000',
     color: '#fff',
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   logo: {
     height: '50px',
@@ -11,22 +13,18 @@ const styles = {
     lineHeight: '50px',
     textAlign: 'center',
     backgroundColor: 'red',
-    display: 'inline-block',
   },
   links: {
     listStyle: 'none',
     paddingLeft: 0,
-    float: 'right',
     display: 'flex',
   },
   link: {
-    paddingLeft: '10px',
-    paddingRight: '10px',
+    padding: '0 12px',
     borderRight: '1px solid #fff',
   },
   linkBorderless: {
-    paddingLeft: '10px',
-    paddingRight: '10px',
+    padding: '0 12px',
   },
 };
 
@@ -41,9 +39,10 @@ const Footer = () => {
         {
           links.map((title, i) => {
             return (
-              <li key={i}
-                  style={ (i !== links.length - 1) ? styles.link : styles.linkBorderless }>
-                    {title}
+              <li
+                key={i}
+                style={(i !== links.length - 1) ? styles.link : styles.linkBorderless}>
+                  {title}
               </li>
             );
           })
