@@ -3,7 +3,7 @@ import React from 'react';
 const styles = {
   footer: {
     backgroundColor: '#000',
-    color: '#fff'
+    color: '#fff',
   },
   logo: {
     height: '50px',
@@ -11,10 +11,10 @@ const styles = {
     lineHeight: '50px',
     textAlign: 'center',
     backgroundColor: 'red',
-    display: 'inline-block'
+    display: 'inline-block',
   },
   links: {
-    listStyle:'none',
+    listStyle: 'none',
     paddingLeft: 0,
     float: 'right',
     display: 'flex',
@@ -22,16 +22,16 @@ const styles = {
   link: {
     paddingLeft: '10px',
     paddingRight: '10px',
-    borderRight: '1px solid #fff'
+    borderRight: '1px solid #fff',
   },
   linkBorderless: {
     paddingLeft: '10px',
-    paddingRight: '10px'
-  }
+    paddingRight: '10px',
+  },
 };
 
 const Footer = () => {
-  let links = ['Home','Communities','About','Contact'];
+  const links = ['Home', 'Communities', 'About', 'Contact'];
   return (
     <div style={styles.footer}>
       <div style={styles.logo}>
@@ -40,12 +40,17 @@ const Footer = () => {
       <ul style={styles.links}>
         {
           links.map((title, i) => {
-            return (<li key={i} style={ (i !== links.length - 1) ? styles.link : styles.linkBorderless }>{title}</li>)
+            return (
+              <li key={i}
+                  style={ (i !== links.length - 1) ? styles.link : styles.linkBorderless }>
+                    {title}
+              </li>
+            );
           })
         }
       </ul>
     </div>
   );
-}
+};
 
 export default Footer;
