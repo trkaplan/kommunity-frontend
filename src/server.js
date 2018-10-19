@@ -1,4 +1,4 @@
-import App from '$/containers/app';
+import App from '@/containers/app';
 import React from 'react';
 import { StaticRouter } from 'react-router-dom';
 import express from 'express';
@@ -6,7 +6,7 @@ import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
 
-import setupStore from '$/state/store';
+import setupStore from '@/state/store';
 
 // eslint-disable-next-line import/no-dynamic-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
