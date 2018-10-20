@@ -10,7 +10,7 @@ const styles = {
     backgroundColor: white,
   },
   logo: {
-    display: 'inline-block',
+    //display: 'inline-block',
     lineHeight: 'inherit',
     color: lightGray,
     textDecoration: 'none',
@@ -53,23 +53,23 @@ const styles = {
 class Header extends Component {
   render() {
     return (
-      <header style={styles.navbar}>
-        <NavLink to="/" style={styles.logo}>Kommunity.App</NavLink>
-        <ul style={styles.ul}>
-          <li style={styles.li}>
-            <NavLink to="/" style={styles.link}>Features</NavLink>
-            <NavLink to="/" style={styles.link}>Solutions</NavLink>
-            <NavLink to="/" style={styles.link}>Communities</NavLink>
-          </li>
-        </ul>
-        <ul style={styles.ulLeft}>
-          <li style={styles.li}>
-            <input style={styles.input} placeholder="Search Communities"/>
-            <NavLink to="/login" style={styles.link}>Login</NavLink>
-            <NavLink to="/" style={styles.signup}>Sign Up</NavLink>
-          </li>
-        </ul>
-      </header>
+            <header style={styles.navbar}>
+                <NavLink to="/" style={styles.logo}>Kommunity.App</NavLink>
+                <ul style={styles.ul}>
+                    <li style={styles.li}>
+                        <NavLink to="/" style={styles.link}>Features</NavLink>
+                        <NavLink to="/" style={styles.link}>Solutions</NavLink>
+                        <NavLink to="/" style={styles.link}>Communities</NavLink>
+                    </li>
+                </ul>
+             <ul style={styles.ulLeft}>
+                    <li style={styles.li}>
+                        <input style={styles.input} placeholder="Search Communities"/>
+                        <NavLink to="/login" style={styles.link}>Login</NavLink>
+                        <NavLink to="/" style={styles.signup}>Sign Up</NavLink>
+                    </li>
+                </ul>
+            </header>
     );
   }
 }
