@@ -2,6 +2,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import CommunityCard from '$/components/cards/community-card';
 import UserCard from '$/components/cards/user-card';
+import Header from '$/components/commons/header';
+
 
 const style = {
   middle: {
@@ -31,6 +33,7 @@ class MemeberProfile extends React.Component {
   render() {
     return (
       <div style={style.container}>
+        <Header />
         <div style={style.topImage}>big img</div>
         <div style={style.middle}>
           <div style={style.userInfo}>
