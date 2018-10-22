@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '@/components/commons/header';
-import Footer from '@/components/partials/footer';
+import Footer from '@/components/commons/footer';
 import Login from '@/components/auth/login';
 import Signup from '@/components/auth/signup';
 

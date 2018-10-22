@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { white, lightGray } from '$/css/common';
+import { white, lightGray } from '@/css/common';
 
 const styles = {
   navbar: {
