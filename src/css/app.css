@@ -1,5 +1,1 @@
-@import "tailwindcss/preflight";
-
-html {
-  background-color: red;
-}
+@import "./vendor/tailwind_output.css";

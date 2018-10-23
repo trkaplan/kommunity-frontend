@@ -1,0 +1,5 @@
+/* 
+ * See package.json - scripts.tailwindcss 
+ * on how to create an output file. 
+ */
+@tailwind preflight;
