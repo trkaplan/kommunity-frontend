@@ -19,15 +19,19 @@ const styles = {
     fontSize: '20px',
   },
   container: {
+    display: 'inline',
     padding: '4px',
     width: '48%',
   },
 };
 
-const CommuniyCard = () => {
+const CommunityCard = (props) => {
+  const { name = "Sample Name" } = props;
+
   return (
     <div style={styles.container}>
       <div style={styles.middle}>
+        <h3>{name}</h3>
         <div style={styles.img}>img</div>
         <ul style={styles.list}>
           <li>props in other information</li>
@@ -43,4 +47,4 @@ const CommuniyCard = () => {
   );
 };
 
-export default CommuniyCard;
+export default CommunityCard;
