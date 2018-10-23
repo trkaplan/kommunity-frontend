@@ -32,7 +32,7 @@ export const SecondaryMenu = styled.div`
 `;
 
 export const SearchBox = styled.input.attrs({
-    placeholder: 'Search Communities',
+  placeholder: 'Search Communities',
 })`
   position: relative;
   border: 1px solid #ced4da;
