@@ -1,4 +1,4 @@
-import App from '@/containers/app';
+import _get from 'lodash.get';
 import React from 'react';
 import { StaticRouter } from 'react-router-dom';
 import express from 'express';
@@ -6,15 +6,20 @@ import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import serialize from 'serialize-javascript';
 
+import App from '@/containers/app';
 import setupStore from '@/state/store';
 
-// eslint-disable-next-line import/no-dynamic-require
-const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
+let assets;
+if (process.env.RAZZLE_ASSETS_MANIFEST) {
+  // eslint-disable-next-line
+  assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
+}
+const publicDir = process.env.RAZZLE_PUBLIC_DIR || 'public';
 
 const server = express();
 server
   .disable('x-powered-by')
-  .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
+  .use(express.static(publicDir))
   .get('/*', (req, res) => {
     // STORE
     const preloadedState = { counter: 0 };
@@ -31,6 +36,8 @@ server
 
     // Grab the initial state from our Redux store
     const finalState = store.getState();
+    const cssAssetUrl = _get(assets, 'client.css');
+    const jsAssetUrl = _get(assets, 'client.js');
 
     if (context.url) {
       res.redirect(context.url);
@@ -44,14 +51,14 @@ server
         <title>Welcome to Razzle</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         ${
-  assets.client.css
-    ? `<link rel="stylesheet" href="${assets.client.css}">`
+  cssAssetUrl
+    ? `<link rel="stylesheet" href="${cssAssetUrl}">`
     : ''
 }
         ${
   process.env.NODE_ENV === 'production'
-    ? `<script src="${assets.client.js}" defer></script>`
-    : `<script src="${assets.client.js}" defer crossorigin></script>`
+    ? `<script src="${jsAssetUrl}" defer></script>`
+    : `<script src="${jsAssetUrl}" defer crossorigin></script>`
 }
     </head>
     <body>

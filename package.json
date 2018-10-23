@@ -8,8 +8,8 @@
     "start:prod": "cross-env NODE_ENV=production node build/server.js",
     "check-if-not-committed": "node scripts/check-if-not-committed.js",
     "check-travis": "cross-env NODE_ENV=test run-s -nl lint cover",
-    "test": "cross-env NODE_ENV=test jest --config .jest.json",
-    "cover": "jest --coverage --config .jest.json --forceExit",
+    "test": "cross-env NODE_ENV=test jest --config .jest.json --forceExit",
+    "cover": "cross-env NODE_ENV=test jest --coverage --config .jest.json --forceExit",
     "lint": "./node_modules/.bin/eslint src/ test/",
     "lint-fix": "./node_modules/.bin/eslint --fix src/ test/"
   },
@@ -21,6 +21,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "express": "4.16.4",
+    "lodash.get": "^4.4.2",
     "prop-types": "^15.6.2",
     "razzle": "2.4.0",
     "react": "16.5.2",
