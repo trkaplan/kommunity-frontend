@@ -25,7 +25,7 @@ const styles = {
   },
 };
 
-const CommunityCard = (props) => {
+const CommunityCard = (props: string) => {
   const { name } = props;
 
   return (
