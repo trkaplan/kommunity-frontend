@@ -1,0 +1,5 @@
+@import "tailwindcss/preflight";
+
+html {
+  background-color: red;
+}
