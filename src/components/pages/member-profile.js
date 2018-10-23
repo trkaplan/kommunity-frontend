@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CommunityCard from '@/components/cards/community-card';
 import UserCard from '@/components/cards/user-card';
 import Header from '@/components/commons/header';
+import Footer from '@/components/commons/footer';
 
 
 const style = {
@@ -45,6 +46,7 @@ class MemeberProfile extends React.Component {
             ))}
           </div>
         </div>
+        <Footer/>
       </div>
     );
   }
