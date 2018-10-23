@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import CommunityCard from '@/components/cards/community-card';
-import UserCard from '@/components/cards/user-card';
-import Header from '@/components/commons/header';
-import Footer from '@/components/commons/footer';
+import CommunityCard from '@/components/common/cards/community-card';
+import UserCard from '@/components/common/cards/user-card';
+import Header from '@/components/common/header';
+import Footer from '@/components/common/footer';
 
 
 const style = {
