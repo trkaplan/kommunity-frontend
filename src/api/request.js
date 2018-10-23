@@ -1,6 +1,6 @@
 import { makeRequest } from './utils';
 
-export const login = (username:string, password:string) => {
+export const login = (username, password) => {
   /*
   return makeRequest('post', '/member/login', {
     username,

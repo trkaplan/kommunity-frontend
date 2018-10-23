@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '@/components/commons/header';
-import Footer from '@/components/commons/footer';
+import Header from '@/components/common/header';
+import Footer from '@/components/common/footer';
 
 class Home extends React.Component {
   render() {
