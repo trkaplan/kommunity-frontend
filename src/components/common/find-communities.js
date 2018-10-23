@@ -15,38 +15,38 @@ const SearchBox = styled.input.attrs({
 const Title = styled.h2`
   font-size: 1.5rem;
   text-align: center;
-;`
+`;
 
 const Section = styled.section`
   color: black;
   padding: 3em;
   background: #F6F6F6;
-`
+`;
 
 class FindCommunities extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchValue: "",
+      searchValue: '',
       populars: [
-        {name: "Beşiktaş Topluluğu", id: "135135"},
-        {name: "Antalya Topluluğu", id: "236273"},
-        {id:"313666"}
+        { name: 'Beşiktaş Topluluğu', id: '135135' },
+        { name: 'Antalya Topluluğu', id: '236273' },
+        { id: '313666' },
       ],
       results: [
-        {name: "Arama sonucu bu", id: "239273"},
-      ]
+        { name: 'Arama sonucu bu', id: '239273' },
+      ],
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getPopularCommunities();
   }
 
   handleChange = (e) => {
     // Update searchValue State
     this.setState({
-      searchValue: e.target.value
+      searchValue: e.target.value,
     });
     this.getResults();
   }
@@ -54,39 +54,33 @@ class FindCommunities extends React.Component {
   // TODO: Get popular communities data and update state[populars].
   getPopularCommunities = () => {
     // this.setState({
-    //   populars: 
+    //   populars
     // });
   }
-  
+
   // TODO: Get search results data and update state[results].
   getResults = () => {
     // this.setState({
-    //   results: 
+    //   results
     // });
   }
-  
+
   render() {
-    const { searchValue, results, populars } = this.state
+    const { searchValue, results, populars } = this.state;
     return (
       <div>
         <Section>
           <Title>Find Communities!</Title>
-          <SearchBox
-            type="text"
+          <SearchBox type="text"
             value={searchValue}
             onChange={this.handleChange}/>
           <h3>Results</h3>
           {(
-            //If search box is empty display popular communities
-            searchValue === ""
-            ?
-            populars.map(community =>
-              <CommunityCard key={community.id} name={community.name}/>
-              )
-              : // Else Show search results!
-              results.map(community =>
-                <CommunityCard key={community.id} name={community.name}/>
-            )
+            // If search box is empty display popular communities
+            searchValue === ''
+              ? populars.map(community => <CommunityCard key={community.id} name={community.name}/>)
+              // Else Show search results!
+              : results.map(community => <CommunityCard key={community.id} name={community.name}/>)
           )}
         </Section>
       </div>
