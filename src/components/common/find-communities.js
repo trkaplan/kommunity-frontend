@@ -19,7 +19,7 @@ const Title = styled.h2`
 
 const Section = styled.section`
   color: black;
-  padding: 3em;
+  padding: 3rem;
   background: #F6F6F6;
 `;
 
@@ -28,7 +28,7 @@ class FindCommunities extends React.Component {
     super(props);
     this.state = {
       searchValue: '',
-      populars: [
+      popularCommunities: [
         { name: 'Beşiktaş Topluluğu', id: '135135' },
         { name: 'Antalya Topluluğu', id: '236273' },
         { id: '313666' },
@@ -36,6 +36,7 @@ class FindCommunities extends React.Component {
       results: [
         { name: 'Arama sonucu bu', id: '239273' },
       ],
+      displayCommunities: true,
     };
   }
 
@@ -47,18 +48,20 @@ class FindCommunities extends React.Component {
     // Update searchValue State
     this.setState({
       searchValue: e.target.value,
-    });
-    this.getResults();
+    }, this.getResults);
   }
 
-  // TODO: Get popular communities data and update state[populars].
+  // TODO: Get popular communities data and update state[popularCommunities]
+  // if response is empty, set displayCommunities false
   getPopularCommunities = () => {
     // this.setState({
-    //   populars
+    //   popularCommunities
     // });
+
   }
 
-  // TODO: Get search results data and update state[results].
+  // TODO: Get search results data and update state[results]
+  // if response is empty, set displayCommunities false
   getResults = () => {
     // this.setState({
     //   results
@@ -66,7 +69,10 @@ class FindCommunities extends React.Component {
   }
 
   render() {
-    const { searchValue, results, populars } = this.state;
+    const {
+      searchValue, results, popularCommunities, displayCommunities,
+    } = this.state;
+
     return (
       <div>
         <Section>
@@ -74,14 +80,16 @@ class FindCommunities extends React.Component {
           <SearchBox type="text"
             value={searchValue}
             onChange={this.handleChange}/>
-          <h3>Results</h3>
-          {(
+          <h3>{ displayCommunities ? 'Results' : 'No communities found'}</h3>
+          {
             // If search box is empty display popular communities
             searchValue === ''
-              ? populars.map(community => <CommunityCard key={community.id} name={community.name}/>)
+              ? popularCommunities.map(community => <CommunityCard key={community.id}
+                name={community.name}/>)
               // Else Show search results!
-              : results.map(community => <CommunityCard key={community.id} name={community.name}/>)
-          )}
+              : results.map(community => <CommunityCard key={community.id}
+                name={community.name}/>)
+           }
         </Section>
       </div>
     );

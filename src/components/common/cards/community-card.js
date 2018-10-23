@@ -19,7 +19,6 @@ const styles = {
     fontSize: '20px',
   },
   container: {
-    display: 'inline',
     padding: '4px',
     width: '48%',
   },
