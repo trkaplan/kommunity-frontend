@@ -1,24 +1,30 @@
 {
-    "extends": [
-      "eslint:recommended",
-      "airbnb-base",
-      "plugin:react/recommended"
-    ],
-    "parser":"babel-eslint",
-    "plugins":[
-      "flowtype"
-    ],
-    "rules": {
-      "react/jsx-indent" : ["error", 2],
-      "no-console": 2,
-      "class-methods-use-this": 0,
-      "import/no-unresolved": 0,
-      "import/prefer-default-export": 0,
-      "arrow-body-style": 0
-    },
-    "globals": {
-      "describe": true, 
-      "test": true, 
-      "expect": true 
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "plugin:react/recommended"
+  ],
+  "parser":"babel-eslint",
+  "rules": {
+    "react/jsx-indent" : ["error", 2],
+    "no-console": 2,
+    "class-methods-use-this": 0,
+    "import/no-unresolved": 0,
+    "import/prefer-default-export": 0,
+    "arrow-body-style": 0
+  },
+  "globals": {
+    "describe": true,
+    "test": true,
+    "expect": true,
+    "beforeAll": true, 
+    "beforeEach": true, 
+    "afterAll": true, 
+    "afterEach": true
+  },
+  "settings": {
+    "react": {
+      "version": "16.5"
     }
+  }
 }
