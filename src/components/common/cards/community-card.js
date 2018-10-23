@@ -25,8 +25,8 @@ const styles = {
   },
 };
 
-const CommunityCard = (props: string) => {
-  const { name = "Sample Name" } = props;
+const CommunityCard = (props) => {
+  const { name } = props;
 
   return (
     <div style={styles.container}>
