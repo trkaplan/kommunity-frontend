@@ -18,8 +18,8 @@ const styles = {
   xlarge: { padding: '.8rem 4.5rem', fontSize: '1.5rem' },
   primary: { backgroundColor: '#637381;', color: '#ffffff' },
   secondary: {
-    border: '1px solid #637381;',
-    color: '#637381;',
+    border: '1px solid #637381',
+    color: '#637381',
   },
 };
 
