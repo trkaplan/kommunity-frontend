@@ -16,7 +16,11 @@ describe('Components: <App />', () => {
   });
   // TODO move to its own file
   test('renders communities component correctly', () => {
-    const wrapper = shallow(<CommunitiesList />);
+    const wrapper = shallow(
+      <MemoryRouter>
+        <CommunitiesList />
+      </MemoryRouter>,
+    );
     expect(wrapper.html().toContain('div'));
   });
 });
