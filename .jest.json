@@ -1,7 +1,7 @@
 {
   "coverageThreshold": {
     "global": {
-      "statements": 40
+      "statements": 50
     }
   },
   "setupFiles": ["./test/test-utils/setup.js"]
