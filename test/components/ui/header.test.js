@@ -10,10 +10,10 @@ describe('Component: <UIHeader />', () => {
       <UIHeader type='h1' className='testClass' text='This is h1 type header'/>,
     );
   });
-  it('has classname', () => {
+  test('has classname', () => {
     expect(wrapper.html()).toContain('class="testClass"');
   });
-  it('has correct tag', () => {
+  test('has correct tag', () => {
     expect(wrapper.html()).toContain('h1');
   });
 });
