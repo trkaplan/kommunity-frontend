@@ -14,6 +14,8 @@ describe('Components: <App />', () => {
     );
     expect(wrapper.html()).toContain('header');
   });
+  
+  // TODO move to its own file
   test('renders communities component correctly', () => {
     const wrapper = shallow(<CommunitiesList />);
     expect(wrapper.html().toContain('div'));
