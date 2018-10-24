@@ -20,18 +20,22 @@ const style = {
     display: ' flex',
   },
   searchBar: {
-    height: '150px',
+    height: '160px',
   },
   createComminities: {
     marginBottom: '200px',
-    marginLeft: '300px',
-    display: 'inline-block',
+    marginLeft: '280px',
   },
   text: {
     textAlign: 'center',
-    fontSize: '25px',
+    fontSize: '28px',
     fontWeight: 'bold',
-    marginBottom: '30px',
+    marginBottom: '32px',
+  },
+  button: {
+    position: 'absolute',
+    left: '50%',
+    marginLeft: '-50px',
   },
 };
 
@@ -59,7 +63,9 @@ class Communities extends Component {
         </div>
         <div style={style.createComminities}>
           <div style={style.text}>{"Can't find what you are looking for?"}</div>
-          <Button title="Create Your Community" onClick={() => {}} size="xlarge" type="secondary" style={{ alignItems: 'center' }}/>
+          <span style={style.button}>
+            <Button title="Create Your Community" onClick={() => {}} size="xlarge" type="secondary" style={{ alignItems: 'center' }}/>
+          </span>
         </div>
         <Footer />
       </div>
