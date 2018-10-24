@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build": "razzle build",
-    "tailwindcss": "./node_modules/.bin/tailwind build src/css/vendor/tailwind.css -c src/css/vendor/tailwind.setup.js -o ./src/css/vendor/tailwind_output.css",
+    "tailwindcss": "./node_modules/.bin/tailwind build src/css/vendor/tailwind_source.css -c src/css/vendor/tailwind.setup.js -o ./src/css/vendor/tailwind_output.css",
     "start": "cross-env NODE_ENV=local razzle start",
     "start:prod": "cross-env NODE_ENV=production node build/server.js",
     "check-if-not-committed": "node scripts/check-if-not-committed.js",
