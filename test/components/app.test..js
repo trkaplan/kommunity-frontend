@@ -14,7 +14,7 @@ describe('Components: <App />', () => {
     );
     expect(wrapper.html()).toContain('header');
   });
-  test('test renders communities component correctly', () => {
+  test('renders communities component correctly', () => {
     const wrapper = shallow(<CommunitiesList />);
     expect(wrapper.html().toContain('div'));
   });
