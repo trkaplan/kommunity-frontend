@@ -21,6 +21,6 @@ describe('Components: <App />', () => {
         <CommunitiesList />
       </MemoryRouter>,
     );
-    expect(wrapper.html().toContain('div'));
+    expect(wrapper.html()).toContain('div');
   });
 });
