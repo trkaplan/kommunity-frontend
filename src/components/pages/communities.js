@@ -31,11 +31,7 @@ const style = {
     fontSize: '28px',
     fontWeight: 'bold',
     marginBottom: '32px',
-  },
-  button: {
-    position: 'absolute',
-    left: '50%'
-  },
+  }
 };
 
 class CommunityList extends Component {
