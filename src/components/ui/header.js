@@ -14,28 +14,15 @@ const styles = {
   h6: { fontSize: '0.4rem' },
 };
 
-const getSpecificHeader = (className, text) => ({
-  h1: <h1 style={{ ...styles.common, ...styles.h1 }} className={className}>{text}</h1>,
-  h2: <h2 style={{ ...styles.common, ...styles.h2 }} className={className}>{text}</h2>,
-  h3: <h3 style={{ ...styles.common, ...styles.h3 }} className={className}>{text}</h3>,
-  h4: <h4 style={{ ...styles.common, ...styles.h4 }} className={className}>{text}</h4>,
-  h5: <h5 style={{ ...styles.common, ...styles.h5 }} className={className}>{text}</h5>,
-  h6: <h6 style={{ ...styles.common, ...styles.h6 }} className={className}>{text}</h6>,
-});
-
 const UIHeader = (props) => {
   const { className, type, text } = props;
+  const HeaderType = `h${type}`;
   return (
     <div>
-      {getSpecificHeader(className, text)[type]}
+      <HeaderType style={{ ...styles.common, ...styles.h1 }}
+      className={className}>{text}</HeaderType>
     </div>
   );
-};
-
-UIHeader.defaultProps = {
-  type: 'h2',
-  className: '',
-  text: 'Sample Text',
 };
 
 UIHeader.propTypes = {
