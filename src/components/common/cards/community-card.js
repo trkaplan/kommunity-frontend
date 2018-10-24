@@ -24,10 +24,13 @@ const styles = {
   },
 };
 
-const CommuniyCard = () => {
+const CommunityCard = (props: string) => {
+  const { name } = props;
+
   return (
     <div style={styles.container}>
       <div style={styles.middle}>
+        <h3>{name}</h3>
         <div style={styles.img}>img</div>
         <ul style={styles.list}>
           <li>props in other information</li>
@@ -43,4 +46,4 @@ const CommuniyCard = () => {
   );
 };
 
-export default CommuniyCard;
+export default CommunityCard;

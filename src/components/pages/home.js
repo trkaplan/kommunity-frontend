@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '@/components/common/header';
+import FindCommunities from '@/components/common/find-communities';
 import Footer from '@/components/common/footer';
 
 class Home extends React.Component {
@@ -10,6 +11,7 @@ class Home extends React.Component {
         <div className="home">
           hello world!
         </div>
+        <FindCommunities/>
         <Footer/>
       </div>
     );

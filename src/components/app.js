@@ -6,7 +6,7 @@ import Login from '@/components/pages/login';
 import Logout from '@/components/pages/logout';
 import MemberProfile from '@/components/pages/member-profile';
 import CommunityList from '@/components/pages/communities';
-import '@/css/app.css';
+import '@/css';
 
 const App = () => (
   <Switch>
