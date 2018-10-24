@@ -3,7 +3,7 @@ import MemoryRouter from 'react-router-dom/MemoryRouter';
 
 import { shallow } from 'enzyme';
 import App from '@/components/app';
-import Communities from '@/components/pages/communities';
+import CommunitiesList from '@/components/pages/communities';
 
 describe('Components: <App />', () => {
   test('renders without exploding', () => {
@@ -15,7 +15,7 @@ describe('Components: <App />', () => {
     expect(wrapper.html()).toContain('header');
   });
   test('test renders communities component correctly', () => {
-    const wrapper = shallow(<Communities />);
+    const wrapper = shallow(<CommunitiesList />);
     expect(wrapper.html().toContain('div'));
   });
 });

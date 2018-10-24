@@ -39,7 +39,7 @@ const style = {
   },
 };
 
-class Communities extends Component {
+class CommunitiesList extends Component {
   render() {
     return (
       <div style={style.container}>
@@ -73,4 +73,4 @@ class Communities extends Component {
   }
 }
 
-export default Communities;
+export default CommunitiesList;
