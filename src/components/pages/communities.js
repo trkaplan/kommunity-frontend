@@ -30,7 +30,7 @@ const style = {
     textAlign: 'center',
     fontSize: '28px',
     fontWeight: 'bold',
-    marginBottom: '32px',
+    marginBottom: '32px'
   }
 };
 
