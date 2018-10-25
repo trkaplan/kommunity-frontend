@@ -14,8 +14,13 @@ describe('Components: <App />', () => {
     );
     expect(wrapper.html()).toContain('header');
   });
-  test('test renders communities component correctly', () => {
-    const wrapper = shallow(<CommunitiesList />);
-    expect(wrapper.html().toContain('div'));
+  // TODO move to its own file
+  test('renders communities component correctly', () => {
+    const wrapper = shallow(
+      <MemoryRouter>
+        <CommunitiesList />
+      </MemoryRouter>,
+    );
+    expect(wrapper.html()).toContain('div');
   });
 });

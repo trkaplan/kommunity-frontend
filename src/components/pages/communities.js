@@ -22,9 +22,9 @@ const style = {
   searchBar: {
     height: '160px',
   },
-  createComminities: {
-    marginBottom: '200px',
-    marginLeft: '280px',
+  createCommunities: {
+    marginBottom: '160px',
+    marginLeft: '240px',
   },
   text: {
     fontSize: '28px',
@@ -39,7 +39,7 @@ const style = {
   },
 };
 
-class CommunitiesList extends Component {
+class CommunityList extends Component {
   render() {
     return (
       <div style={style.container}>
@@ -61,7 +61,7 @@ class CommunitiesList extends Component {
             ))}
           </div>
         </div>
-        <div style={style.createComminities}>
+        <div style={style.createCommunities}>
           <div style={style.text}>{"Can't find what you are looking for?"}</div>
           <span style={style.button}>
             <Button title="Create Your Community" onClick={() => {}} size="xlarge" type="secondary" style={{ alignItems: 'center' }}/>
@@ -73,4 +73,4 @@ class CommunitiesList extends Component {
   }
 }
 
-export default CommunitiesList;
+export default CommunityList;

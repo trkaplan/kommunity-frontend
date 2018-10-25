@@ -1,17 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { white, lightGray } from '@/css/common';
 
 export const NavBar = styled.header`
   display: flex;
   align-items: center;
   min-height: 4rem;
-  background-color: ${white};
+  background-color: #fff;
 `;
 
 export const Logo = styled.div`
   line-height: inherit;
-  color: ${lightGray};
+  color: #637381;
   text-decoration: none;
   font-weight: bold;
 `;
@@ -21,7 +20,7 @@ export const PrimaryMenu = styled.div`
 `;
 
 export const StyledNavlink = styled(NavLink)`
-  color: ${lightGray};
+  color: #637381;
   text-decoration: none;
   display:inline-block;
   padding: .5rem 1rem;
@@ -39,15 +38,15 @@ export const SearchBox = styled.input.attrs({
   padding: .375rem .75rem;
   border-radius: .25rem;
   font-size: 1rem;
-  color: ${lightGray};
+  color: #637381;
 `;
 
 // TODO(@trkaplan): Replace Button after creating a UI Component Library
 export const Button = styled.button`  
   font-weight: bold;
-  color: ${lightGray};
+  color: #637381;
   padding: .375rem .75rem;
   border: 1px solid transparent;
-  border-color: ${lightGray};
+  border-color: #637381;
   border-radius: .25rem
 `;

@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import * as css from '@/css/common';
 
-const styles: { [p: string]: React.CSSProperties } = {
+const styles = {
   common: {
     display: 'flex',
     alignItems: 'center',
@@ -17,40 +16,34 @@ const styles: { [p: string]: React.CSSProperties } = {
   medium: { padding: '.8rem 3rem', fontSize: '1rem' },
   large: { padding: '.8rem 3.5rem', fontSize: '1.25rem' },
   xlarge: { padding: '.8rem 4.5rem', fontSize: '1.5rem' },
-  primary: { backgroundColor: css.lightGray, color: css.white },
+  primary: { backgroundColor: '#637381;', color: '#ffffff' },
   secondary: {
-    border: `1px solid ${css.lightGray}`,
-    color: css.lightGray,
+    border: '1px solid #637381;',
+    color: '#637381;',
   },
 };
-type Props = {
-  onClick: () => void,
-  title: string,
-  size: string,
-  type: string,
+
+const UIButton = (props) => {
+  const {
+    size, type, title, onClick,
+  } = props;
+  return (
+    <div onClick={onClick} style={{ ...styles.common, ...styles[size], ...styles[type] }}>
+      <div>{title}</div>
+    </div>
+  );
 };
-type State = {};
-export default class UIButton extends Component<Props, State> {
-  static defaultProps = {
-    type: 'primary',
-    size: 'medium',
-  };
 
-  static propTypes = {
-    onClick: PropTypes.func.isRequired,
-    size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'xlarge']).isRequired,
-    type: PropTypes.oneOf(['primary', 'secondary']).isRequired,
-    title: PropTypes.string.isRequired,
-  };
+UIButton.defaultProps = {
+  type: 'primary',
+  size: 'medium',
+};
 
-  render() {
-    const {
-      size, type, title, onClick,
-    } = this.props;
-    return (
-      <div onClick={onClick} style={{ ...styles.common, ...styles[size], ...styles[type] }}>
-        <div>{title}</div>
-      </div>
-    );
-  }
-}
+UIButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'xlarge']).isRequired,
+  type: PropTypes.oneOf(['primary', 'secondary']).isRequired,
+  title: PropTypes.string.isRequired,
+};
+
+export default UIButton;

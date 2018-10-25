@@ -5,8 +5,8 @@ import Home from '@/components/pages/home';
 import Login from '@/components/pages/login';
 import Logout from '@/components/pages/logout';
 import MemberProfile from '@/components/pages/member-profile';
-import CommunitiesList from '@/components/pages/communities';
-import '@/css/app.css';
+import CommunityList from '@/components/pages/communities';
+import '@/css';
 
 const App = () => (
   <Switch>
@@ -14,7 +14,7 @@ const App = () => (
     <Route exact path="/login" component={Login} />
     <Route exact path="/logout" component={Logout} />
     <Route exact path="/member/profile" component={MemberProfile} />
-    <Route exact path="/communities" component={CommunitiesList} />
+    <Route exact path="/communities" component={CommunityList} />
   </Switch>
 );
 
