@@ -7,13 +7,7 @@ export const instance = axios.create({
 });
 
 export const makeRequest = (type, path, body) => {
-  instance[type](path, body)
-    .then((response) => {
-      return response;
-    })
-    .catch((error) => {
-      return error;
-    });
+  return instance[type](path, body);
 };
 
 instance.interceptors.response.use((response:{}) => {

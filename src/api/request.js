@@ -20,21 +20,9 @@ export const login = (username, password) => {
 };
 
 export const signup = (email: string, password:string) => {
-  /*
-  return makeRequest('post', '/member/signup', {
+  return makeRequest('post', '/api/v1/member/signup', {
     email,
     password,
-  });
-  */
-
-  // fake response, replace with backend call
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (email !== 'already@registered.com' && password) {
-        resolve('user created!');
-      }
-      reject(new Error('user already exists!'));
-    }, 500);
   });
 };
 
