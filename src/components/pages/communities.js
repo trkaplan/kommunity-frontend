@@ -7,8 +7,8 @@ import Button from '@/components/ui/button';
 
 const style = {
   container: {
-    marginLeft: '200px',
-    marginRight: '200px',
+    maxWidth: '980px',
+    margin: 'auto' 
   },
   middle: {
     height: '420px',
@@ -27,15 +27,15 @@ const style = {
     marginLeft: '280px',
   },
   text: {
-    textAlign: 'center',
     fontSize: '28px',
     fontWeight: 'bold',
-    marginBottom: '32px',
+    height: '64px',
+    margin: '0 auto',
   },
   button: {
-    position: 'absolute',
-    left: '50%',
-    marginLeft: '-50px',
+    width: '100px',
+    height: '100px',
+    margin: '0 auto'
   },
 };
 
