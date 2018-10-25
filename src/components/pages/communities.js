@@ -8,7 +8,7 @@ import Button from '@/components/ui/button';
 const style = {
   container: {
     maxWidth: '980px',
-    margin: 'auto' 
+    margin: 'auto',
   },
   middle: {
     height: '420px',
@@ -35,7 +35,7 @@ const style = {
   button: {
     width: '100px',
     height: '100px',
-    margin: '0 auto'
+    margin: '0 auto',
   },
 };
 
