@@ -5,3 +5,7 @@
 @tailwind preflight;
 
 @tailwind utilities;
+
+.border-box {
+  box-sizing: border-box;
+}

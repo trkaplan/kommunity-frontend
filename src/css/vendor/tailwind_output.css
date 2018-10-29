@@ -635,6 +635,10 @@ table {
   background-color: transparent;
 }
 
+.bg-white {
+  background-color: #fff;
+}
+
 .bg-blue {
   background-color: #325fff;
 }
@@ -659,6 +663,10 @@ table {
   background-color: #c4cdd5;
 }
 
+.bg-xlgray {
+  background-color: #f9fafb;
+}
+
 .bg-yellow {
   background-color: #edc200;
 }
@@ -673,6 +681,10 @@ table {
 
 .hover\:bg-transparent:hover {
   background-color: transparent;
+}
+
+.hover\:bg-white:hover {
+  background-color: #fff;
 }
 
 .hover\:bg-blue:hover {
@@ -697,6 +709,10 @@ table {
 
 .hover\:bg-lgray:hover {
   background-color: #c4cdd5;
+}
+
+.hover\:bg-xlgray:hover {
+  background-color: #f9fafb;
 }
 
 .hover\:bg-yellow:hover {
@@ -787,6 +803,10 @@ table {
   border-color: transparent;
 }
 
+.border-white {
+  border-color: #fff;
+}
+
 .border-blue {
   border-color: #325fff;
 }
@@ -811,6 +831,10 @@ table {
   border-color: #c4cdd5;
 }
 
+.border-xlgray {
+  border-color: #f9fafb;
+}
+
 .border-yellow {
   border-color: #edc200;
 }
@@ -825,6 +849,10 @@ table {
 
 .hover\:border-transparent:hover {
   border-color: transparent;
+}
+
+.hover\:border-white:hover {
+  border-color: #fff;
 }
 
 .hover\:border-blue:hover {
@@ -849,6 +877,10 @@ table {
 
 .hover\:border-lgray:hover {
   border-color: #c4cdd5;
+}
+
+.hover\:border-xlgray:hover {
+  border-color: #f9fafb;
 }
 
 .hover\:border-yellow:hover {
@@ -1849,6 +1881,54 @@ table {
   max-width: 100%;
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-20 {
+  opacity: .2;
+}
+
+.opacity-40 {
+  opacity: .4;
+}
+
+.opacity-60 {
+  opacity: .6;
+}
+
+.opacity-80 {
+  opacity: .8;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.hover\:opacity-0:hover {
+  opacity: 0;
+}
+
+.hover\:opacity-20:hover {
+  opacity: .2;
+}
+
+.hover\:opacity-40:hover {
+  opacity: .4;
+}
+
+.hover\:opacity-60:hover {
+  opacity: .6;
+}
+
+.hover\:opacity-80:hover {
+  opacity: .8;
+}
+
+.hover\:opacity-100:hover {
+  opacity: 1;
+}
+
 .outline-none {
   outline: 0;
 }
@@ -2414,7 +2494,7 @@ table {
 }
 
 .shadow {
-  box-shadow: box-shadow: 0 0 1px 0 rgba(23, 43, 77, .24);
+  box-shadow: 0 0 1px 0 rgba(23, 43, 77, .24);
 }
 
 .shadow-md {
@@ -2461,6 +2541,10 @@ table {
   color: transparent;
 }
 
+.text-white {
+  color: #fff;
+}
+
 .text-blue {
   color: #325fff;
 }
@@ -2485,6 +2569,10 @@ table {
   color: #c4cdd5;
 }
 
+.text-xlgray {
+  color: #f9fafb;
+}
+
 .text-yellow {
   color: #edc200;
 }
@@ -2499,6 +2587,10 @@ table {
 
 .hover\:text-transparent:hover {
   color: transparent;
+}
+
+.hover\:text-white:hover {
+  color: #fff;
 }
 
 .hover\:text-blue:hover {
@@ -2523,6 +2615,10 @@ table {
 
 .hover\:text-lgray:hover {
   color: #c4cdd5;
+}
+
+.hover\:text-xlgray:hover {
+  color: #f9fafb;
 }
 
 .hover\:text-yellow:hover {
@@ -2821,6 +2917,10 @@ table {
 
 .z-10 {
   z-index: 10;
+}
+
+.border-box {
+  box-sizing: border-box;
 }
 
 @media (max-width: 767px) {
@@ -4022,6 +4122,10 @@ table {
     color: transparent;
   }
 
+  .sm\:text-white {
+    color: #fff;
+  }
+
   .sm\:text-blue {
     color: #325fff;
   }
@@ -4046,6 +4150,10 @@ table {
     color: #c4cdd5;
   }
 
+  .sm\:text-xlgray {
+    color: #f9fafb;
+  }
+
   .sm\:text-yellow {
     color: #edc200;
   }
@@ -4060,6 +4168,10 @@ table {
 
   .sm\:hover\:text-transparent:hover {
     color: transparent;
+  }
+
+  .sm\:hover\:text-white:hover {
+    color: #fff;
   }
 
   .sm\:hover\:text-blue:hover {
@@ -4084,6 +4196,10 @@ table {
 
   .sm\:hover\:text-lgray:hover {
     color: #c4cdd5;
+  }
+
+  .sm\:hover\:text-xlgray:hover {
+    color: #f9fafb;
   }
 
   .sm\:hover\:text-yellow:hover {
@@ -5498,6 +5614,10 @@ table {
     color: transparent;
   }
 
+  .md\:text-white {
+    color: #fff;
+  }
+
   .md\:text-blue {
     color: #325fff;
   }
@@ -5522,6 +5642,10 @@ table {
     color: #c4cdd5;
   }
 
+  .md\:text-xlgray {
+    color: #f9fafb;
+  }
+
   .md\:text-yellow {
     color: #edc200;
   }
@@ -5536,6 +5660,10 @@ table {
 
   .md\:hover\:text-transparent:hover {
     color: transparent;
+  }
+
+  .md\:hover\:text-white:hover {
+    color: #fff;
   }
 
   .md\:hover\:text-blue:hover {
@@ -5560,6 +5688,10 @@ table {
 
   .md\:hover\:text-lgray:hover {
     color: #c4cdd5;
+  }
+
+  .md\:hover\:text-xlgray:hover {
+    color: #f9fafb;
   }
 
   .md\:hover\:text-yellow:hover {
@@ -6974,6 +7106,10 @@ table {
     color: transparent;
   }
 
+  .lg\:text-white {
+    color: #fff;
+  }
+
   .lg\:text-blue {
     color: #325fff;
   }
@@ -6998,6 +7134,10 @@ table {
     color: #c4cdd5;
   }
 
+  .lg\:text-xlgray {
+    color: #f9fafb;
+  }
+
   .lg\:text-yellow {
     color: #edc200;
   }
@@ -7012,6 +7152,10 @@ table {
 
   .lg\:hover\:text-transparent:hover {
     color: transparent;
+  }
+
+  .lg\:hover\:text-white:hover {
+    color: #fff;
   }
 
   .lg\:hover\:text-blue:hover {
@@ -7036,6 +7180,10 @@ table {
 
   .lg\:hover\:text-lgray:hover {
     color: #c4cdd5;
+  }
+
+  .lg\:hover\:text-xlgray:hover {
+    color: #f9fafb;
   }
 
   .lg\:hover\:text-yellow:hover {

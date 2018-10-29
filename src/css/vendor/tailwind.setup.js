@@ -45,12 +45,14 @@ View the full documentation at https://tailwindcss.com.
 
 const colors = {
   transparent: 'transparent',
+  white: '#FFFFFF',
   blue: '#325FFF',
   darkblue: '#243983',
   xdarkblue: '#192344',
   black: '#212B36',
   gray: '#919EAB',
   lgray: '#C4CDD5',
+  xlgray: '#F9FAFB',
   yellow: '#EDC200',
   green: '#19A560',
   red: '#FF3E3E',
@@ -607,7 +609,7 @@ module.exports = {
   */
 
   shadows: {
-    default: 'box-shadow: 0 0 1px 0 rgba(23,43,77,0.24)',
+    default: '0 0 1px 0 rgba(23,43,77,0.24)',
     md: '0 2px 4px 0 rgba(23,43,77,0.24)',
     lg: '0 6px 8px 0 rgba(23,43,77,0.24)',
     xl: ' 0 20px 28px 0 rgba(23,43,77,0.24)',
@@ -647,7 +649,14 @@ module.exports = {
   |
   */
 
-  opacity: {},
+  opacity: {
+    0: '0',
+    20: '0.2',
+    40: '0.4',
+    60: '0.6',
+    80: '0.8',
+    100: '1.0',
+  },
 
 
   /*
@@ -734,7 +743,7 @@ module.exports = {
     minHeight: [],
     minWidth: [],
     negativeMargin: false,
-    opacity: [],
+    opacity: ['hover'],
     outline: [],
     overflow: ['responsive'],
     padding: ['responsive'],
