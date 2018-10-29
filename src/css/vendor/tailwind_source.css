@@ -6,6 +6,8 @@
 
 @tailwind utilities;
 
+@tailwind components;
+
 .border-box {
   box-sizing: border-box;
 }

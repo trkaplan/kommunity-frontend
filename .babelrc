@@ -9,14 +9,6 @@
 				"rootPathSuffix": "src/",
 				"rootPathPrefix": "@"
 			}
-		],
-		[
-			"styled-components",
-			{
-				"ssr": true,
-				"displayName": true,
-				"preprocess": false
-			}
 		]
 	]
 }

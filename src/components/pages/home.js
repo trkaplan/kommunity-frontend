@@ -3,15 +3,19 @@ import Header from '@/components/common/header';
 import FindCommunities from '@/components/common/find-communities';
 import Footer from '@/components/common/footer';
 
+import HomeHero from './home/hero';
+
 class Home extends React.Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <Header />
         <div className="home">
-          hello world!
+          <HomeHero />
         </div>
-        <FindCommunities/>
+        <div className="find-communities">
+          <FindCommunities/>
+        </div>
         <Footer/>
       </div>
     );
