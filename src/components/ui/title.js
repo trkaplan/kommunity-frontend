@@ -11,10 +11,9 @@ const style = {
 };
 
 const Title = (props) => {
-  const { type } = props;
-  const HeaderType = type;
+  const { type: HeaderType } = props;
   return (
-    <HeaderType className={style[type]}>
+    <HeaderType className={style[HeaderType]}>
       {props.children}
     </HeaderType>
   );
