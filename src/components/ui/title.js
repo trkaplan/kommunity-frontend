@@ -10,21 +10,19 @@ const style = {
   h6: 'text-lg leading-base font-light',
 };
 
-const UIHeader = (props) => {
+const Title = (props) => {
   const { type } = props;
   const HeaderType = type;
   return (
-    <div>
-      <HeaderType className={style[type]}>
-        {props.children}
-      </HeaderType>
-    </div>
+    <HeaderType className={style[type]}>
+      {props.children}
+    </HeaderType>
   );
 };
 
-UIHeader.propTypes = {
+Title.propTypes = {
   children: PropTypes.object,
   type: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']).isRequired,
 };
 
-export default UIHeader;
+export default Title;
