@@ -3,3 +3,5 @@
  * on how to create an output file. 
  */
 @tailwind preflight;
+
+@tailwind utilities;
