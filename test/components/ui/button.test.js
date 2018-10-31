@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import UIButton from '@/components/ui/button';
+import { Button } from '@/components/ui';
 
-describe('Component: <UIButton />', () => {
+describe('UI Component: <Button />', () => {
   const onClickSpy = sinon.spy();
 
   const wrapper = shallow(
-    <UIButton type='primary' size='medium' onClick={onClickSpy} label='button-text'/>,
+    <Button type='primary' size='medium' onClick={onClickSpy} label='button-text'/>,
   );
 
   const button = wrapper.find('.button');

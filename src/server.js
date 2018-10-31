@@ -61,7 +61,7 @@ server
     : `<script src="${jsAssetUrl}" defer crossorigin></script>`
 }
     </head>
-    <body class="font-sans">
+    <body class="font-sans font-normal text-black">
         <div id="root">${markup}</div>
         <script>
           window.__PRELOADED_STATE__ = ${serialize(finalState)}

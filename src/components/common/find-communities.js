@@ -1,27 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import CommunityCard from '@/components/common/cards/community-card';
-
-const SearchBox = styled.input.attrs({
-  placeholder: 'Search for existing communities, type in your keyword',
-})`
-  width: 90%;
-  border: 1px solid #ced4da;
-  padding: .375rem .75rem;
-  border-radius: .25rem;
-  font-size: 1rem;
-`;
-
-const Title = styled.h2`
-  font-size: 1.5rem;
-  text-align: center;
-`;
-
-const Section = styled.section`
-  color: black;
-  padding: 3rem;
-  background: #F6F6F6;
-`;
+import { Title, Paragraph } from '@/components/ui';
 
 class FindCommunities extends React.Component {
   constructor(props) {
@@ -74,24 +53,30 @@ class FindCommunities extends React.Component {
     } = this.state;
 
     return (
-      <div>
-        <Section>
-          <Title>Find Communities!</Title>
-          <SearchBox type="text"
+      <section className="px-4 py-16">
+        <div className="text-center">
+          <Title extraClassName="text-center" type="h5">Find Communities!</Title>
+          <input
+            className="border rounded-lg outline-none w-6/12 mt-4 px-6 py-4"
+            onChange={this.handleChange}
+            placeholder="Search for existing communities, type in your keyword"
             value={searchValue}
-            onChange={this.handleChange}/>
-          <h3>{ displayCommunities ? 'Results' : 'No communities found'}</h3>
-          {
-            // If search box is empty display popular communities
-            searchValue === ''
-              ? popularCommunities.map(community => <CommunityCard key={community.id}
-                name={community.name}/>)
-              // Else Show search results!
-              : results.map(community => <CommunityCard key={community.id}
-                name={community.name}/>)
-           }
-        </Section>
-      </div>
+            type="text"
+          />
+        </div>
+        <Paragraph extraClassName="mt-8 text-center">
+          { displayCommunities ? 'Results' : 'No communities found'}
+        </Paragraph>
+        {
+          // If search box is empty display popular communities
+          searchValue === ''
+            ? popularCommunities.map(community => <CommunityCard key={community.id}
+              name={community.name}/>)
+            // Else Show search results!
+            : results.map(community => <CommunityCard key={community.id}
+              name={community.name}/>)
+          }
+      </section>
     );
   }
 }

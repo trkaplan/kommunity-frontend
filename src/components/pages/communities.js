@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import CommunityCard from '@/components/common/cards/community-card';
 import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui';
 
 const style = {
   container: {

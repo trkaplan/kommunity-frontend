@@ -20,7 +20,7 @@ const style = {
 
 const UIButton = (props) => {
   const {
-    disabled, size, type, label, onClick,
+    disabled, extraClassName, size, type, label, onClick,
   } = props;
   const className = cls(style.common, style.label[size], style.container[type], {
     'cursor-not-allowed': disabled,
@@ -29,7 +29,7 @@ const UIButton = (props) => {
     'hover:opacity-80': !disabled && ['primary', 'secondary'].indexOf(type) > -1,
   });
   return (
-    <div onClick={onClick} className={className}>
+    <div onClick={onClick} className={cls(className, extraClassName)}>
       {label}
     </div>
   );
@@ -42,8 +42,9 @@ UIButton.defaultProps = {
 };
 
 UIButton.propTypes = {
-  disabled: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  extraClassName: PropTypes.string,
+  onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']).isRequired,
   label: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['primary', 'secondary', 'outline', 'danger', 'plain']).isRequired,
