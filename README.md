@@ -20,7 +20,7 @@ Client: react.js <br/>
 
 ## Information about the npm commands used in the project
 
-how do i run npm commands: `npm run KOMUT` yada `yarn KOMUT`
+how do i run npm commands: `npm run KOMUT` or `yarn KOMUT`
 
 Mevcut komutlar:
 
