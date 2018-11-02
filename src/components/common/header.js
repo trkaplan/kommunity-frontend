@@ -15,7 +15,7 @@ const Header = () => {
       </div>
       <div className="flex items-center">
         <div className="mr-4">
-          🔍 <input className="text-gray px-4 py-2" placeholder="Search Communities" />
+          <span role='img' aria-label='search'>🔍</span> <input className="text-gray px-4 py-2" placeholder="Search Communities" />
         </div>
         <Link extraClassName={linkCls} to="/login">Login</Link>
         <Link extraClassName={linkCls} to="/signup">
