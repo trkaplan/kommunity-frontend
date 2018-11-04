@@ -51,7 +51,7 @@ class Signup extends React.Component {
     } else {
       this.setState({ disabled: true, response: null, error: null });
       signup(this.state.email, this.state.password)
-        .then(response => this.setState({ response, disabled: false }))
+        .then(response => this.setState({ response: JSON.stringify(response), disabled: false }))
         .catch(error => this.setState({ response: error.message, disabled: false }));
     }
   }

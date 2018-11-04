@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 import CommunityCard from '@/components/common/cards/community-card';
 import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui';
 
 const style = {
   container: {
-    marginLeft: '160px',
-    marginRight: '160px',
+    maxWidth: '980px',
+    margin: 'auto',
   },
   middle: {
     height: '420px',
@@ -27,10 +27,15 @@ const style = {
     marginLeft: '240px',
   },
   text: {
-    textAlign: 'center',
     fontSize: '28px',
     fontWeight: 'bold',
-    marginBottom: '32px',
+    height: '64px',
+    margin: '0 auto',
+  },
+  button: {
+    width: '100px',
+    height: '100px',
+    margin: '0 auto',
   },
 };
 
