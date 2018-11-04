@@ -1,24 +1,19 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { routerReducer, routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
-const setup = (preloadedState:{}) => {
+const configureStore = (history, preloadedState) => {
+  const middleware = routerMiddleware(history);
   const store = createStore(
-    rootReducer,
+    combineReducers({
+      ...rootReducer,
+      routing: routerReducer,
+    }),
     preloadedState,
-    applyMiddleware(thunk),
+    applyMiddleware(thunk, middleware),
   );
-
-  if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
-    module.hot.accept('./reducers', () => {
-      // eslint-disable-next-line global-require
-      const nextRootReducer = require('./reducers').default;
-      store.replaceReducer(nextRootReducer);
-    });
-  }
-
   return store;
 };
 
-export default setup;
+export default configureStore;

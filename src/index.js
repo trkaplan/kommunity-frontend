@@ -1,31 +1,21 @@
-/* eslint-disable no-console */
+import express from 'express';
 import app from '@/server';
-import http from 'http';
-
-const server = http.createServer(app);
-
-let currentApp = app;
-
-server.listen(process.env.PORT || 3000, (error) => {
-  if (error) {
-    console.log(error);
-  }
-
-  console.log('🚀 started');
-});
 
 if (module.hot) {
-  console.log('✅  Server-side HMR Enabled!');
-
   module.hot.accept('./server', () => {
     console.log('🔁  HMR Reloading `./server`...');
-    server.removeListener('request', currentApp);
-    // eslint-disable-next-line global-require
-    const newApp = require('./server').default;
-    server.on('request', newApp);
-    currentApp = newApp;
   });
-} else {
-  // exporting for testing purposes
-  module.exports = server;
+  console.info('✅  Server-side HMR Enabled!');
 }
+
+const port = process.env.PORT || 3000;
+
+export default express()
+  .use((req, res) => app.handle(req, res))
+  .listen(port, (err) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(`> Started on port ${port}`);
+  });

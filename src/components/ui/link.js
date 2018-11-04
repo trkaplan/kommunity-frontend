@@ -14,7 +14,6 @@ UILink.defaultProps = {
 };
 
 UILink.propTypes = {
-  children: PropTypes.object,
   className: PropTypes.string,
   extraClassName: PropTypes.string,
   to: PropTypes.string.isRequired,
