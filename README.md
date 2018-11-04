@@ -1,69 +1,75 @@
-# Kommunity App
- 
-Requirement doc to project: [gdoc](https://docs.google.com/document/d/1P9znOKfQIHDP3BVS5ptvFgzSLmL0vo4WTAZrcKatFBA)
+# Kommunity Frontend
+Kommunity is an online app for creating & joining communities. This is the frontend app.
 
-Server: node.js **"8.11.4"** (version change for node [nvm](https://github.com/creationix/nvm#node-version-manager---) or [nvs](https://github.com/jasongin/nvs#nvs-node-version-switcher)) <br/>
-Client: react.js <br/>
+Check product [documentation](https://docs.google.com/document/d/1P9znOKfQIHDP3BVS5ptvFgzSLmL0vo4WTAZrcKatFBA) for more details.
 
-## How do i construct this project at my computer ?
+# Instructions
+1. Fork this repo
+2. Click on `Clone or download` button and copy the url
+3. Run the following command:
+```bash
+# Replace FORK_URL with what you just copied
+git clone FORK_URL
+```
 
-- Click on `Clone or download` and copy link
-- Write `git clone {your link}` on your terminal
-- Afterwards write `cd kommunity-frontend`
-- Finally write `npm install` or `yarn`
+## 1. Install Node.js
+Follow [these](https://github.com/Kommunity-app/kommunity-backend/blob/dev/README.md#2-install-nodejs) instructions to setup node.js/npm.
 
-## How do i start this project at my computer ?
+## 2. Install dependencies
+``` bash
+cd kommunity-frontend
+npm install
+```
 
-- You should download from [this link](https://github.com/Kommunity-app/kommunity-backend) and start project's backend 
-- You should open **kommunity-frontend** and run **npm start** or **yarn start** at your terminal
-- Open the **[localhost:3000](http://localhost:3000/)** from browser
+## 3. Start frontend server
+```bash
+npm run start
+```
 
-## Information about the npm commands used in the project
+## 4. Start backend server
+Follow [these](https://github.com/Kommunity-app/kommunity-backend/blob/dev/README.md#instructions) instructions to setup backend server.
 
-how do i run npm commands: `npm run KOMUT` or `yarn KOMUT`
+Start the backend server **in a separate terminal**:
 
-Mevcut komutlar:
+```bash
+# in a new terminal:
+cd kommunity-backend
+npm run start
+```
 
-- `"build"`: ...
+## 5. Navigate to homepage
+All set! Open http://localhost:3000/ in your browser. You should see the homepage.
 
-- `"tailwindcss"`: ...
+# Other details
 
-- `"start"`: ...
+## Available NPM commands
 
-- `"start:prod"`: ...
+```
+npm run COMMAND
+```
 
-- `"check-if-not-committed"`: ...
+Available npm commands:
 
-- `"check-travis"`: ...
+- `tailwindcss`: generates tailwind css (see `src/css/vendor` folder for setting new css rules
+- `start`: starts the frontend server, and watches for file changes
+- `test`: runs all tests
+- `cover`: runs all tests and generates a coverage report
+- `lint`: checks for lint errors
+- `lint-fix`: checks for lint errors and tries to fix them
 
-- `"test"`: ...
+## Git instructions for developing new features
+See [this link](https://github.com/Kommunity-app/kommunity-backend/blob/dev/README.md#git-instructions-for-developing-new-features).
 
-- `"cover"`: ...
+## Libraries/tools used
 
-- `"lint"`: ...
-
-- `"lint-fix"`: ...
-
-## Yapilan degisiklikten sonra PR olusturma
-
-- (**github ui**) Create new [Fork](https://github.com/Kommunity-app/kommunity-frontend/fork) from project.You need to send the files to your own fork
-- (**terminal**) You should write to your terminal `git checkout -b {your branch name}` for create their own branch
-- (**terminal**) Write `git add .`after saving changes.
-<!-- burasi turkce -->
-- (**terminal**) Staging area daki dosyaliri branch e gondermek icin `git commit -m "your commit message"` yaz
-- (**terminal**) Projeyi githuba gondermek icin `git push -u {your fork link} {your branch name}` komutunu yaz
-- (**github ui**) Daha sonra yeni bir **Pul Request** olustur projenin lint ve unit testleri yapildiktan sonra review edilecek hersey dogruysa proje dev branchine merge edilecek
-
-## Kullanilan Teknolojiler
-
-- [nodejs](https://nodejs.org/en/docs/)
-- [react](https://reactjs.org/docs/getting-started.html)
-- [razzle](https://github.com/jaredpalmer/razzle#quick-start)
-- [axios](https://github.com/axios/axios#axios)
-- [react router](https://reacttraining.com/react-router/web/guides/quick-start)
-- [redux](https://redux.js.org/)
-- [eslint](https://eslint.org/docs/user-guide/getting-started)
-- [enzyme](https://github.com/airbnb/enzyme#enzyme)
-- [jest](https://jestjs.io/docs/en/getting-started)
-- [tailwind css](https://tailwindcss.com/docs/what-is-tailwind/)
-- [babel](https://babeljs.io/docs/en/)
+- `node.js`: https://nodejs.org/en/docs/
+- `react`: https://reactjs.org/docs/getting-started.html
+- `razzle`: https://github.com/jaredpalmer/razzle#quick-start
+- `axios`: https://github.com/axios/axios#axios
+- `react router`: https://reacttraining.com/react-router/web/guides/quick-start
+- `redux`: https://redux.js.org/
+- `eslint`: https://eslint.org/docs/user-guide/getting-started
+- `enzyme`: https://github.com/airbnb/enzyme#enzyme
+- `jest`: https://jestjs.io/docs/en/getting-started
+- `tailwind css`: https://tailwindcss.com/docs/what-is-tailwind/
+- `babel`: https://babeljs.io/docs/en/
