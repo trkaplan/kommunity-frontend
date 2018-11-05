@@ -2,15 +2,15 @@ import React from 'react';
 import MemoryRouter from 'react-router-dom/MemoryRouter';
 
 import { shallow } from 'enzyme';
-import App from '@/containers/app';
+import Login from '@/components/pages/login';
 
-describe('Components: <App />', () => {
+describe('Components: <CommunityList />', () => {
   test('renders without exploding', () => {
     const wrapper = shallow(
       <MemoryRouter>
-        <App />
+        <Login />
       </MemoryRouter>,
     );
-    expect(wrapper.html()).toContain('header');
+    expect(wrapper.html()).toContain('div');
   });
 });

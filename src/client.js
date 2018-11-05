@@ -1,3 +1,5 @@
+/* global document */
+import React from 'react';
 import { hydrate } from 'react-dom';
 import App from '@/containers/app';
 
@@ -7,5 +9,10 @@ hydrate(
 );
 
 if (module.hot) {
-  module.hot.accept();
+  module.hot.accept('./containers/app', () => {
+    hydrate(
+      <App />,
+      document.getElementById('root'),
+    );
+  });
 }

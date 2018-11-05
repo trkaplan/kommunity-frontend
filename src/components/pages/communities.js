@@ -64,7 +64,7 @@ class CommunityList extends Component {
         <div style={style.createCommunities}>
           <div style={style.text}>{"Can't find what you are looking for?"}</div>
           <span style={style.button}>
-            <Button title="Create Your Community" onClick={() => {}} size="xlarge" type="secondary" style={{ alignItems: 'center' }}/>
+            <Button label="Create Your Community" onClick={() => {}} size="large" type="secondary" style={{ alignItems: 'center' }}/>
           </span>
         </div>
         <Footer />

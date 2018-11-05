@@ -3,7 +3,7 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
-const configureStore = (history, preloadedState) => {
+const setup = (history, preloadedState) => {
   const middleware = routerMiddleware(history);
   const store = createStore(
     combineReducers({
@@ -16,4 +16,4 @@ const configureStore = (history, preloadedState) => {
   return store;
 };
 
-export default configureStore;
+export default setup;

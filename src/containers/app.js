@@ -1,3 +1,5 @@
+/* global window */
+/* eslint no-underscore-dangle: 0 */
 import React from 'react';
 import { StaticRouter } from 'react-router';
 import { Provider } from 'react-redux';
