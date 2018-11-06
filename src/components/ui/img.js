@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import cls from 'classnames';
 import LazyLoad from 'react-lazyload';
 
-const style = {};
-
 const UIImage = (props) => {
   const {
-    src, alt, lazy, height,
+    src, alt, lazy, height, className
   } = props;
-  const className = cls(style);
   const Image = () => <img src={src} alt={alt} className={className}/>;
   return (
     lazy
@@ -26,6 +23,7 @@ UIImage.propTypes = {
   lazy: PropTypes.bool,
   height: PropTypes.int,
   alt: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default UIImage;
