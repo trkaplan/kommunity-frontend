@@ -15,7 +15,7 @@ UIParagraph.defaultProps = {
 };
 
 UIParagraph.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   className: PropTypes.string,
   extraClassName: PropTypes.string,
 };
