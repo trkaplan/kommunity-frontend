@@ -122,17 +122,19 @@ module.exports = {
 
   fonts: {
     sans: [
-      'system-ui',
-      'BlinkMacSystemFont',
-      '-apple-system',
-      'Segoe UI',
-      'Roboto',
-      'Oxygen',
-      'Ubuntu',
-      'Cantarell',
-      'Fira Sans',
-      'Droid Sans',
-      'Helvetica Neue',
+      'Nunito',
+      'Muli',
+      // 'system-ui',
+      // 'BlinkMacSystemFont',
+      // '-apple-system',
+      // 'Segoe UI',
+      // 'Roboto',
+      // 'Oxygen',
+      // 'Ubuntu',
+      // 'Cantarell',
+      // 'Fira Sans',
+      // 'Droid Sans',
+      // 'Helvetica Neue',
       'sans-serif',
     ],
     serif: [
@@ -206,9 +208,9 @@ module.exports = {
 
   fontWeights: {
     light: 300,
-    normal: 500,
-    medium: 700,
-    bold: 900,
+    normal: 400,
+    medium: 600,
+    bold: 700,
   },
 
 
