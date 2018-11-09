@@ -1,4 +1,4 @@
-import { SET_COUNTER, INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions';
+import { SET_COUNTER, INCREMENT_COUNTER, DECREMENT_COUNTER } from '@/state/actions';
 
 const counter = (state:any = 0, action:{type:string, payload:any}) => {
   switch (action.type) {

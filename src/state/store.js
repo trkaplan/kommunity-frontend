@@ -1,12 +1,18 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
+
 import rootReducer from './reducers';
 
-const setup = (preloadedState:{}) => {
+const setup = (history, preloadedState) => {
+  const middlewareRouter = routerMiddleware(history);
   const store = createStore(
-    rootReducer,
+    combineReducers({
+      ...rootReducer,
+      router: connectRouter(history),
+    }),
     preloadedState,
-    applyMiddleware(thunk),
+    applyMiddleware(thunk, middlewareRouter),
   );
 
   if (module.hot) {
