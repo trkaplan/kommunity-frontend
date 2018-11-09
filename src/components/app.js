@@ -6,7 +6,7 @@ import Login from '@/containers/pages/login';
 import Logout from '@/containers/pages/logout';
 import MemberProfile from '@/containers/pages/member-profile';
 import CommunityList from '@/containers/pages/communities';
-import NoMatch from '@/containers/pages/no-match';
+import Error404 from '@/containers/pages/404';
 import '@/css';
 
 const App = () => (
@@ -16,7 +16,7 @@ const App = () => (
     <Route exact path="/logout" component={Logout} />
     <Route exact path="/member/profile" component={MemberProfile} />
     <Route exact path="/communities" component={CommunityList} />
-    <Route component={NoMatch}/>
+    <Route component={Error404}/>
   </Switch>
 );
 
