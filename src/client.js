@@ -1,29 +1,33 @@
 /* global window, document */
-import BrowserRouter from 'react-router-dom/BrowserRouter';
 import React from 'react';
-import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
+import { hydrate } from 'react-dom';
+import { createBrowserHistory } from 'history';
+import { ConnectedRouter } from 'connected-react-router';
 
+import App from '@/components/app';
 import setupStore from '@/state/store';
-import App from '@/containers/app';
 
+const history = createBrowserHistory();
 // eslint-disable-next-line no-underscore-dangle
-const store = setupStore(window.__PRELOADED_STATE__);
+const store = setupStore(history, window.__PRELOADED_STATE__);
 
 hydrate(
-  <BrowserRouter>
-    <Provider store={store}>
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
       <App />
-    </Provider>
-  </BrowserRouter>,
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('root'),
 );
 
 if (module.hot) {
-  module.hot.accept('./containers/app', () => {
+  module.hot.accept('./components/app', () => {
     hydrate(
       <Provider store={store}>
-        <App />
+        <ConnectedRouter history={history}>
+          <App />
+        </ConnectedRouter>
       </Provider>,
       document.getElementById('root'),
     );

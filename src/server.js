@@ -1,12 +1,13 @@
-import _get from 'lodash.get';
 import React from 'react';
-import { StaticRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { StaticRouter } from 'react-router';
+import _get from 'lodash.get';
 import express from 'express';
 import { renderToString } from 'react-dom/server';
-import { Provider } from 'react-redux';
+import { createMemoryHistory } from 'history';
 import serialize from 'serialize-javascript';
 
-import App from '@/containers/app';
+import App from '@/components/app';
 import setupStore from '@/state/store';
 
 let assets;
@@ -22,16 +23,17 @@ server
   .use(express.static(publicDir))
   .get('/*', (req, res) => {
     // STORE
-    const preloadedState = { counter: 0 };
-    const store = setupStore(preloadedState);
+    const preloadedState = {};
+    const history = createMemoryHistory();
+    const store = setupStore(history, preloadedState);
 
     const context = {};
     const markup = renderToString(
-      <StaticRouter context={context} location={req.url}>
-        <Provider store={store}>
+      <Provider store={store}>
+        <StaticRouter location={req.path} context={context}>
           <App />
-        </Provider>
-      </StaticRouter>,
+        </StaticRouter>
+      </Provider>,
     );
 
     // Grab the initial state from our Redux store
@@ -43,31 +45,26 @@ server
       res.redirect(context.url);
     } else {
       res.status(200).send(
-        `<!doctype html>
-    <html lang="">
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta charset="utf-8" />
-        <title>Welcome to Razzle</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        ${
-  cssAssetUrl
-    ? `<link rel="stylesheet" href="${cssAssetUrl}">`
-    : ''
-}
-        ${
-  process.env.NODE_ENV === 'production'
+        `
+        <!doctype html>
+        <html lang="">
+        <head>
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta charset="utf-8" />
+          <title>Welcome to Razzle</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          ${cssAssetUrl ? `<link rel="stylesheet" href="${cssAssetUrl}">` : ''}
+          ${process.env.NODE_ENV === 'production'
     ? `<script src="${jsAssetUrl}" defer></script>`
-    : `<script src="${jsAssetUrl}" defer crossorigin></script>`
-}
-    </head>
-    <body class="font-sans font-normal text-black">
-        <div id="root">${markup}</div>
-        <script>
-          window.__PRELOADED_STATE__ = ${serialize(finalState)}
-        </script>
-    </body>
-</html>`,
+    : `<script src="${jsAssetUrl}" defer crossorigin></script>`}
+        </head>
+        <body class="font-sans font-normal text-black">
+          <div id="root">${markup}</div>
+            <script>
+              window.__PRELOADED_STATE__ = ${serialize(finalState)}
+            </script>
+        </body>
+      </html>`,
       );
     }
   });
