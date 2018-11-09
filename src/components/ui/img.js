@@ -18,11 +18,11 @@ UIImage.defaultProps = {
 };
 
 UIImage.propTypes = {
-  src: PropTypes.string,
-  lazy: PropTypes.bool,
-  height: PropTypes.int,
   alt: PropTypes.string,
   className: PropTypes.string,
+  height: PropTypes.int,
+  lazy: PropTypes.bool,
+  src: PropTypes.string,
 };
 
 export default UIImage;

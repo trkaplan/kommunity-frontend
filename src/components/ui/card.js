@@ -4,10 +4,10 @@ import cls from 'classnames';
 
 const style = {
   common: 'w-1 border-grey bg-white my-4 p-8 rounded',
+  lg: 'shadow-lg',
+  md: 'shadow-md',
   none: 'shadow',
   tiny: 'shadow',
-  md: 'shadow-md',
-  lg: 'shadow-lg',
 };
 
 const Card = (props) => {

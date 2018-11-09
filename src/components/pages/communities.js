@@ -6,25 +6,25 @@ import Footer from '@/components/common/footer';
 import { Button } from '@/components/ui';
 
 const style = {
+  button: {
+    height: '100px',
+    margin: '0 auto',
+    width: '100px',
+  },
   container: {
-    maxWidth: '980px',
     margin: 'auto',
-  },
-  middle: {
-    height: '420px',
-    display: 'flex',
-  },
-  userCommunities: {
-    width: '100%',
-    height: '100%',
-    display: ' flex',
-  },
-  searchBar: {
-    height: '160px',
+    maxWidth: '980px',
   },
   createCommunities: {
     marginBottom: '160px',
     marginLeft: '240px',
+  },
+  middle: {
+    display: 'flex',
+    height: '420px',
+  },
+  searchBar: {
+    height: '160px',
   },
   text: {
     fontSize: '28px',
@@ -32,10 +32,10 @@ const style = {
     height: '64px',
     margin: '0 auto',
   },
-  button: {
-    width: '100px',
-    height: '100px',
-    margin: '0 auto',
+  userCommunities: {
+    display: ' flex',
+    height: '100%',
+    width: '100%',
   },
 };
 

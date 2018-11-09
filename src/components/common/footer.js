@@ -7,24 +7,24 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
   },
-  logo: {
-    height: '50px',
-    width: '80px',
-    lineHeight: '50px',
-    textAlign: 'center',
-    backgroundColor: 'red',
-  },
-  links: {
-    listStyle: 'none',
-    paddingLeft: 0,
-    display: 'flex',
-  },
   link: {
-    padding: '0 12px',
     borderRight: '1px solid #fff',
+    padding: '0 12px',
   },
   linkBorderless: {
     padding: '0 12px',
+  },
+  links: {
+    display: 'flex',
+    listStyle: 'none',
+    paddingLeft: 0,
+  },
+  logo: {
+    backgroundColor: 'red',
+    height: '50px',
+    lineHeight: '50px',
+    textAlign: 'center',
+    width: '80px',
   },
 };
 

@@ -2,27 +2,27 @@ import React from 'react';
 import { login } from '@/api/request';
 
 const style = {
+  button: {
+    backgroundColor: '#000',
+    border: 'none',
+    color: '#fff',
+    display: 'block',
+    fontSize: '16px',
+    height: '40px',
+    lineHeight: '40px',
+    margin: '12px 0',
+    textAlign: 'center',
+    width: '100%',
+  },
   input: {
     boxSizing: 'border-box',
+    display: 'block',
+    fontSize: '16px',
+    height: '40px',
+    lineHeight: '40px',
     margin: '32px 0',
-    display: 'block',
-    width: '100%',
-    height: '40px',
-    lineHeight: '40px',
-    fontSize: '16px',
     padding: '0 8px',
-  },
-  button: {
-    margin: '12px 0',
-    display: 'block',
     width: '100%',
-    height: '40px',
-    lineHeight: '40px',
-    textAlign: 'center',
-    backgroundColor: '#000',
-    color: '#fff',
-    fontSize: '16px',
-    border: 'none',
   },
 };
 
@@ -30,10 +30,10 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: '',
       disabled: false,
+      password: '',
       response: null,
+      username: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,8 +43,8 @@ class Login extends React.Component {
     e.preventDefault();
     this.setState({ disabled: true, error: null, response: null });
     login(this.state.username, this.state.password)
-      .then(response => this.setState({ response, disabled: false }))
-      .catch(error => this.setState({ response: error.message, disabled: false }));
+      .then(response => this.setState({ disabled: false, response }))
+      .catch(error => this.setState({ disabled: false, response: error.message }));
   }
 
   onChangeFactory(key) {

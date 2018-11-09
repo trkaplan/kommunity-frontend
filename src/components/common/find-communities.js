@@ -6,16 +6,16 @@ class FindCommunities extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchValue: '',
+      displayCommunities: true,
       popularCommunities: [
-        { name: 'Beşiktaş Topluluğu', id: '135135' },
-        { name: 'Antalya Topluluğu', id: '236273' },
-        { id: '313666' },
+        { id: '135135', name: 'Beşiktaş Topluluğu' },
+        { id: '236273', name: 'Antalya Topluluğu' },
+        { id: '313666', name: 'Test Topluluk' },
       ],
       results: [
-        { name: 'Arama sonucu bu', id: '239273' },
+        { id: '239273', name: 'Arama sonucu bu' },
       ],
-      displayCommunities: true,
+      searchValue: '',
     };
   }
 

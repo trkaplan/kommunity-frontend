@@ -1,26 +1,27 @@
 import * as React from 'react';
 
 const styles = {
-  middle: {
-    width: '100%',
-    boxSizing: 'border-box',
-    border: 'red solid',
-    height: '300px',
-    borderRadius: '30px',
+  container: {
+    padding: '4px',
+    width: '48%',
   },
+
   img: {
-    width: '100%',
-    borderRadius: '30px',
     border: 'red solid 0.5px',
+    borderRadius: '30px',
     height: '100px',
     textAlign: 'center',
+    width: '100%',
   },
   lists: {
     fontSize: '20px',
   },
-  container: {
-    padding: '4px',
-    width: '48%',
+  middle: {
+    border: 'red solid',
+    borderRadius: '30px',
+    boxSizing: 'border-box',
+    height: '300px',
+    width: '100%',
   },
 };
 

@@ -5,27 +5,27 @@ import Login from './login/login-form';
 import Signup from './login/signup-form';
 
 const style = {
-  page: {
-    maxWidth: '980px',
-    margin: 'auto',
-  },
-  header: {
+  box: {
     border: '1px solid #000',
-    lineHeight: '60px',
-    textAlign: 'center',
+    borderRadius: '30px',
+    padding: '40px 32px 32px',
   },
   container: {
     display: 'flex',
     justifyContent: 'space-between',
     margin: '40px 0',
   },
+  header: {
+    border: '1px solid #000',
+    lineHeight: '60px',
+    textAlign: 'center',
+  },
+  page: {
+    margin: 'auto',
+    maxWidth: '980px',
+  },
   section: {
     width: '44%',
-  },
-  box: {
-    borderRadius: '30px',
-    border: '1px solid #000',
-    padding: '40px 32px 32px',
   },
 };
 

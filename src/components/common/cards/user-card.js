@@ -1,29 +1,29 @@
 import * as React from 'react';
 
 const styles = {
+  accountSetting: {
+    color: 'red',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '124px',
+  },
   container: {
-    width: '90%',
+    border: 'red solid',
+    borderRadius: '25px',
     height: '500px',
     marginLeft: '5%',
     marginRight: '5%',
-    borderRadius: '25px',
-    border: 'red solid',
+    width: '90%',
   },
   img: {
-    width: '70%',
-    borderRadius: '155px',
     border: 'red solid 0.5px',
+    borderRadius: '155px',
     height: '200px',
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: '16px',
     textAlign: 'center',
-  },
-  accountSetting: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    color: 'red',
-    width: '124px',
+    width: '70%',
   },
   lists: {
     fontSize: '20px',

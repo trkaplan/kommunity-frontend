@@ -6,26 +6,26 @@ import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
 
 const style = {
+  container: {
+    marginLeft: '200px',
+    marginRight: '200px',
+  },
   middle: {
-    height: '1500px',
     display: 'flex',
-  },
-  userInfo: {
-    width: '34%',
-    height: '100%',
-  },
-  userCommunities: {
-    width: '76%',
-    height: '100%',
-    display: ' flex',
-    flexWrap: 'wrap',
+    height: '1500px',
   },
   topImage: {
     height: '150px',
   },
-  container: {
-    marginLeft: '200px',
-    marginRight: '200px',
+  userCommunities: {
+    display: ' flex',
+    flexWrap: 'wrap',
+    height: '100%',
+    width: '76%',
+  },
+  userInfo: {
+    height: '100%',
+    width: '34%',
   },
 };
 

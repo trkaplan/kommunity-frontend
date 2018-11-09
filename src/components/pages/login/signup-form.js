@@ -2,28 +2,27 @@ import React from 'react';
 import { signup } from '@/api/request';
 
 const style = {
-
+  button: {
+    backgroundColor: '#000',
+    border: 'none',
+    color: '#fff',
+    display: 'block',
+    fontSize: '16px',
+    height: '40px',
+    lineHeight: '40px',
+    margin: '12px 0',
+    textAlign: 'center',
+    width: '100%',
+  },
   input: {
     boxSizing: 'border-box',
+    display: 'block',
+    fontSize: '16px',
+    height: '40px',
+    lineHeight: '40px',
     margin: '32px 0',
-    display: 'block',
-    width: '100%',
-    height: '40px',
-    lineHeight: '40px',
-    fontSize: '16px',
     padding: '0 8px',
-  },
-  button: {
-    margin: '12px 0',
-    display: 'block',
     width: '100%',
-    height: '40px',
-    lineHeight: '40px',
-    textAlign: 'center',
-    backgroundColor: '#000',
-    color: '#fff',
-    fontSize: '16px',
-    border: 'none',
   },
 };
 
@@ -31,10 +30,10 @@ class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      disabled: false,
       email: '',
       password: '',
       passwordRepeat: '',
-      disabled: false,
       response: null,
     };
 
@@ -49,10 +48,10 @@ class Signup extends React.Component {
     if (password !== passwordRepeat) {
       this.setState({ error: new Error('passwords don\'t match!') });
     } else {
-      this.setState({ disabled: true, response: null, error: null });
+      this.setState({ disabled: true, error: null, response: null });
       signup(this.state.email, this.state.password)
-        .then(response => this.setState({ response: JSON.stringify(response), disabled: false }))
-        .catch(error => this.setState({ response: error.message, disabled: false }));
+        .then(response => this.setState({ disabled: false, response: JSON.stringify(response) }))
+        .catch(error => this.setState({ disabled: false, response: error.message }));
     }
   }
 
