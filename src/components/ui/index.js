@@ -3,6 +3,7 @@ import Card from './card';
 import Paragraph from './paragraph';
 import Link from './link';
 import Title from './title';
+import Input from './input';
 
 export {
   Button,
@@ -10,4 +11,5 @@ export {
   Paragraph,
   Link,
   Title,
+  Input,
 };
