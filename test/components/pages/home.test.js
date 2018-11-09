@@ -4,7 +4,7 @@ import MemoryRouter from 'react-router-dom/MemoryRouter';
 import { shallow } from 'enzyme';
 import Home from '@/components/pages/home';
 
-describe('Components: <CommunityList />', () => {
+describe('Components: <Home />', () => {
   test('renders without exploding', () => {
     const wrapper = shallow(
       <MemoryRouter>
