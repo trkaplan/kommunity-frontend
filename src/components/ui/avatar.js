@@ -26,9 +26,9 @@ const style = {
 const Avatar = (props) => {
   const { size, src, letters } = props;
   return (
-    <div className={cls(style.size[size], style.common)}>
+    <div className={cls(style.common, style.size[size])}>
       { src
-        ? <UIImage className ={cls(style.img)} src={src} height={150} alt=""/>
+        ? <UIImage className ={cls(style.img)} src={src} height="100%" width="100%" alt=""/>
         : <p className ={cls(style.letter[size])}>{letters}</p>
       }
     </div>
@@ -36,15 +36,14 @@ const Avatar = (props) => {
 };
 
 Avatar.defaultProps = {
-  letters: 'KO',
   size: 'md',
   src: null,
 };
 
 Avatar.propTypes = {
-  letters: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']).isRequired,
-  src: PropTypes.string.isRequired,
+  letters: PropTypes.string,
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  src: PropTypes.string,
 };
 
 export default Avatar;
