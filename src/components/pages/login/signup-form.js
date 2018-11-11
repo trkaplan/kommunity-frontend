@@ -1,5 +1,6 @@
 import React from 'react';
 import { signup } from '@/api/request';
+import Reaptcha from 'reaptcha';
 
 const style = {
   button: {
@@ -35,30 +36,43 @@ class Signup extends React.Component {
       password: '',
       passwordRepeat: '',
       response: null,
+      verified: false,
     };
 
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  onVerify = () => {
+    this.setState({ verified: true });
+  };
 
   handleSubmit(e) {
     e.preventDefault();
 
     // password match validation
-    const { password, passwordRepeat } = this.state;
+    const {
+      password, passwordRepeat, verified,
+    } = this.state;
     if (password !== passwordRepeat) {
-      this.setState({ error: new Error('passwords don\'t match!') });
+      this.setState({ response: 'passwords don\'t match!' });
     } else {
-      this.setState({ disabled: true, error: null, response: null });
-      signup(this.state.email, this.state.password)
-        .then(response => this.setState({ disabled: false, response: JSON.stringify(response) }))
-        .catch(error => this.setState({ disabled: false, response: error.message }));
+      this.setState({ disabled: true, response: null });
+
+      if (verified) {
+        signup(this.state.email, this.state.password)
+          .then(response => this.setState({ disabled: false, response: JSON.stringify(response) }))
+          .catch(error => this.setState({ disabled: false, response: error.message }));
+      } else {
+        this.setState({ disabled: false, response: 'captcha is not verified!' });
+      }
     }
   }
 
-  onChangeFactory(key) {
-    return (e) => {
-      this.setState({ [key]: e.target.value });
-    };
+  handleInputChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   }
 
   render() {
@@ -69,16 +83,41 @@ class Signup extends React.Component {
     return (
       <div>
         <p>{response || ''}</p>
+
         <form onSubmit={this.handleSubmit}>
-          <input style={style.input} type="text" name="email" placeholder="enter your e-mail"
-            value={email} onChange={this.onChangeFactory('email')} required/>
-          <input style={style.input} type="password" name="password" placeholder="set a password"
-            value={password} onChange={this.onChangeFactory('password')} required/>
-          <input style={style.input} type="password" name="passwordRepeat"
-            placeholder="repeat password" value={passwordRepeat}
-            onChange={this.onChangeFactory('passwordRepeat')} required/>
-          <input style={style.button} type="submit" value={disabled ? '...' : 'signup'}
-            disabled={disabled} />
+          <input style={style.input}
+            type="email"
+            name="email"
+            placeholder="enter your e-mail"
+            value={email}
+            onChange={this.handleInputChange}
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            required/>
+          <input style={style.input}
+            type="password"
+            name="password"
+            placeholder="set a password"
+            value={password}
+            onChange={this.handleInputChange}
+            minLength="6"
+            required/>
+          <input style={style.input}
+            type="password"
+            name="passwordRepeat"
+            placeholder="repeat password"
+            value={passwordRepeat}
+            onChange={this.handleInputChange}
+            required/>
+          <Reaptcha
+            sitekey="6Lfxa3kUAAAAAA2Urk0EXbI1cUKU3xUCvCG6HEIY"
+            onVerify={this.onVerify}
+          />
+          <button
+            style={style.button}
+            disabled={disabled}
+          >
+            {disabled ? '...' : 'signup'}
+          </button>
         </form>
       </div>
     );
