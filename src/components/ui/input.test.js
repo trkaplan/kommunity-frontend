@@ -50,9 +50,9 @@ describe('UI Component: <Input />', () => {
 
   test('onChangeHandler and onChange prop is called when input changed', () => {
     const newValue = 'Your new Value';
-    const args = { target: { value: 'Your new Value' } };
+    const args = { target: { value: newValue } };
     input.simulate('change', args);
-    expect(onChangeSpy.calledOnceWith(args));
+    expect(onChangeSpy.args[0][0]).toEqual(args);
     expect(wrapper.state('value')).toBe(newValue);
   });
 });
