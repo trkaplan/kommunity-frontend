@@ -38,7 +38,7 @@ server
 
     // Grab the initial state from our Redux store
     const finalState = store.getState();
-    const cssAssetUrl = _get(assets, 'client.css');
+    const cssAssetUrl = _get(assets, 'css/fonts.css');
     const jsAssetUrl = _get(assets, 'client.js');
 
     if (context.url) {
