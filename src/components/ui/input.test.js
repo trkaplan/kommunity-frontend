@@ -7,20 +7,20 @@ describe('UI Component: <Input />', () => {
   const onChangeSpy = sinon.spy();
   const wrapper = shallow(
     <Input
-    type="text"
-    extraClassName="w-6/12 mt-4 rounded-lg"
-    placeholder="Search for existing communities, type in your keyword"
-    onChange={onChangeSpy}
-    label={'label text'}
-    caption={'caption text'}
-    error={'error text'}
-    value={''}
-  />,
+      type="text"
+      extraClassName="w-6/12 mt-4 rounded-lg"
+      placeholder="Search for existing communities, type in your keyword"
+      onChange={onChangeSpy}
+      label="label text"
+      helpText="help text"
+      error="error text"
+      value="initial value"
+    />,
   );
 
   const input = wrapper.find('input');
-  test('Mounted correctly', async () => {
-    await wrapper.setProps({ value: 'initial value' });
+
+  test('sets initial value if provided', () => {
     expect(wrapper.state('value')).toBe('initial value');
   });
 
@@ -29,17 +29,17 @@ describe('UI Component: <Input />', () => {
   });
 
   test('renders label', () => {
-    const label = wrapper.find('.ui-input__label');
+    const label = wrapper.find('.label');
     expect(label.text()).toEqual('label text');
   });
 
-  test('renders caption', () => {
-    const caption = wrapper.find('.ui-input__caption');
-    expect(caption.text()).toEqual('caption text');
+  test('renders help text', () => {
+    const helpText = wrapper.find('.help-text');
+    expect(helpText.text()).toEqual('help text');
   });
 
   test('renders error text', () => {
-    const errorText = wrapper.find('.ui-input__error-text');
+    const errorText = wrapper.find('.error-text');
     expect(errorText.text()).toEqual('error text');
   });
 
@@ -49,8 +49,10 @@ describe('UI Component: <Input />', () => {
   });
 
   test('onChangeHandler and onChange prop is called when input changed', () => {
-    input.simulate('change', { target: { value: 'Your new Value' } });
-    expect(wrapper.state('value')).toBe('Your new Value');
-    expect(onChangeSpy.calledOnce).toBe(true);
+    const newValue = 'Your new Value';
+    const args = { target: { value: 'Your new Value' } };
+    input.simulate('change', args);
+    expect(onChangeSpy.calledOnceWith(args));
+    expect(wrapper.state('value')).toBe(newValue);
   });
 });
