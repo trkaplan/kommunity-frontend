@@ -1,6 +1,6 @@
 import React from 'react';
 import CommunityCard from '@/components/common/cards/community-card';
-import { Title, Paragraph } from '@/components/ui';
+import { Title, Paragraph, Input } from '@/components/ui';
 
 class FindCommunities extends React.Component {
   constructor(props) {
@@ -56,8 +56,8 @@ class FindCommunities extends React.Component {
       <section className="px-4 py-16">
         <div className="text-center">
           <Title extraClassName="text-center" type="h5">Find Communities!</Title>
-          <input
-            className="border rounded-lg outline-none w-6/12 mt-4 px-6 py-4"
+          <Input
+            extraClassName="w-6/12 mt-4 rounded-lg"
             onChange={this.handleChange}
             placeholder="Search for existing communities, type in your keyword"
             value={searchValue}
