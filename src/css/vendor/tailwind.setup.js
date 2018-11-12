@@ -123,17 +123,19 @@ module.exports = {
 
   fonts: {
     sans: [
-      'system-ui',
-      'BlinkMacSystemFont',
-      '-apple-system',
-      'Segoe UI',
-      'Roboto',
-      'Oxygen',
-      'Ubuntu',
-      'Cantarell',
-      'Fira Sans',
-      'Droid Sans',
-      'Helvetica Neue',
+      'Nunito',
+      'Muli',
+      // 'system-ui',
+      // 'BlinkMacSystemFont',
+      // '-apple-system',
+      // 'Segoe UI',
+      // 'Roboto',
+      // 'Oxygen',
+      // 'Ubuntu',
+      // 'Cantarell',
+      // 'Fira Sans',
+      // 'Droid Sans',
+      // 'Helvetica Neue',
       'sans-serif',
     ],
     serif: [
@@ -207,9 +209,10 @@ module.exports = {
 
   fontWeights: {
     light: 300,
-    normal: 500,
-    medium: 700,
-    bold: 900,
+    normal: 400,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
   },
 
 
@@ -391,6 +394,11 @@ module.exports = {
   */
 
   width: {
+    '6': '1.5rem',
+    '8': '2rem',
+    '12': '3rem',
+    '16': '4rem',
+    '48': '8rem',
     '1/4': '25%',
     '2/4': '50%',
     '3/4': '75%',
@@ -428,6 +436,11 @@ module.exports = {
   */
 
   height: {
+    '6': '1.5rem',
+    '8': '2rem',
+    '12': '3rem',
+    '16': '4rem',
+    '48': '8rem',
     auto: 'auto',
     full: '100%',
     screen: '100vh',
