@@ -12,4 +12,27 @@
  .border-box {
    box-sizing: border-box;
   }
-  
+
+#button-group > div:first-child:not(.border-lgray) {
+  @apply border-l-0;
+}
+
+#button-group > div:not(.border-lgray) {
+  @apply border-halftransparent border-t-0 border-b-0;
+}
+
+#button-group > div:last-child:not(.border-lgray) {
+  @apply border-r-0;
+}
+
+#button-group > div:first-child {
+  @apply rounded-l-lg;
+}
+
+#button-group > div {
+  @apply rounded-none;
+}
+
+#button-group > div:last-child {
+  @apply rounded-r-lg;
+}

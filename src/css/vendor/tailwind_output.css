@@ -635,6 +635,10 @@ table {
   background-color: transparent;
 }
 
+.bg-halftransparent {
+  background-color: rgb(0, 0, 0, .2);
+}
+
 .bg-white {
   background-color: #fff;
 }
@@ -683,6 +687,10 @@ table {
   background-color: transparent;
 }
 
+.hover\:bg-halftransparent:hover {
+  background-color: rgb(0, 0, 0, .2);
+}
+
 .hover\:bg-white:hover {
   background-color: #fff;
 }
@@ -729,6 +737,10 @@ table {
 
 .focus\:bg-transparent:focus {
   background-color: transparent;
+}
+
+.focus\:bg-halftransparent:focus {
+  background-color: rgb(0, 0, 0, .2);
 }
 
 .focus\:bg-white:focus {
@@ -851,6 +863,10 @@ table {
   border-color: transparent;
 }
 
+.border-halftransparent {
+  border-color: rgb(0, 0, 0, .2);
+}
+
 .border-white {
   border-color: #fff;
 }
@@ -899,6 +915,10 @@ table {
   border-color: transparent;
 }
 
+.hover\:border-halftransparent:hover {
+  border-color: rgb(0, 0, 0, .2);
+}
+
 .hover\:border-white:hover {
   border-color: #fff;
 }
@@ -945,6 +965,10 @@ table {
 
 .focus\:border-transparent:focus {
   border-color: transparent;
+}
+
+.focus\:border-halftransparent:focus {
+  border-color: rgb(0, 0, 0, .2);
 }
 
 .focus\:border-white:focus {
@@ -2717,26 +2741,6 @@ table {
   box-shadow: none;
 }
 
-.focus\:shadow:focus {
-  box-shadow: 0 0 1px 0 rgba(23, 43, 77, .24);
-}
-
-.focus\:shadow-md:focus {
-  box-shadow: 0 2px 4px 0 rgba(23, 43, 77, .24);
-}
-
-.focus\:shadow-lg:focus {
-  box-shadow: 0 6px 8px 0 rgba(23, 43, 77, .24);
-}
-
-.focus\:shadow-xl:focus {
-  box-shadow:  0 20px 28px 0 rgba(23, 43, 77, .24);
-}
-
-.focus\:shadow-none:focus {
-  box-shadow: none;
-}
-
 .fill-current {
   fill: currentColor;
 }
@@ -2763,6 +2767,10 @@ table {
 
 .text-transparent {
   color: transparent;
+}
+
+.text-halftransparent {
+  color: rgb(0, 0, 0, .2);
 }
 
 .text-white {
@@ -2813,6 +2821,10 @@ table {
   color: transparent;
 }
 
+.hover\:text-halftransparent:hover {
+  color: rgb(0, 0, 0, .2);
+}
+
 .hover\:text-white:hover {
   color: #fff;
 }
@@ -2859,6 +2871,10 @@ table {
 
 .focus\:text-transparent:focus {
   color: transparent;
+}
+
+.focus\:text-halftransparent:focus {
+  color: rgb(0, 0, 0, .2);
 }
 
 .focus\:text-white:focus {
@@ -3231,6 +3247,34 @@ table {
 
 .border-box {
   box-sizing: border-box;
+}
+
+#button-group > div:first-child:not(.border-lgray) {
+  border-left-width: 0;
+}
+
+#button-group > div:not(.border-lgray) {
+  border-color: rgb(0, 0, 0, .2);
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
+
+#button-group > div:last-child:not(.border-lgray) {
+  border-right-width: 0;
+}
+
+#button-group > div:first-child {
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
+#button-group > div {
+  border-radius: 0;
+}
+
+#button-group > div:last-child {
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
 }
 
 @media (max-width: 767px) {
@@ -4452,6 +4496,10 @@ table {
     color: transparent;
   }
 
+  .sm\:text-halftransparent {
+    color: rgb(0, 0, 0, .2);
+  }
+
   .sm\:text-white {
     color: #fff;
   }
@@ -4500,6 +4548,10 @@ table {
     color: transparent;
   }
 
+  .sm\:hover\:text-halftransparent:hover {
+    color: rgb(0, 0, 0, .2);
+  }
+
   .sm\:hover\:text-white:hover {
     color: #fff;
   }
@@ -4546,6 +4598,10 @@ table {
 
   .sm\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .sm\:focus\:text-halftransparent:focus {
+    color: rgb(0, 0, 0, .2);
   }
 
   .sm\:focus\:text-white:focus {
@@ -6032,6 +6088,10 @@ table {
     color: transparent;
   }
 
+  .md\:text-halftransparent {
+    color: rgb(0, 0, 0, .2);
+  }
+
   .md\:text-white {
     color: #fff;
   }
@@ -6080,6 +6140,10 @@ table {
     color: transparent;
   }
 
+  .md\:hover\:text-halftransparent:hover {
+    color: rgb(0, 0, 0, .2);
+  }
+
   .md\:hover\:text-white:hover {
     color: #fff;
   }
@@ -6126,6 +6190,10 @@ table {
 
   .md\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .md\:focus\:text-halftransparent:focus {
+    color: rgb(0, 0, 0, .2);
   }
 
   .md\:focus\:text-white:focus {
@@ -7612,6 +7680,10 @@ table {
     color: transparent;
   }
 
+  .lg\:text-halftransparent {
+    color: rgb(0, 0, 0, .2);
+  }
+
   .lg\:text-white {
     color: #fff;
   }
@@ -7660,6 +7732,10 @@ table {
     color: transparent;
   }
 
+  .lg\:hover\:text-halftransparent:hover {
+    color: rgb(0, 0, 0, .2);
+  }
+
   .lg\:hover\:text-white:hover {
     color: #fff;
   }
@@ -7706,6 +7782,10 @@ table {
 
   .lg\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .lg\:focus\:text-halftransparent:focus {
+    color: rgb(0, 0, 0, .2);
   }
 
   .lg\:focus\:text-white:focus {
