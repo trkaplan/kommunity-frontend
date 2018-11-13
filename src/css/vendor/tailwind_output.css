@@ -3249,34 +3249,6 @@ table {
   box-sizing: border-box;
 }
 
-#button-group > div:first-child:not(.border-lgray) {
-  border-left-width: 0;
-}
-
-#button-group > div:not(.border-lgray) {
-  border-color: rgb(0, 0, 0, .2);
-  border-top-width: 0;
-  border-bottom-width: 0;
-}
-
-#button-group > div:last-child:not(.border-lgray) {
-  border-right-width: 0;
-}
-
-#button-group > div:first-child {
-  border-top-left-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem;
-}
-
-#button-group > div {
-  border-radius: 0;
-}
-
-#button-group > div:last-child {
-  border-top-right-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
-}
-
 @media (max-width: 767px) {
   .sm\:appearance-none {
     appearance: none;

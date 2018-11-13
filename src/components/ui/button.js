@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cls from 'classnames';
 
 const style = {
-  common: 'button inline-block text-center cursor-pointer border border-transparent border-box rounded-lg',
+  common: 'button inline-block text-center cursor-pointer border border-transparent ',
   container: {
     danger: 'text-white bg-red',
     outline: 'text-gray bg-white hover:bg-xlgray border-lgray',
@@ -20,12 +20,19 @@ const style = {
 
 const UIButton = (props) => {
   const {
-    disabled, extraClassName, size, type, label, onClick,
+    disabled, extraClassName, size, type, label, onClick, groupOrder,
   } = props;
   const className = cls(style.common, style.label[size], style.container[type], {
+    'border-halftransparent border-t-0 border-b-0': groupOrder !== 'none' && ['outline'].indexOf(type) < 0,
+    'border-l-0': groupOrder === 'first' && ['outline'].indexOf(type) < 0,
+    'border-r-0': groupOrder === 'last' && ['outline'].indexOf(type) < 0,
     'cursor-not-allowed': disabled,
     'hover:opacity-80': !disabled && ['primary', 'secondary'].indexOf(type) > -1,
     'opacity-20': disabled && type !== 'plain',
+    'rounded-l-lg': groupOrder === 'first',
+    'rounded-lg': groupOrder === 'none',
+    'rounded-none': groupOrder === 'middle',
+    'rounded-r-lg': groupOrder === 'last',
     'text-lgray hover:text-lgray': disabled && type === 'plain',
   });
   return (
@@ -37,6 +44,7 @@ const UIButton = (props) => {
 
 UIButton.defaultProps = {
   disabled: false,
+  groupOrder: 'none',
   size: 'medium',
   type: 'primary',
 };
@@ -44,6 +52,7 @@ UIButton.defaultProps = {
 UIButton.propTypes = {
   disabled: PropTypes.bool,
   extraClassName: PropTypes.string,
+  groupOrder: PropTypes.oneOf(['first', 'middle', 'last', 'none']).isRequired,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']).isRequired,
