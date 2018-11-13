@@ -50,7 +50,7 @@ const colors = {
   blue: '#325FFF',
   darkblue: '#243983',
   xdarkblue: '#192344',
-  black: '#212B36',
+  black: '#383b41',
   gray: '#919EAB',
   lgray: '#C4CDD5',
   xlgray: '#F9FAFB',
@@ -123,17 +123,19 @@ module.exports = {
 
   fonts: {
     sans: [
-      'system-ui',
-      'BlinkMacSystemFont',
-      '-apple-system',
-      'Segoe UI',
-      'Roboto',
-      'Oxygen',
-      'Ubuntu',
-      'Cantarell',
-      'Fira Sans',
-      'Droid Sans',
-      'Helvetica Neue',
+      'Nunito',
+      'Muli',
+      // 'system-ui',
+      // 'BlinkMacSystemFont',
+      // '-apple-system',
+      // 'Segoe UI',
+      // 'Roboto',
+      // 'Oxygen',
+      // 'Ubuntu',
+      // 'Cantarell',
+      // 'Fira Sans',
+      // 'Droid Sans',
+      // 'Helvetica Neue',
       'sans-serif',
     ],
     serif: [
@@ -207,9 +209,10 @@ module.exports = {
 
   fontWeights: {
     light: 300,
-    normal: 500,
-    medium: 700,
-    bold: 900,
+    normal: 400,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
   },
 
 
@@ -391,6 +394,11 @@ module.exports = {
   */
 
   width: {
+    '6': '1.5rem',
+    '8': '2rem',
+    '12': '3rem',
+    '16': '4rem',
+    '48': '8rem',
     '1/4': '25%',
     '2/4': '50%',
     '3/4': '75%',
@@ -428,6 +436,11 @@ module.exports = {
   */
 
   height: {
+    '6': '1.5rem',
+    '8': '2rem',
+    '12': '3rem',
+    '16': '4rem',
+    '48': '8rem',
     auto: 'auto',
     full: '100%',
     screen: '100vh',
@@ -720,15 +733,15 @@ module.exports = {
   modules: {
     appearance: ['responsive'],
     backgroundAttachment: [],
-    backgroundColors: ['hover'],
+    backgroundColors: ['hover', 'focus', 'disabled'],
     backgroundPosition: [],
     backgroundRepeat: [],
     backgroundSize: [],
     borderCollapse: [],
-    borderColors: ['hover'],
+    borderColors: ['hover', 'focus'],
     borderRadius: [],
     borderStyle: [],
-    borderWidths: [],
+    borderWidths: ['focus'],
     cursor: [],
     display: ['responsive'],
     flexbox: ['responsive'],
@@ -745,7 +758,7 @@ module.exports = {
     minWidth: [],
     negativeMargin: false,
     opacity: ['hover'],
-    outline: [],
+    outline: ['focus'],
     overflow: ['responsive'],
     padding: ['responsive'],
     pointerEvents: [],
@@ -756,7 +769,7 @@ module.exports = {
     svgStroke: [],
     tableLayout: false,
     textAlign: ['responsive'],
-    textColors: ['responsive', 'hover'],
+    textColors: ['responsive', 'hover', 'focus'],
     textSizes: ['responsive'],
     textStyle: ['responsive', 'hover'],
     tracking: [],
@@ -789,6 +802,8 @@ module.exports = {
       center: true,
       // padding: '1rem',
     }),
+    // eslint-disable-next-line
+    require('./tailwind-add-variants.plugin.js')(),
   ],
 
 
