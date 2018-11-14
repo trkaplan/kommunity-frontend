@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 
 describe('UI Component: <Icon />', () => {
   const wrapper = shallow(
-    <Icon name="camera" className="my-6" custom="random" />,
+    <Icon name="Camera" className="my-6" custom="random" />,
   );
 
   test('renders icon correctly', () => {

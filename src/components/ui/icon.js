@@ -1,13 +1,13 @@
 import React from 'react';
+import * as Icons from 'react-feather';
 
 // Example usage:
-// <Icon name="camera" className="my-6" />
+// <Icon name="Camera" className="my-6" />
 // See whats available here:
 // https://feathericons.com/
 const Icon = (props) => {
-  // eslint-disable-next-line
-  const IconComponent = require(`react-feather/dist/icons/${props.name}`).default;
-  return <IconComponent {...props} />;
+  const IconComp = Icons[props.name];
+  return <IconComp {...props} />;
 };
 
 export default Icon;
