@@ -31,6 +31,7 @@ class UIInput extends Component {
     this.setState({
       value,
     });
+    /* istanbul ignore else */
     if (onChange) {
       onChange(e);
     }
