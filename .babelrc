@@ -9,6 +9,13 @@
 				"rootPathSuffix": "src/",
 				"rootPathPrefix": "@"
 			}
+		],
+		[ "import",
+			{
+				"libraryName": "react-feather",
+				"libraryDirectory": "dist/icons"
+			},
+			"react-feather"
 		]
 	]
 }
