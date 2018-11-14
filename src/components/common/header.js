@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, Button } from '@/components/ui';
+import { Link, Button, Input } from '@/components/ui';
+import { Search } from 'react-feather';
 
 const Header = () => {
   const linkCls = 'px-4 py-2';
@@ -14,7 +15,12 @@ const Header = () => {
       </div>
       <div className="flex items-center">
         <div className="mr-4">
-          <span role='img' aria-label='search'>🔍</span> <input className="text-gray px-4 py-2" placeholder="Search Communities" />
+          <Input
+            iconLeft={<Search className="stroke-current text-lgray" />}
+            placeholder="Search Communities"
+            type="text"
+            noBorder
+          />
         </div>
         <Link extraClassName={linkCls} to="/login">Login</Link>
         <Link extraClassName={linkCls} to="/signup">

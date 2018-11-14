@@ -603,7 +603,9 @@ module.exports = {
   |
   */
 
-  negativeMargin: {},
+  negativeMargin: {
+    12: '3rem',
+  },
 
 
   /*
@@ -756,7 +758,7 @@ module.exports = {
     maxWidth: [],
     minHeight: [],
     minWidth: [],
-    negativeMargin: false,
+    negativeMargin: [],
     opacity: ['hover'],
     outline: ['focus'],
     overflow: ['responsive'],
