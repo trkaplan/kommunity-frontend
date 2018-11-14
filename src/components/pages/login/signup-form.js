@@ -33,40 +33,41 @@ class Signup extends React.Component {
     this.state = {
       disabled: false,
       email: '',
+      error: null,
       password: '',
       passwordRepeat: '',
       response: null,
-      verified: false,
     };
 
+    // reference for invisible captcha
+    this.captcha = null;
+
+    // binders
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onVerify = () => {
-    this.setState({ verified: true });
-  };
-
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({ error: null });
 
     // password match validation
-    const {
-      password, passwordRepeat, verified,
-    } = this.state;
-    if (password !== passwordRepeat) {
-      this.setState({ response: 'passwords don\'t match!' });
-    } else {
-      this.setState({ disabled: true, response: null });
+    const { password, passwordRepeat } = this.state;
 
-      if (verified) {
-        signup(this.state.email, this.state.password)
-          .then(response => this.setState({ disabled: false, response: JSON.stringify(response) }))
-          .catch(error => this.setState({ disabled: false, response: error.message }));
-      } else {
-        this.setState({ disabled: false, response: 'captcha is not verified!' });
-      }
+    if (password !== passwordRepeat) {
+      this.setState({ error: { message: 'passwords don\'t match!' } });
+    } else {
+      this.setState({ disabled: true });
+      this.captcha.execute();
     }
+  }
+
+  // captcha verification
+  onVerify = () => {
+    // TODO bariscc: redirect user to boarding page on success
+    signup(this.state.email, this.state.password)
+      .then(response => this.setState({ disabled: false, response }))
+      .catch(error => this.setState({ disabled: false, error }));
   }
 
   handleInputChange(event) {
@@ -77,14 +78,17 @@ class Signup extends React.Component {
 
   render() {
     const {
-      email, password, passwordRepeat, disabled, response,
+      email, password, passwordRepeat, disabled, response, error,
     } = this.state;
+
+    if (response) { return <div>registration successful</div>; }
 
     return (
       <div>
-        <p>{response || ''}</p>
-
-        <form onSubmit={this.handleSubmit}>
+        {error
+          && <p>{error.message}</p>
+        }
+        <form onSubmit={this.handleSubmit} method="POST">
           <input style={style.input}
             type="email"
             name="email"
@@ -109,13 +113,14 @@ class Signup extends React.Component {
             onChange={this.handleInputChange}
             required/>
           <Reaptcha
+            ref={(e) => { this.captcha = e; }}
             sitekey="6Lfxa3kUAAAAAA2Urk0EXbI1cUKU3xUCvCG6HEIY"
-            onVerify={this.onVerify}
-          />
+            size="invisible"
+            onVerify={this.onVerify}/>
           <button
+            type="submit"
             style={style.button}
-            disabled={disabled}
-          >
+            disabled={disabled}>
             {disabled ? '...' : 'signup'}
           </button>
         </form>

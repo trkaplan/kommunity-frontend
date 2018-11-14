@@ -22,23 +22,9 @@ export const login = (username, password) => {
 };
 
 export const signup = (email, password) => {
-  // TODO(bariscc): once backend is ready, uncomment this and start making actual calls
-
-  /*
   return makeRequest('post', '/api/v1/member/signup', {
     email,
     password,
-  });
-  */
-
-  // fake response, replace with actual call
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (email && password) {
-        resolve('registration successful!');
-      }
-      reject(new Error('registration failed!'));
-    }, 500);
   });
 };
 
