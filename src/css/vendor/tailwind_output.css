@@ -635,7 +635,7 @@ table {
   background-color: transparent;
 }
 
-.bg-halftransparent {
+.bg-transparent20 {
   background-color: rgb(0, 0, 0, .2);
 }
 
@@ -687,7 +687,7 @@ table {
   background-color: transparent;
 }
 
-.hover\:bg-halftransparent:hover {
+.hover\:bg-transparent20:hover {
   background-color: rgb(0, 0, 0, .2);
 }
 
@@ -739,7 +739,7 @@ table {
   background-color: transparent;
 }
 
-.focus\:bg-halftransparent:focus {
+.focus\:bg-transparent20:focus {
   background-color: rgb(0, 0, 0, .2);
 }
 
@@ -863,7 +863,7 @@ table {
   border-color: transparent;
 }
 
-.border-halftransparent {
+.border-transparent20 {
   border-color: rgb(0, 0, 0, .2);
 }
 
@@ -915,7 +915,7 @@ table {
   border-color: transparent;
 }
 
-.hover\:border-halftransparent:hover {
+.hover\:border-transparent20:hover {
   border-color: rgb(0, 0, 0, .2);
 }
 
@@ -967,7 +967,7 @@ table {
   border-color: transparent;
 }
 
-.focus\:border-halftransparent:focus {
+.focus\:border-transparent20:focus {
   border-color: rgb(0, 0, 0, .2);
 }
 
@@ -2769,7 +2769,7 @@ table {
   color: transparent;
 }
 
-.text-halftransparent {
+.text-transparent20 {
   color: rgb(0, 0, 0, .2);
 }
 
@@ -2821,7 +2821,7 @@ table {
   color: transparent;
 }
 
-.hover\:text-halftransparent:hover {
+.hover\:text-transparent20:hover {
   color: rgb(0, 0, 0, .2);
 }
 
@@ -2873,7 +2873,7 @@ table {
   color: transparent;
 }
 
-.focus\:text-halftransparent:focus {
+.focus\:text-transparent20:focus {
   color: rgb(0, 0, 0, .2);
 }
 
@@ -4468,7 +4468,7 @@ table {
     color: transparent;
   }
 
-  .sm\:text-halftransparent {
+  .sm\:text-transparent20 {
     color: rgb(0, 0, 0, .2);
   }
 
@@ -4520,7 +4520,7 @@ table {
     color: transparent;
   }
 
-  .sm\:hover\:text-halftransparent:hover {
+  .sm\:hover\:text-transparent20:hover {
     color: rgb(0, 0, 0, .2);
   }
 
@@ -4572,7 +4572,7 @@ table {
     color: transparent;
   }
 
-  .sm\:focus\:text-halftransparent:focus {
+  .sm\:focus\:text-transparent20:focus {
     color: rgb(0, 0, 0, .2);
   }
 
@@ -6060,7 +6060,7 @@ table {
     color: transparent;
   }
 
-  .md\:text-halftransparent {
+  .md\:text-transparent20 {
     color: rgb(0, 0, 0, .2);
   }
 
@@ -6112,7 +6112,7 @@ table {
     color: transparent;
   }
 
-  .md\:hover\:text-halftransparent:hover {
+  .md\:hover\:text-transparent20:hover {
     color: rgb(0, 0, 0, .2);
   }
 
@@ -6164,7 +6164,7 @@ table {
     color: transparent;
   }
 
-  .md\:focus\:text-halftransparent:focus {
+  .md\:focus\:text-transparent20:focus {
     color: rgb(0, 0, 0, .2);
   }
 
@@ -7652,7 +7652,7 @@ table {
     color: transparent;
   }
 
-  .lg\:text-halftransparent {
+  .lg\:text-transparent20 {
     color: rgb(0, 0, 0, .2);
   }
 
@@ -7704,7 +7704,7 @@ table {
     color: transparent;
   }
 
-  .lg\:hover\:text-halftransparent:hover {
+  .lg\:hover\:text-transparent20:hover {
     color: rgb(0, 0, 0, .2);
   }
 
@@ -7756,7 +7756,7 @@ table {
     color: transparent;
   }
 
-  .lg\:focus\:text-halftransparent:focus {
+  .lg\:focus\:text-transparent20:focus {
     color: rgb(0, 0, 0, .2);
   }
 
