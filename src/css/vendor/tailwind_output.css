@@ -526,6 +526,10 @@ table {
   background-color: transparent;
 }
 
+.bg-transparent20 {
+  background-color: rgb(0, 0, 0, .2);
+}
+
 .bg-white {
   background-color: #fff;
 }
@@ -574,6 +578,10 @@ table {
   background-color: transparent;
 }
 
+.hover\:bg-transparent20:hover {
+  background-color: rgb(0, 0, 0, .2);
+}
+
 .hover\:bg-white:hover {
   background-color: #fff;
 }
@@ -620,6 +628,10 @@ table {
 
 .focus\:bg-transparent:focus {
   background-color: transparent;
+}
+
+.focus\:bg-transparent20:focus {
+  background-color: rgb(0, 0, 0, .2);
 }
 
 .focus\:bg-white:focus {
@@ -790,6 +802,10 @@ table {
   border-color: transparent;
 }
 
+.border-transparent20 {
+  border-color: rgb(0, 0, 0, .2);
+}
+
 .border-white {
   border-color: #fff;
 }
@@ -838,6 +854,10 @@ table {
   border-color: transparent;
 }
 
+.hover\:border-transparent20:hover {
+  border-color: rgb(0, 0, 0, .2);
+}
+
 .hover\:border-white:hover {
   border-color: #fff;
 }
@@ -884,6 +904,10 @@ table {
 
 .focus\:border-transparent:focus {
   border-color: transparent;
+}
+
+.focus\:border-transparent20:focus {
+  border-color: rgb(0, 0, 0, .2);
 }
 
 .focus\:border-white:focus {
@@ -2715,6 +2739,10 @@ table {
   color: transparent;
 }
 
+.text-transparent20 {
+  color: rgb(0, 0, 0, .2);
+}
+
 .text-white {
   color: #fff;
 }
@@ -2763,6 +2791,10 @@ table {
   color: transparent;
 }
 
+.hover\:text-transparent20:hover {
+  color: rgb(0, 0, 0, .2);
+}
+
 .hover\:text-white:hover {
   color: #fff;
 }
@@ -2809,6 +2841,10 @@ table {
 
 .focus\:text-transparent:focus {
   color: transparent;
+}
+
+.focus\:text-transparent20:focus {
+  color: rgb(0, 0, 0, .2);
 }
 
 .focus\:text-white:focus {
@@ -4411,6 +4447,10 @@ table {
     color: transparent;
   }
 
+  .sm\:text-transparent20 {
+    color: rgb(0, 0, 0, .2);
+  }
+
   .sm\:text-white {
     color: #fff;
   }
@@ -4459,6 +4499,10 @@ table {
     color: transparent;
   }
 
+  .sm\:hover\:text-transparent20:hover {
+    color: rgb(0, 0, 0, .2);
+  }
+
   .sm\:hover\:text-white:hover {
     color: #fff;
   }
@@ -4505,6 +4549,10 @@ table {
 
   .sm\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .sm\:focus\:text-transparent20:focus {
+    color: rgb(0, 0, 0, .2);
   }
 
   .sm\:focus\:text-white:focus {
@@ -5994,6 +6042,10 @@ table {
     color: transparent;
   }
 
+  .md\:text-transparent20 {
+    color: rgb(0, 0, 0, .2);
+  }
+
   .md\:text-white {
     color: #fff;
   }
@@ -6042,6 +6094,10 @@ table {
     color: transparent;
   }
 
+  .md\:hover\:text-transparent20:hover {
+    color: rgb(0, 0, 0, .2);
+  }
+
   .md\:hover\:text-white:hover {
     color: #fff;
   }
@@ -6088,6 +6144,10 @@ table {
 
   .md\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .md\:focus\:text-transparent20:focus {
+    color: rgb(0, 0, 0, .2);
   }
 
   .md\:focus\:text-white:focus {
@@ -7577,6 +7637,10 @@ table {
     color: transparent;
   }
 
+  .lg\:text-transparent20 {
+    color: rgb(0, 0, 0, .2);
+  }
+
   .lg\:text-white {
     color: #fff;
   }
@@ -7625,6 +7689,10 @@ table {
     color: transparent;
   }
 
+  .lg\:hover\:text-transparent20:hover {
+    color: rgb(0, 0, 0, .2);
+  }
+
   .lg\:hover\:text-white:hover {
     color: #fff;
   }
@@ -7671,6 +7739,10 @@ table {
 
   .lg\:focus\:text-transparent:focus {
     color: transparent;
+  }
+
+  .lg\:focus\:text-transparent20:focus {
+    color: rgb(0, 0, 0, .2);
   }
 
   .lg\:focus\:text-white:focus {
