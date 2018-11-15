@@ -16,10 +16,9 @@ const Header = () => {
       <div className="flex items-center">
         <div className="mr-4">
           <Input
-            iconLeft={<Search className="stroke-current text-lgray" />}
+            iconLeft={<Search className="stroke-current text-lgray border-none" />}
             placeholder="Search Communities"
             type="text"
-            noBorder
           />
         </div>
         <Link extraClassName={linkCls} to="/login">Login</Link>

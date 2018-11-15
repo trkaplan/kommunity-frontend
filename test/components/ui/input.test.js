@@ -16,7 +16,7 @@ describe('UI Component: <Input />', () => {
       onChange={onChangeSpy}
       label="label text"
       helpText="help text"
-      error="error text"
+      errorText="error text"
       value="initial value"
       iconLeft={<Search className={iconLeftClass} />}
       iconRight={<Delete className={iconRightClass} />}
