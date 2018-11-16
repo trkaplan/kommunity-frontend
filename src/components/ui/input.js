@@ -7,7 +7,7 @@ const style = {
     'ui-input inline-block border border-lgray w-full px-4 rounded bg-white leading-2xl text-base focus:text-black focus:bg-white focus:border-blue focus:border-2 focus:outline-none disabled:bg-xlgray',
   errorText: 'error-text text-red my-2 leading-base',
   helpText: 'help-text text-gray leading-base',
-  icon: 'h-12 w-12 leading-base inline-block absolute inline-flex items-center justify-center',
+  icon: 'h-12 w-12 leading-base absolute inline-flex items-center justify-center',
   iconLeft: 'icon-left pin-l',
   iconRight: 'icon-right pin-r',
   label: 'label text-black block leading-base font-normal',
