@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import CommunityCard from '@/components/common/cards/community-card';
 import Header from '@/components/common/header';
@@ -41,11 +42,12 @@ const style = {
 
 class CommunityList extends Component {
   render() {
+    const { t } = this.props;
     return (
       <div style={style.container}>
         <Header />
         <div style={style.searchBar}>Search Bar!</div>
-        <h3>Hot Communities</h3>
+        <h3>{t('communities.title')}</h3>
         <div style={style.middle}>
           <div style={style.userCommunities}>
             {[1, 2, 3, 4].map((item, idx) => (
@@ -73,4 +75,7 @@ class CommunityList extends Component {
   }
 }
 
+CommunityList.propTypes = {
+  t: PropTypes.func.isRequired,
+};
 export default CommunityList;
