@@ -46,6 +46,7 @@ View the full documentation at https://tailwindcss.com.
 
 const colors = {
   transparent: 'transparent',
+  transparent20: 'rgb(0, 0, 0, 0.2)',
   white: '#FFFFFF',
   blue: '#325FFF',
   darkblue: '#243983',

@@ -20,7 +20,7 @@ UIImage.defaultProps = {
 UIImage.propTypes = {
   alt: PropTypes.string,
   className: PropTypes.string,
-  height: PropTypes.int,
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   lazy: PropTypes.bool,
   src: PropTypes.string,
 };
