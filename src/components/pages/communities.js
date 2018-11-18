@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import CommunityCard from '@/components/common/cards/community-card';
 import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
 import { Button } from '@/components/ui';
+
+import i18n from '@/i18n';
 
 const style = {
   button: {
@@ -42,12 +43,11 @@ const style = {
 
 class CommunityList extends Component {
   render() {
-    const { t } = this.props;
     return (
       <div style={style.container}>
         <Header />
         <div style={style.searchBar}>Search Bar!</div>
-        <h3>{t('communities.title')}</h3>
+        <h3>{i18n.t('communities.title')}</h3>
         <div style={style.middle}>
           <div style={style.userCommunities}>
             {[1, 2, 3, 4].map((item, idx) => (
@@ -75,7 +75,6 @@ class CommunityList extends Component {
   }
 }
 
-CommunityList.propTypes = {
-  t: PropTypes.func.isRequired,
-};
+CommunityList.propTypes = {};
+
 export default CommunityList;

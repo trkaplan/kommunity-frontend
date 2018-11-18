@@ -1,13 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Title, Paragraph } from '@/components/ui';
-import { withNamespaces } from 'react-i18next';
 
-const HomeHero = ({ t }) => (
+const HomeHero = () => (
   <div className="flex py-6 px-4">
     <div className="self-center">
       <Title type="h3">
-        {t('homehero.title')}
+        Join, start and build online communities!
       </Title>
       <Paragraph extraClassName="mt-4">
         All your communities, apps, and contacts in one big platform.
@@ -18,7 +16,7 @@ const HomeHero = ({ t }) => (
     </div>
   </div>
 );
-HomeHero.propTypes = {
-  t: PropTypes.func.isRequired,
-};
-export default withNamespaces('translations')(HomeHero);
+
+HomeHero.propTypes = {};
+
+export default HomeHero;
