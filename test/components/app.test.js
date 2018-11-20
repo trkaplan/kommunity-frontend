@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import MemoryRouter from 'react-router-dom/MemoryRouter';
 import { mount } from 'enzyme';
 import { createMemoryHistory } from 'history';
-
 import setupStore from '@/state/store';
 import App from '@/components/app';
 
@@ -15,7 +14,7 @@ describe('Components: <App />', () => {
     const wrapper = mount(
       <Provider store={store}>
         <MemoryRouter>
-          <App />
+          <App/>
         </MemoryRouter>
       </Provider>,
     );

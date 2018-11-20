@@ -2,9 +2,12 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { Input } from '@/components/ui';
+import { Search, Delete } from 'react-feather';
 
 describe('UI Component: <Input />', () => {
   const onChangeSpy = sinon.spy();
+  const iconLeftClass = 'stroke-current text-lgray';
+  const iconRightClass = 'stroke-current text-black';
   const wrapper = shallow(
     <Input
       type="text"
@@ -13,8 +16,10 @@ describe('UI Component: <Input />', () => {
       onChange={onChangeSpy}
       label="label text"
       helpText="help text"
-      error="error text"
+      errorText="error text"
       value="initial value"
+      iconLeft={<Search className={iconLeftClass} />}
+      iconRight={<Delete className={iconRightClass} />}
     />,
   );
 
@@ -54,5 +59,13 @@ describe('UI Component: <Input />', () => {
     input.simulate('change', args);
     expect(onChangeSpy.args[0][0]).toEqual(args);
     expect(wrapper.state('value')).toBe(newValue);
+  });
+
+  test('renders given Left Icon correctly', () => {
+    expect(wrapper.find('.icon-left').childAt(0).hasClass(iconLeftClass)).toBe(true);
+  });
+
+  test('renders given Right Icon correctly', () => {
+    expect(wrapper.find('.icon-right').childAt(0).hasClass(iconRightClass)).toBe(true);
   });
 });

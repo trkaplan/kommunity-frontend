@@ -5,6 +5,8 @@ import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
 import { Button } from '@/components/ui';
 
+import i18n from '@/i18n';
+
 const style = {
   button: {
     height: '100px',
@@ -45,7 +47,7 @@ class CommunityList extends Component {
       <div style={style.container}>
         <Header />
         <div style={style.searchBar}>Search Bar!</div>
-        <h3>Hot Communities</h3>
+        <h3>{i18n.t('communities.title')}</h3>
         <div style={style.middle}>
           <div style={style.userCommunities}>
             {[1, 2, 3, 4].map((item, idx) => (
@@ -72,5 +74,7 @@ class CommunityList extends Component {
     );
   }
 }
+
+CommunityList.propTypes = {};
 
 export default CommunityList;

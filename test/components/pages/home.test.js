@@ -8,7 +8,7 @@ describe('Components: <Home />', () => {
   test('renders without exploding', () => {
     const wrapper = shallow(
       <MemoryRouter>
-        <Home />
+        <Home/>
       </MemoryRouter>,
     );
     expect(wrapper.html()).toContain('div');

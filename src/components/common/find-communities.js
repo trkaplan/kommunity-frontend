@@ -57,7 +57,8 @@ class FindCommunities extends React.Component {
         <div className="text-center">
           <Title extraClassName="text-center" type="h5">Find Communities!</Title>
           <Input
-            extraClassName="w-6/12 mt-4 rounded-lg"
+            extraWrapperClassName="w-6/12 mt-4 inline-block"
+            extraClassName="rounded-lg"
             onChange={this.handleChange}
             placeholder="Search for existing communities, type in your keyword"
             value={searchValue}
@@ -65,17 +66,17 @@ class FindCommunities extends React.Component {
           />
         </div>
         <Paragraph extraClassName="mt-8 text-center">
-          { displayCommunities ? 'Results' : 'No communities found'}
+          {displayCommunities ? 'Results' : 'No communities found'}
         </Paragraph>
         {
           // If search box is empty display popular communities
           searchValue === ''
             ? popularCommunities.map(community => <CommunityCard key={community.id}
-              name={community.name}/>)
+              name={community.name} />)
             // Else Show search results!
             : results.map(community => <CommunityCard key={community.id}
-              name={community.name}/>)
-          }
+              name={community.name} />)
+        }
       </section>
     );
   }

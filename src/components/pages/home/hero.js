@@ -17,4 +17,6 @@ const HomeHero = () => (
   </div>
 );
 
+HomeHero.propTypes = {};
+
 export default HomeHero;

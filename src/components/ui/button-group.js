@@ -10,7 +10,7 @@ const ButtonGroup = (props) => {
   });
 
   return (
-    <div>
+    <div extraClassName={props.extraClassName}>
       {newButtons}
     </div>
   );
@@ -18,6 +18,7 @@ const ButtonGroup = (props) => {
 
 ButtonGroup.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  extraClassName: PropTypes.string,
 };
 
 export default ButtonGroup;
