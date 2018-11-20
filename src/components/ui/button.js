@@ -27,31 +27,38 @@ const style = {
 class UIButton extends React.Component {
   getClassnames = () => {
     const {
-      disabled, size, type, groupOrder,
+      disabled, size, groupOrder, styleType,
     } = this.props;
 
     return cls(style.common, style.groupOrder[groupOrder],
-      style.label[size], style.container[type], {
-        // remove border-left on first item except outline type
-        'border-l-0': groupOrder === 'first' && ['outline'].indexOf(type) < 0,
-        // remove border-right on last item except outline type
-        'border-r-0': groupOrder === 'last' && ['outline'].indexOf(type) < 0,
-        // remove border-top-bottom and add bordercolor except outline type
-        'border-transparent20 border-t-0 border-b-0': groupOrder !== 'none' && ['outline'].indexOf(type) < 0,
+      style.label[size], style.container[styleType], {
+        // remove border-left on first item except outline styleType
+        'border-l-0': groupOrder === 'first' && ['outline'].indexOf(styleType) < 0,
+        // remove border-right on last item except outline styleType
+        'border-r-0': groupOrder === 'last' && ['outline'].indexOf(styleType) < 0,
+        // remove border-top-bottom and add bordercolor except outline styleType
+        'border-transparent20 border-t-0 border-b-0': groupOrder !== 'none' && ['outline'].indexOf(styleType) < 0,
         'cursor-not-allowed': disabled,
-        'hover:opacity-80': !disabled && ['primary', 'secondary'].indexOf(type) > -1,
-        'opacity-20': disabled && type !== 'plain',
-        'text-lgray hover:text-lgray': disabled && type === 'plain',
+        'hover:opacity-80': !disabled && ['primary', 'secondary'].indexOf(styleType) > -1,
+        'opacity-20': disabled && styleType !== 'plain',
+        'text-lgray hover:text-lgray': disabled && styleType === 'plain',
       });
   }
 
   render() {
-    const { extraClassName, label, onClick } = this.props;
+    const {
+      extraClassName, label, onClick, type, disabled,
+    } = this.props;
 
     return (
-      <div onClick={onClick} className={cls(this.getClassnames(), extraClassName)}>
+      <button
+        onClick={onClick}
+        className={cls(this.getClassnames(), extraClassName)}
+        disabled={disabled}
+        type={type}
+      >
         {label}
-      </div>
+      </button>
     );
   }
 }
@@ -60,7 +67,7 @@ UIButton.defaultProps = {
   disabled: false,
   groupOrder: 'none',
   size: 'medium',
-  type: 'primary',
+  styleType: 'primary',
 };
 
 UIButton.propTypes = {
@@ -70,7 +77,8 @@ UIButton.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']).isRequired,
-  type: PropTypes.oneOf(['primary', 'secondary', 'outline', 'danger', 'plain']).isRequired,
+  styleType: PropTypes.oneOf(['primary', 'secondary', 'outline', 'danger', 'plain']).isRequired,
+  type: PropTypes.string,
 };
 
 export default UIButton;

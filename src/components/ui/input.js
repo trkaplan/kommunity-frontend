@@ -50,6 +50,10 @@ class UIInput extends Component {
       iconLeft,
       iconRight,
       extraWrapperClassName,
+      required,
+      pattern,
+      name,
+      minLength,
     } = this.props;
 
     const wrapperClass = cls(style.wrapper, extraWrapperClassName);
@@ -89,6 +93,10 @@ class UIInput extends Component {
             disabled={disabled}
             value={this.state.value}
             onChange={event => this.onChangeHandler(event, onChange)}
+            required={required}
+            pattern={pattern}
+            minLength={minLength}
+            name={name}
           />
           {iconRightElem}
         </div>
@@ -114,8 +122,12 @@ UIInput.propTypes = {
   iconLeft: PropTypes.element,
   iconRight: PropTypes.element,
   label: PropTypes.string,
+  minLength: PropTypes.string,
+  name: PropTypes.string,
   onChange: PropTypes.func,
+  pattern: PropTypes.string,
   placeholder: PropTypes.string,
+  required: PropTypes.bool,
   type: PropTypes.string,
   value: PropTypes.string,
 };

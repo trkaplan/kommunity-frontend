@@ -1,86 +1,136 @@
 import React from 'react';
 import { signup } from '@/api/request';
-
-const style = {
-  button: {
-    backgroundColor: '#000',
-    border: 'none',
-    color: '#fff',
-    display: 'block',
-    fontSize: '16px',
-    height: '40px',
-    lineHeight: '40px',
-    margin: '12px 0',
-    textAlign: 'center',
-    width: '100%',
-  },
-  input: {
-    boxSizing: 'border-box',
-    display: 'block',
-    fontSize: '16px',
-    height: '40px',
-    lineHeight: '40px',
-    margin: '32px 0',
-    padding: '0 8px',
-    width: '100%',
-  },
-};
+import {
+  Card, Button, Input, Title, Paragraph,
+} from '@/components/ui';
+import Recaptcha from 'react-google-recaptcha';
+import { Mail, Lock } from 'react-feather';
+import { RECAPTCHA_API_KEY } from '@/constants';
 
 class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      disabled: false,
       email: '',
+      error: null, // server validation
+      errors: {}, // frontend validation
       password: '',
       passwordRepeat: '',
       response: null,
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // reference for invisible captcha
+    this.captcha = null;
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
+
+    this.setState({ error: null, errors: {} });
 
     // password match validation
     const { password, passwordRepeat } = this.state;
+
     if (password !== passwordRepeat) {
-      this.setState({ error: new Error('passwords don\'t match!') });
+      this.setState({ errors: { passwordRepeat: 'passwords don\'t match!' } });
     } else {
-      this.setState({ disabled: true, error: null, response: null });
-      signup(this.state.email, this.state.password)
-        .then(response => this.setState({ disabled: false, response: JSON.stringify(response) }))
-        .catch(error => this.setState({ disabled: false, response: error.message }));
+      this.captcha.execute();
     }
   }
 
-  onChangeFactory(key) {
-    return (e) => {
-      this.setState({ [key]: e.target.value });
-    };
+  // captcha verification
+  onVerify = () => {
+    // TODO bariscc: redirect user to boarding page on success
+    // otherwise show server error message with a notification component
+    signup(this.state.email, this.state.password)
+      .then(response => this.setState({ response }))
+      .catch(error => this.setState({ error }));
+  }
+
+  // captcha error, probably connection issue.
+  onError = () => {
+    this.setState({ errors: { verification: 'Error occured on verification. Check your connection and try again.' } });
+  }
+
+  handleInputChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   }
 
   render() {
     const {
-      email, password, passwordRepeat, disabled, response,
+      email, password, passwordRepeat, response, errors, error,
     } = this.state;
 
+    // TODO bariscc: redirect user to boarding page on success and remove this.
+    if (response) { return <div>registration successful</div>; }
+
     return (
-      <div>
-        <p>{response || ''}</p>
-        <form onSubmit={this.handleSubmit}>
-          <input style={style.input} type="text" name="email" placeholder="enter your e-mail"
-            value={email} onChange={this.onChangeFactory('email')} required/>
-          <input style={style.input} type="password" name="password" placeholder="set a password"
-            value={password} onChange={this.onChangeFactory('password')} required/>
-          <input style={style.input} type="password" name="passwordRepeat"
-            placeholder="repeat password" value={passwordRepeat}
-            onChange={this.onChangeFactory('passwordRepeat')} required/>
-          <input style={style.button} type="submit" value={disabled ? '...' : 'signup'}
-            disabled={disabled} />
+      <Card shadow="lg">
+        { error
+            && <Paragraph extraClassName="text-red">{error.message}</Paragraph>
+          }
+        <Title type="h6">New member?</Title>
+        <Title type="h5">Signup now!</Title>
+        <form onSubmit={this.handleSubmit} method="POST">
+          <Input
+              extraClassName="w-full block"
+              name="email"
+              type="email"
+              placeholder="enter your e-mail"
+              value={email}
+              onChange={this.handleInputChange}
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              required
+              errorText={errors.email}
+              iconLeft={<Mail className="text-lgray"/>}
+              extraWrapperClassName="my-4"
+            />
+          <Input
+              extraClassName="w-full block"
+              type="password"
+              name="password"
+              placeholder="set a password"
+              value={password}
+              onChange={this.handleInputChange}
+              minLength="6"
+              required
+              errorText={errors.password}
+              iconLeft={<Lock className="text-lgray" />}
+              extraWrapperClassName="my-4"
+            />
+          <Input
+              extraClassName="w-full block"
+              type="password"
+              name="passwordRepeat"
+              placeholder="repeat password"
+              value={passwordRepeat}
+              onChange={this.handleInputChange}
+              required
+              errorText={errors.passwordRepeat}
+              iconLeft={<Lock className="text-lgray" />}
+              extraWrapperClassName="my-4"
+            />
+          <Recaptcha
+              ref={(e) => { this.captcha = e; }}
+              sitekey={RECAPTCHA_API_KEY}
+              size="invisible"
+              onChange={this.onVerify}
+              onErrored={this.onError}
+            />
+          { errors.verification
+              && <Paragraph extraClassName="text-red">{errors.verification}</Paragraph>
+            }
+          <Button
+              extraClassName="w-full block my-6 font-semibold"
+              size="large"
+              styleType="primary"
+              type="submit"
+              label="Signup"
+            />
         </form>
-      </div>
+      </Card>
     );
   }
 }
