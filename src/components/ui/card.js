@@ -20,7 +20,11 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.arrayOf(PropTypes.object),
+  ]),
   shadow: PropTypes.oneOf(['none', 'tiny', 'md', 'lg']).isRequired,
 };
 

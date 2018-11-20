@@ -1,7 +1,7 @@
 import React from 'react';
 import { login } from '@/api/request';
 import {
-  Card, Button, Input, Title,
+  Card, Button, Input, Title, Paragraph,
 } from '@/components/ui';
 import { User, Lock } from 'react-feather';
 
@@ -40,18 +40,18 @@ class Login extends React.Component {
       username, password, disabled, response, error,
     } = this.state;
 
+    // TODO bariscc: redirect user to homepage on success and remove this.
     if (response) { return <div>login successful</div>; }
 
     return (
       <Card shadow="lg">
-        <div>
-          { error
-            && <p style={{ color: 'red' }}>{error.message}</p>
+        { error
+            && <Paragraph extraClassName="text-red">{error.message}</Paragraph>
           }
-          <Title type="h6">Existing member?</Title>
-          <Title type="h5">Login to your account</Title>
-          <form onSubmit={this.handleSubmit}>
-            <Input
+        <Title type="h6">Existing member?</Title>
+        <Title type="h5">Login to your account</Title>
+        <form onSubmit={this.handleSubmit}>
+          <Input
               extraClassName="w-full block"
               name="username"
               type="text"
@@ -62,7 +62,7 @@ class Login extends React.Component {
               iconLeft={<User className="text-lgray"/>}
               extraWrapperClassName="my-4"
             />
-            <Input
+          <Input
               extraClassName="w-full block"
               type="password"
               name="password"
@@ -73,16 +73,15 @@ class Login extends React.Component {
               iconLeft={<Lock className="text-lgray"/>}
               extraWrapperClassName="my-4"
             />
-            <Button
-              extraClassName="w-full block my-6"
+          <Button
+              extraClassName="w-full block my-6 font-semibold"
               size="large"
               styleType="primary"
               type="submit"
               label={disabled ? '...' : 'Login'}
               disabled={disabled}
             />
-          </form>
-        </div>
+        </form>
       </Card>
     );
   }

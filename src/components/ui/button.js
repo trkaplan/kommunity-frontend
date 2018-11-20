@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cls from 'classnames';
 
 const style = {
-  common: 'button inline-block text-center cursor-pointer border border-transparent border-box font-semibold',
+  common: 'button inline-block text-center cursor-pointer border border-transparent border-box',
   container: {
     danger: 'text-white bg-red',
     outline: 'text-gray bg-white hover:bg-xlgray border-lgray',

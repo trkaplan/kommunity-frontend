@@ -1,10 +1,11 @@
 import React from 'react';
 import { signup } from '@/api/request';
 import {
-  Card, Button, Input, Title,
+  Card, Button, Input, Title, Paragraph,
 } from '@/components/ui';
 import Recaptcha from 'react-google-recaptcha';
 import { Mail, Lock } from 'react-feather';
+import { RECAPTCHA_API_KEY } from '@/constants';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -62,18 +63,18 @@ class Signup extends React.Component {
       email, password, passwordRepeat, response, errors, error,
     } = this.state;
 
+    // TODO bariscc: redirect user to boarding page on success and remove this.
     if (response) { return <div>registration successful</div>; }
 
     return (
       <Card shadow="lg">
-        <div>
-          { error
-            && <p style={{ color: 'red' }}>{error.message}</p>
+        { error
+            && <Paragraph extraClassName="text-red">{error.message}</Paragraph>
           }
-          <Title type="h6">New member?</Title>
-          <Title type="h5">Signup now!</Title>
-          <form onSubmit={this.handleSubmit} method="POST">
-            <Input
+        <Title type="h6">New member?</Title>
+        <Title type="h5">Signup now!</Title>
+        <form onSubmit={this.handleSubmit} method="POST">
+          <Input
               extraClassName="w-full block"
               name="email"
               type="email"
@@ -86,7 +87,7 @@ class Signup extends React.Component {
               iconLeft={<Mail className="text-lgray"/>}
               extraWrapperClassName="my-4"
             />
-            <Input
+          <Input
               extraClassName="w-full block"
               type="password"
               name="password"
@@ -99,7 +100,7 @@ class Signup extends React.Component {
               iconLeft={<Lock className="text-lgray" />}
               extraWrapperClassName="my-4"
             />
-            <Input
+          <Input
               extraClassName="w-full block"
               type="password"
               name="passwordRepeat"
@@ -111,25 +112,24 @@ class Signup extends React.Component {
               iconLeft={<Lock className="text-lgray" />}
               extraWrapperClassName="my-4"
             />
-            <Recaptcha
+          <Recaptcha
               ref={(e) => { this.captcha = e; }}
-              sitekey="6Lfxa3kUAAAAAA2Urk0EXbI1cUKU3xUCvCG6HEIY"
+              sitekey={RECAPTCHA_API_KEY}
               size="invisible"
               onChange={this.onVerify}
               onErrored={this.onError}
             />
-            { errors.verification
-            && <p>{errors.verification}</p>
+          { errors.verification
+              && <Paragraph extraClassName="text-red">{errors.verification}</Paragraph>
             }
-            <Button
-              extraClassName="w-full block my-6"
+          <Button
+              extraClassName="w-full block my-6 font-semibold"
               size="large"
               styleType="primary"
               type="submit"
               label="Signup"
             />
-          </form>
-        </div>
+        </form>
       </Card>
     );
   }
