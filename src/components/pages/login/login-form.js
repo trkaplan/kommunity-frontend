@@ -1,75 +1,89 @@
 import React from 'react';
 import { login } from '@/api/request';
-
-const style = {
-  button: {
-    backgroundColor: '#000',
-    border: 'none',
-    color: '#fff',
-    display: 'block',
-    fontSize: '16px',
-    height: '40px',
-    lineHeight: '40px',
-    margin: '12px 0',
-    textAlign: 'center',
-    width: '100%',
-  },
-  input: {
-    boxSizing: 'border-box',
-    display: 'block',
-    fontSize: '16px',
-    height: '40px',
-    lineHeight: '40px',
-    margin: '32px 0',
-    padding: '0 8px',
-    width: '100%',
-  },
-};
+import {
+  Card, Button, Input, Title,
+} from '@/components/ui';
+import { User, Lock } from 'react-feather';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       disabled: false,
+      error: null, // server error
       password: '',
       response: null,
       username: '',
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
-    this.setState({ disabled: true, error: null, response: null });
+
+    this.setState({ disabled: true, error: null });
+
+    // TODO bariscc: redirect user to homepage on success
+    // otherwise show server error message with a notification component
     login(this.state.username, this.state.password)
       .then(response => this.setState({ disabled: false, response }))
-      .catch(error => this.setState({ disabled: false, response: error.message }));
+      .catch(error => this.setState({ disabled: false, error }));
   }
 
-  onChangeFactory(key) {
-    return (e) => {
-      this.setState({ [key]: e.target.value });
-    };
+  handleInputChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   }
 
   render() {
     const {
-      username, password, disabled, response,
+      username, password, disabled, response, error,
     } = this.state;
 
+    if (response) { return <div>login successful</div>; }
+
     return (
-      <div>
-        <p>{response || ''}</p>
-        <form onSubmit={this.handleSubmit}>
-          <input style={style.input} type="text" name="username" placeholder="your username"
-            value={username} onChange={this.onChangeFactory('username')} required/>
-          <input style={style.input} type="password" name="password" placeholder="your password"
-            value={password} onChange={this.onChangeFactory('password')} required/>
-          <input style={style.button} type="submit" value={disabled ? '...' : 'login'}
-            disabled={disabled}/>
-        </form>
-      </div>
+      <Card shadow="lg">
+        <div>
+          { error
+            && <p style={{ color: 'red' }}>{error.message}</p>
+          }
+          <Title type="h6">Existing member?</Title>
+          <Title type="h5">Login to your account</Title>
+          <form onSubmit={this.handleSubmit}>
+            <Input
+              extraClassName="w-full block"
+              name="username"
+              type="text"
+              placeholder="your username"
+              value={username}
+              onChange={this.handleInputChange}
+              required
+              iconLeft={<User className="text-lgray"/>}
+              extraWrapperClassName="my-4"
+            />
+            <Input
+              extraClassName="w-full block"
+              type="password"
+              name="password"
+              placeholder="your password"
+              value={password}
+              onChange={this.handleInputChange}
+              required
+              iconLeft={<Lock className="text-lgray"/>}
+              extraWrapperClassName="my-4"
+            />
+            <Button
+              extraClassName="w-full block my-6"
+              size="large"
+              styleType="primary"
+              type="submit"
+              label={disabled ? '...' : 'Login'}
+              disabled={disabled}
+            />
+          </form>
+        </div>
+      </Card>
     );
   }
 }
