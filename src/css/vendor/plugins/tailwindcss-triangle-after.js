@@ -1,5 +1,7 @@
+/* eslint-disable sort-keys */
 // Forked from: https://github.com/chrisrowe/tailwindcss-triangle-after
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 const _ = require('lodash');
 
 module.exports = function triangleAfter({

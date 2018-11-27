@@ -1,4 +1,5 @@
 // Forked from: https://github.com/benface/tailwindcss-transforms
+// eslint-disable-next-line import/no-extraneous-dependencies
 const _ = require('lodash');
 
 module.exports = ({
