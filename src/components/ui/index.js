@@ -7,6 +7,7 @@ import Paragraph from './paragraph';
 import Link from './link';
 import Title from './title';
 import Input from './input';
+import Tooltip from './tooltip';
 
 export {
   Avatar,
@@ -18,4 +19,5 @@ export {
   Link,
   Title,
   Input,
+  Tooltip,
 };

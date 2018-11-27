@@ -3177,6 +3177,62 @@ table {
   z-index: 10;
 }
 
+.triangle-after-black_toggle {
+  height: 5px;
+  width: 6px;
+  position: relative;
+}
+
+.triangle-after-black_toggle::after {
+  border-color: transparent;
+  border-style: solid;
+  content: "";
+  height: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  border-top-color: #383b41;
+  border-width: 6px 5px 0 5px;
+}
+
+.triangle-after-red_toggle {
+  height: 5px;
+  width: 6px;
+  position: relative;
+}
+
+.triangle-after-red_toggle::after {
+  border-color: transparent;
+  border-style: solid;
+  content: "";
+  height: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  border-top-color: #ff3e3e;
+  border-width: 6px 5px 0 5px;
+}
+
+.transform-none {
+  -webkit-transform: none;
+          transform: none;
+}
+
+.translate-fullNN {
+  -webkit-transform: translate(-100%, -100%);
+          transform: translate(-100%, -100%);
+}
+
+.translate-fullPN {
+  -webkit-transform: translate(calc(100% - 2rem), -100%);
+          transform: translate(calc(100% - 2rem), -100%);
+}
+
+.translate-1\/2PN {
+  -webkit-transform: translate(50%, -100%);
+          transform: translate(50%, -100%);
+}
+
 .container {
   width: 100%;
   margin-right: auto;

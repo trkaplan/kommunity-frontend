@@ -805,6 +805,26 @@ module.exports = {
     }),
     // eslint-disable-next-line
     require('./tailwind-add-variants.plugin.js')(),
+    require('./plugins/tailwindcss-triangle-after')({
+      triangles: {
+        black_toggle: {
+          color: colors['black'],
+          size: [10, 6],
+        },
+        red_toggle: {
+          color: colors['red'],
+          size: [10, 6],
+        }
+      },
+    }),
+    require('./plugins/tailwindcss-transforms')({
+        // class fixes for tooltips
+        translate2d: {
+        'fullNN': ['-100%', '-100%'],
+        'fullPN': ['calc(100% - 2rem)', '-100%'],
+        '1/2PN': ['50%','-100%']
+      }
+    }),
   ],
 
 
