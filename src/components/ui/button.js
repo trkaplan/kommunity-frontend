@@ -6,10 +6,10 @@ const style = {
   common: 'button inline-block text-center cursor-pointer border border-transparent border-box',
   container: {
     danger: 'text-white bg-red',
-    outline: 'text-gray bg-white hover:bg-xlgray border-lgray',
-    plain: 'text-blue hover:text-darkblue bg-transparent',
-    primary: 'text-white bg-blue',
-    secondary: 'text-white bg-gray',
+    outline: 'text-blueyGrey bg-white hover:bg-paleGrey border-lightBlueGrey',
+    plain: 'text-primary hover:text-primaryDark bg-transparent',
+    primary: 'text-white bg-primary',
+    secondary: 'text-white bg-blueyGrey',
   },
   groupOrder: {
     first: 'rounded-l-lg',
@@ -41,7 +41,7 @@ class UIButton extends React.Component {
         'cursor-not-allowed': disabled,
         'hover:opacity-80': !disabled && ['primary', 'secondary'].indexOf(styleType) > -1,
         'opacity-20': disabled && styleType !== 'plain',
-        'text-lgray hover:text-lgray': disabled && styleType === 'plain',
+        'text-lightBlueGrey hover:text-lightBlueGrey': disabled && styleType === 'plain',
       });
   }
 

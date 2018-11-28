@@ -1,10 +1,9 @@
 import React from 'react';
 import { signup } from '@/api/request';
 import {
-  Card, Button, Input, Title, Paragraph,
+  Card, Button, Input, Title, Paragraph, Icon,
 } from '@/components/ui';
 import Recaptcha from 'react-google-recaptcha';
-import { Mail, Lock } from 'react-feather';
 import { RECAPTCHA_API_KEY } from '@/constants';
 
 class Signup extends React.Component {
@@ -84,7 +83,7 @@ class Signup extends React.Component {
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               required
               errorText={errors.email}
-              iconLeft={<Mail className="text-lgray"/>}
+              iconLeft={<Icon name="Mail" className="text-lightBlueGrey"/>}
               extraWrapperClassName="my-4"
             />
           <Input
@@ -97,7 +96,7 @@ class Signup extends React.Component {
               minLength="6"
               required
               errorText={errors.password}
-              iconLeft={<Lock className="text-lgray" />}
+              iconLeft={<Icon name="Lock" className="text-lightBlueGrey" />}
               extraWrapperClassName="my-4"
             />
           <Input
@@ -109,7 +108,7 @@ class Signup extends React.Component {
               onChange={this.handleInputChange}
               required
               errorText={errors.passwordRepeat}
-              iconLeft={<Lock className="text-lgray" />}
+              iconLeft={<Icon name="Lock" className="text-lightBlueGrey" />}
               extraWrapperClassName="my-4"
             />
           <Recaptcha

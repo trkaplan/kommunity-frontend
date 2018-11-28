@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 
 const styles = {
   container: {
@@ -25,7 +26,7 @@ const styles = {
   },
 };
 
-const CommunityCard = (props: string) => {
+const CommunityCard = (props) => {
   const { name } = props;
 
   return (
@@ -45,6 +46,9 @@ const CommunityCard = (props: string) => {
       </div>
     </div>
   );
+};
+CommunityCard.propTypes = {
+  name: PropTypes.string,
 };
 
 export default CommunityCard;

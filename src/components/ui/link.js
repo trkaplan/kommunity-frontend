@@ -10,7 +10,7 @@ const UILink = props => (
 );
 
 UILink.defaultProps = {
-  className: 'text-base leading-base no-underline text-gray hover:text-lgray px-2',
+  className: 'text-base leading-base no-underline text-blueyGrey hover:text-lightBlueGrey px-2',
 };
 
 UILink.propTypes = {
