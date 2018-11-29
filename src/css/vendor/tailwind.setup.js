@@ -350,7 +350,7 @@ module.exports = {
   |
   */
 
-  borderColors: global.Object.assign({ default: colors.lgray }, colors),
+  borderColors: global.Object.assign({ default: colors.lightBlueGrey }, colors),
 
 
   /*

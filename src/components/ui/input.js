@@ -10,10 +10,10 @@ const style = {
   icon: 'h-12 w-12 leading-base absolute inline-flex items-center justify-center',
   iconLeft: 'icon-left pin-l',
   iconRight: 'icon-right pin-r',
-  label: 'label text-black block leading-base font-normal',
+  label: 'label text-dark block leading-base font-normal',
   state: {
     default: 'text-blueyGrey',
-    error: 'text-black border-red focus:border-red',
+    error: 'text-dark border-red focus:border-red',
     hasIconLeft: 'pl-12',
     hasIconRight: 'pr-12',
   },
