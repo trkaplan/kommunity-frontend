@@ -1,9 +1,8 @@
 import React from 'react';
 import { login } from '@/api/request';
 import {
-  Card, Button, Input, Title, Paragraph,
+  Card, Button, Input, Title, Paragraph, Icon,
 } from '@/components/ui';
-import { User, Lock } from 'react-feather';
 
 class Login extends React.Component {
   constructor(props) {
@@ -59,7 +58,7 @@ class Login extends React.Component {
               value={username}
               onChange={this.handleInputChange}
               required
-              iconLeft={<User className="text-lgray"/>}
+              iconLeft={<Icon name="User" className="text-lightBlueGrey"/>}
               extraWrapperClassName="my-4"
             />
           <Input
@@ -70,7 +69,7 @@ class Login extends React.Component {
               value={password}
               onChange={this.handleInputChange}
               required
-              iconLeft={<Lock className="text-lgray"/>}
+              iconLeft={<Icon name="Lock" className="text-lightBlueGrey"/>}
               extraWrapperClassName="my-4"
             />
           <Button

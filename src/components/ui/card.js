@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cls from 'classnames';
 
 const style = {
-  common: 'w-1 border-grey bg-white my-4 p-8 rounded',
+  common: 'w-1 border-blueyGrey bg-white my-4 p-8 rounded',
   lg: 'shadow-lg',
   md: 'shadow-md',
   none: 'shadow',
