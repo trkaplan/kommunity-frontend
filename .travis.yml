@@ -4,4 +4,6 @@ node_js:
 cache:
   directories:
     - "node_modules"
-script: npm run check-travis
+script: 
+  - if [ $TRAVIS_BRANCH = 'dev' ]; then npm run check-travis; fi
+  - if [ $TRAVIS_BRANCH = 'master' ]; then npm run lint; fi
