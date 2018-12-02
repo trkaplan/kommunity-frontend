@@ -5,5 +5,5 @@ cache:
   directories:
     - "node_modules"
 script: 
-  - if [ $TRAVIS_BRANCH = 'dev' ]; npm run check-travis; fi
-  - if [ $TRAVIS_BRANCH = 'master' ]; npm run lint; fi
+  - if [ $TRAVIS_BRANCH = 'dev' ]; then npm run check-travis; fi
+  - if [ $TRAVIS_BRANCH = 'master' ]; then npm run lint; fi
