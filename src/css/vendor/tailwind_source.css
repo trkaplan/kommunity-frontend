@@ -1,0 +1,14 @@
+/*
+ * See package.json - scripts.tailwindcss 
+ * on how to create an output file. 
+ */
+
+ @tailwind preflight;
+ 
+ @tailwind utilities;
+ 
+ @tailwind components;
+ 
+ .border-box {
+   box-sizing: border-box;
+  }
