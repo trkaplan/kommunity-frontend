@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cls from 'classnames';
-import { Paragraph, Icon } from './index';
+import Paragraph from './paragraph';
+import Icon from './icon';
 
 const style = {
   common: 'border-l-4 shadow-md rounded p-4 flex mb-4',
