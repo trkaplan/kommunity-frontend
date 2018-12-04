@@ -5,7 +5,7 @@ import cls from 'classnames';
 import UIImage from './img';
 
 const style = {
-  common: 'flex items-center justify-center bg-gray rounded-full text-white',
+  common: 'flex items-center justify-center bg-blueyGrey rounded-full text-white',
   img: 'rounded-full w-full',
   letter: {
     lg: 'text-xl',

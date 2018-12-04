@@ -5,6 +5,7 @@ import Card from './card';
 import Icon from './icon';
 import Paragraph from './paragraph';
 import Link from './link';
+import TextArea from './text-area';
 import Title from './title';
 import Input from './input';
 import Notification from './notification';
@@ -17,6 +18,7 @@ export {
   Icon,
   Paragraph,
   Link,
+  TextArea,
   Title,
   Input,
   Notification,
