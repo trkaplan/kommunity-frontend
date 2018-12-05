@@ -563,7 +563,7 @@ table {
 }
 
 .bg-paleBlue {
-  background-color: #f4f6f8;
+  background-color: #dfe3e8;
 }
 
 .bg-paleGrey {
@@ -627,7 +627,7 @@ table {
 }
 
 .hover\:bg-paleBlue:hover {
-  background-color: #f4f6f8;
+  background-color: #dfe3e8;
 }
 
 .hover\:bg-paleGrey:hover {
@@ -691,7 +691,7 @@ table {
 }
 
 .focus\:bg-paleBlue:focus {
-  background-color: #f4f6f8;
+  background-color: #dfe3e8;
 }
 
 .focus\:bg-paleGrey:focus {
@@ -755,7 +755,7 @@ table {
 }
 
 .disabled\:bg-paleBlue:disabled {
-  background-color: #f4f6f8;
+  background-color: #dfe3e8;
 }
 
 .disabled\:bg-paleGrey:disabled {
@@ -891,7 +891,7 @@ table {
 }
 
 .border-paleBlue {
-  border-color: #f4f6f8;
+  border-color: #dfe3e8;
 }
 
 .border-paleGrey {
@@ -955,7 +955,7 @@ table {
 }
 
 .hover\:border-paleBlue:hover {
-  border-color: #f4f6f8;
+  border-color: #dfe3e8;
 }
 
 .hover\:border-paleGrey:hover {
@@ -1019,7 +1019,7 @@ table {
 }
 
 .focus\:border-paleBlue:focus {
-  border-color: #f4f6f8;
+  border-color: #dfe3e8;
 }
 
 .focus\:border-paleGrey:focus {
@@ -1648,6 +1648,10 @@ table {
 
 .font-extrabold {
   font-weight: 800;
+}
+
+.h-2 {
+  height: .5rem;
 }
 
 .h-4 {
@@ -2922,7 +2926,7 @@ table {
 }
 
 .text-paleBlue {
-  color: #f4f6f8;
+  color: #dfe3e8;
 }
 
 .text-paleGrey {
@@ -2986,7 +2990,7 @@ table {
 }
 
 .hover\:text-paleBlue:hover {
-  color: #f4f6f8;
+  color: #dfe3e8;
 }
 
 .hover\:text-paleGrey:hover {
@@ -3050,7 +3054,7 @@ table {
 }
 
 .focus\:text-paleBlue:focus {
-  color: #f4f6f8;
+  color: #dfe3e8;
 }
 
 .focus\:text-paleGrey:focus {
@@ -3283,6 +3287,10 @@ table {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.w-2 {
+  width: .5rem;
 }
 
 .w-4 {
@@ -3596,6 +3604,10 @@ table {
 
   .sm\:flex-no-shrink {
     flex-shrink: 0;
+  }
+
+  .sm\:h-2 {
+    height: .5rem;
   }
 
   .sm\:h-4 {
@@ -4678,7 +4690,7 @@ table {
   }
 
   .sm\:text-paleBlue {
-    color: #f4f6f8;
+    color: #dfe3e8;
   }
 
   .sm\:text-paleGrey {
@@ -4742,7 +4754,7 @@ table {
   }
 
   .sm\:hover\:text-paleBlue:hover {
-    color: #f4f6f8;
+    color: #dfe3e8;
   }
 
   .sm\:hover\:text-paleGrey:hover {
@@ -4806,7 +4818,7 @@ table {
   }
 
   .sm\:focus\:text-paleBlue:focus {
-    color: #f4f6f8;
+    color: #dfe3e8;
   }
 
   .sm\:focus\:text-paleGrey:focus {
@@ -4955,6 +4967,10 @@ table {
   .sm\:hover\:subpixel-antialiased:hover {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
+  }
+
+  .sm\:w-2 {
+    width: .5rem;
   }
 
   .sm\:w-4 {
@@ -5239,6 +5255,10 @@ table {
 
   .md\:flex-no-shrink {
     flex-shrink: 0;
+  }
+
+  .md\:h-2 {
+    height: .5rem;
   }
 
   .md\:h-4 {
@@ -6321,7 +6341,7 @@ table {
   }
 
   .md\:text-paleBlue {
-    color: #f4f6f8;
+    color: #dfe3e8;
   }
 
   .md\:text-paleGrey {
@@ -6385,7 +6405,7 @@ table {
   }
 
   .md\:hover\:text-paleBlue:hover {
-    color: #f4f6f8;
+    color: #dfe3e8;
   }
 
   .md\:hover\:text-paleGrey:hover {
@@ -6449,7 +6469,7 @@ table {
   }
 
   .md\:focus\:text-paleBlue:focus {
-    color: #f4f6f8;
+    color: #dfe3e8;
   }
 
   .md\:focus\:text-paleGrey:focus {
@@ -6598,6 +6618,10 @@ table {
   .md\:hover\:subpixel-antialiased:hover {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
+  }
+
+  .md\:w-2 {
+    width: .5rem;
   }
 
   .md\:w-4 {
@@ -6882,6 +6906,10 @@ table {
 
   .lg\:flex-no-shrink {
     flex-shrink: 0;
+  }
+
+  .lg\:h-2 {
+    height: .5rem;
   }
 
   .lg\:h-4 {
@@ -7964,7 +7992,7 @@ table {
   }
 
   .lg\:text-paleBlue {
-    color: #f4f6f8;
+    color: #dfe3e8;
   }
 
   .lg\:text-paleGrey {
@@ -8028,7 +8056,7 @@ table {
   }
 
   .lg\:hover\:text-paleBlue:hover {
-    color: #f4f6f8;
+    color: #dfe3e8;
   }
 
   .lg\:hover\:text-paleGrey:hover {
@@ -8092,7 +8120,7 @@ table {
   }
 
   .lg\:focus\:text-paleBlue:focus {
-    color: #f4f6f8;
+    color: #dfe3e8;
   }
 
   .lg\:focus\:text-paleGrey:focus {
@@ -8241,6 +8269,10 @@ table {
   .lg\:hover\:subpixel-antialiased:hover {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
+  }
+
+  .lg\:w-2 {
+    width: .5rem;
   }
 
   .lg\:w-4 {

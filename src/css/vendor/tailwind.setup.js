@@ -55,7 +55,7 @@ const colors = {
   battleshipGrey:'#637381',
   blueyGrey: '#919EAB',
   lightBlueGrey: '#C4CDD5',
-  paleBlue: '#F4F6F8',
+  paleBlue: '#DFE3E8',
   paleGrey: '#F4F6F8',
   white: '#FFFFFF',
   green: '#19A560',
@@ -399,6 +399,7 @@ module.exports = {
   */
 
   width: {
+    '2': '0.5rem',
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
@@ -443,6 +444,7 @@ module.exports = {
   */
 
   height: {
+    '2': '0.5rem',
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',

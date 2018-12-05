@@ -8,6 +8,8 @@ import Link from './link';
 import TextArea from './text-area';
 import Title from './title';
 import Input from './input';
+import Checkbox from './checkbox';
+import CheckboxGroup from './checkbox-group';
 import Switch from './switch';
 import Notification from './notification';
 
@@ -24,4 +26,6 @@ export {
   Switch,
   TextArea,
   Title,
+  Checkbox,
+  CheckboxGroup,
 };
