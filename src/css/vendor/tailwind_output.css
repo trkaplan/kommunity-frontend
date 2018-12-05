@@ -2821,6 +2821,42 @@ table {
   box-shadow: none;
 }
 
+.shadow-input-primary {
+  box-shadow: inset 0 0 0 1px #325fff;
+}
+
+.shadow-input-red {
+  box-shadow: inset 0 0 0 1px #ff3e3e;
+}
+
+.focus\:shadow:focus {
+  box-shadow: 0 0 1px 0 rgba(23, 43, 77, .24);
+}
+
+.focus\:shadow-md:focus {
+  box-shadow: 0 2px 4px 0 rgba(23, 43, 77, .24);
+}
+
+.focus\:shadow-lg:focus {
+  box-shadow: 0 6px 8px 0 rgba(23, 43, 77, .24);
+}
+
+.focus\:shadow-xl:focus {
+  box-shadow:  0 20px 28px 0 rgba(23, 43, 77, .24);
+}
+
+.focus\:shadow-none:focus {
+  box-shadow: none;
+}
+
+.focus\:shadow-input-primary:focus {
+  box-shadow: inset 0 0 0 1px #325fff;
+}
+
+.focus\:shadow-input-red:focus {
+  box-shadow: inset 0 0 0 1px #ff3e3e;
+}
+
 .fill-current {
   fill: currentColor;
 }

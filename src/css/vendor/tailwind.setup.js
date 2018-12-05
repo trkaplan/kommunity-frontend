@@ -636,6 +636,8 @@ module.exports = {
     lg: '0 6px 8px 0 rgba(23,43,77,0.24)',
     xl: ' 0 20px 28px 0 rgba(23,43,77,0.24)',
     none: 'none',
+    'input-primary': 'inset 0 0 0 1px '+colors.primary,
+    'input-red': 'inset 0 0 0 1px '+colors.red
   },
 
 
@@ -773,7 +775,7 @@ module.exports = {
     pointerEvents: [],
     position: ['responsive'],
     resize: [],
-    shadows: [],
+    shadows: ['focus'],
     svgFill: [],
     svgStroke: [],
     tableLayout: false,
