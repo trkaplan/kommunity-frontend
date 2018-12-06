@@ -1,8 +1,8 @@
 {
   "name": "kommunity-frontend",
   "scripts": {
-    "postdeploy": "npm run post-deploy",
-    "pr-predestroy": "npm run pre-destroy"
+    "postdeploy": "echo postdeploy",
+    "pr-predestroy": "echo predestroy"
   },
   "env": {
     "NODE_ENV": "staging"
@@ -12,9 +12,5 @@
   "addons": [
 
   ],
-  "buildpacks": [
-    {
-      "url": "hero/nodejs"
-    }
-  ]
+  "buildpacks": []
 }
