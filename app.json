@@ -1,0 +1,19 @@
+{
+  "name": "kommunity-frontend",
+  "scripts": {
+    "postdeploy": "npm run review-post-deploy",
+    "pr-predestroy": "npm run review-pre-destroy"
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "node"
+    }
+  ]
+}
