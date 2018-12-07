@@ -14,6 +14,9 @@ import i18nextMiddleware from 'i18next-express-middleware';
 import App from '@/components/app';
 import setupStore from '@/state/store';
 
+import { ApolloProvider } from 'react-apollo';
+import client from '@/api/apollo';
+
 let assets;
 if (process.env.RAZZLE_ASSETS_MANIFEST) {
   // eslint-disable-next-line
@@ -29,19 +32,23 @@ if (process.env.NODE_ENV !== 'test') {
 }
 server.disable('x-powered-by');
 server.use(express.static(publicDir));
-server.get('/*', (req, res) => {
+server.get('/*', async (req, res) => {
   // STORE
   const preloadedState = {};
   const history = createMemoryHistory();
   const store = setupStore(history, preloadedState);
   const context = {};
-  const markup = renderToString(
-    <Provider store={store}>
-      <StaticRouter location={req.path} context={context}>
-        <App />
-      </StaticRouter>
-    </Provider>,
+  const Root = () => (
+    <ApolloProvider client={client}>
+      <Provider store={store}>
+        <StaticRouter location={req.path} context={context}>
+          <App />
+        </StaticRouter>
+      </Provider>
+    </ApolloProvider>
   );
+
+  const markup = renderToString(<Root />);
 
   // Grab the initial state from our Redux store
   const finalState = store.getState();
