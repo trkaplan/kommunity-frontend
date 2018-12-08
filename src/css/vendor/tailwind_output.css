@@ -574,6 +574,10 @@ table {
   background-color: #ff3e3e;
 }
 
+.bg-gunmetal {
+  background-color: #454f5b;
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
@@ -624,6 +628,10 @@ table {
 
 .hover\:bg-red:hover {
   background-color: #ff3e3e;
+}
+
+.hover\:bg-gunmetal:hover {
+  background-color: #454f5b;
 }
 
 .focus\:bg-transparent:focus {
@@ -678,6 +686,10 @@ table {
   background-color: #ff3e3e;
 }
 
+.focus\:bg-gunmetal:focus {
+  background-color: #454f5b;
+}
+
 .disabled\:bg-transparent:disabled {
   background-color: transparent;
 }
@@ -728,6 +740,10 @@ table {
 
 .disabled\:bg-red:disabled {
   background-color: #ff3e3e;
+}
+
+.disabled\:bg-gunmetal:disabled {
+  background-color: #454f5b;
 }
 
 .bg-bottom {
@@ -854,6 +870,10 @@ table {
   border-color: #ff3e3e;
 }
 
+.border-gunmetal {
+  border-color: #454f5b;
+}
+
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
@@ -906,6 +926,10 @@ table {
   border-color: #ff3e3e;
 }
 
+.hover\:border-gunmetal:hover {
+  border-color: #454f5b;
+}
+
 .focus\:border-transparent:focus {
   border-color: transparent;
 }
@@ -956,6 +980,10 @@ table {
 
 .focus\:border-red:focus {
   border-color: #ff3e3e;
+}
+
+.focus\:border-gunmetal:focus {
+  border-color: #454f5b;
 }
 
 .rounded-none {
@@ -2761,6 +2789,10 @@ table {
   color: #ff3e3e;
 }
 
+.text-gunmetal {
+  color: #454f5b;
+}
+
 .hover\:text-transparent:hover {
   color: transparent;
 }
@@ -2813,6 +2845,10 @@ table {
   color: #ff3e3e;
 }
 
+.hover\:text-gunmetal:hover {
+  color: #454f5b;
+}
+
 .focus\:text-transparent:focus {
   color: transparent;
 }
@@ -2863,6 +2899,10 @@ table {
 
 .focus\:text-red:focus {
   color: #ff3e3e;
+}
+
+.focus\:text-gunmetal:focus {
+  color: #454f5b;
 }
 
 .text-xs {
@@ -3178,8 +3218,8 @@ table {
 }
 
 .triangle-after-black_toggle {
-  height: 5px;
-  width: 6px;
+  height: 4px;
+  width: 4px;
   position: relative;
 }
 
@@ -3192,12 +3232,12 @@ table {
   position: absolute;
   width: 0;
   border-top-color: #383b41;
-  border-width: 6px 5px 0 5px;
+  border-width: 4px 4px 0 4px;
 }
 
 .triangle-after-red_toggle {
-  height: 5px;
-  width: 6px;
+  height: 4px;
+  width: 4px;
   position: relative;
 }
 
@@ -3210,27 +3250,7 @@ table {
   position: absolute;
   width: 0;
   border-top-color: #ff3e3e;
-  border-width: 6px 5px 0 5px;
-}
-
-.transform-none {
-  -webkit-transform: none;
-          transform: none;
-}
-
-.translate-fullNN {
-  -webkit-transform: translate(-100%, -100%);
-          transform: translate(-100%, -100%);
-}
-
-.translate-fullPN {
-  -webkit-transform: translate(calc(100% - 2rem), -100%);
-          transform: translate(calc(100% - 2rem), -100%);
-}
-
-.translate-1\/2PN {
-  -webkit-transform: translate(50%, -100%);
-          transform: translate(50%, -100%);
+  border-width: 4px 4px 0 4px;
 }
 
 .container {
@@ -4525,6 +4545,10 @@ table {
     color: #ff3e3e;
   }
 
+  .sm\:text-gunmetal {
+    color: #454f5b;
+  }
+
   .sm\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -4577,6 +4601,10 @@ table {
     color: #ff3e3e;
   }
 
+  .sm\:hover\:text-gunmetal:hover {
+    color: #454f5b;
+  }
+
   .sm\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -4627,6 +4655,10 @@ table {
 
   .sm\:focus\:text-red:focus {
     color: #ff3e3e;
+  }
+
+  .sm\:focus\:text-gunmetal:focus {
+    color: #454f5b;
   }
 
   .sm\:text-xs {
@@ -6120,6 +6152,10 @@ table {
     color: #ff3e3e;
   }
 
+  .md\:text-gunmetal {
+    color: #454f5b;
+  }
+
   .md\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -6172,6 +6208,10 @@ table {
     color: #ff3e3e;
   }
 
+  .md\:hover\:text-gunmetal:hover {
+    color: #454f5b;
+  }
+
   .md\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -6222,6 +6262,10 @@ table {
 
   .md\:focus\:text-red:focus {
     color: #ff3e3e;
+  }
+
+  .md\:focus\:text-gunmetal:focus {
+    color: #454f5b;
   }
 
   .md\:text-xs {
@@ -7715,6 +7759,10 @@ table {
     color: #ff3e3e;
   }
 
+  .lg\:text-gunmetal {
+    color: #454f5b;
+  }
+
   .lg\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -7767,6 +7815,10 @@ table {
     color: #ff3e3e;
   }
 
+  .lg\:hover\:text-gunmetal:hover {
+    color: #454f5b;
+  }
+
   .lg\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -7817,6 +7869,10 @@ table {
 
   .lg\:focus\:text-red:focus {
     color: #ff3e3e;
+  }
+
+  .lg\:focus\:text-gunmetal:focus {
+    color: #454f5b;
   }
 
   .lg\:text-xs {

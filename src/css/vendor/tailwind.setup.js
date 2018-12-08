@@ -58,6 +58,7 @@ const colors = {
   yellow: '#EDC200',
   green: '#19A560',
   red: '#FF3E3E',
+  gunmetal:'#454F5b',
 };
 
 module.exports = {
@@ -809,22 +810,15 @@ module.exports = {
       triangles: {
         black_toggle: {
           color: colors['black'],
-          size: [10, 6],
+          size: [8, 4],
         },
         red_toggle: {
           color: colors['red'],
-          size: [10, 6],
+          size: [8, 4],
         }
       },
     }),
-    require('./plugins/tailwindcss-transforms')({
-        // class fixes for tooltips
-        translate2d: {
-        'fullNN': ['-100%', '-100%'],
-        'fullPN': ['calc(100% - 2rem)', '-100%'],
-        '1/2PN': ['50%','-100%']
-      }
-    }),
+    
   ],
 
 

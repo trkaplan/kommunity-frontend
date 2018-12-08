@@ -7,25 +7,27 @@ const style = {
   common:
   'ui-tooltip absolute text-white',
   placements: {
-    center: 'translate-1/2PN',
-    left: 'translate-fullNN ml-8',
-    right: 'translate-fullPN ml-8',
+    center: 'justify-center',
+    left: 'justify-start',
+    right: 'justify-end',
   },
   state: {
     closed: 'hidden',
     open: 'inline-block',
   },
-  wrapper: 'wrapper relative inline-block',
+  wrapper: 'tooltip-wrapper relative inline-block',
+  tooltipOuter: 'absolute flex w-full items-end',
   content: {
-    default: 'bg-black',
+    common: 'tooltip-content px-2 py-1 rounded leading-base font-light whitespace-no-wrap',
+    default: 'bg-gunmetal',
     error: 'bg-red',
   },
   triangle: {
     wrapper: 'flex',
     placements: {
       center: 'justify-center',
-      left: 'justify-end px-2',
-      right: 'justify-start',
+      left: 'justify-start ml-4',
+      right: 'justify-end mr-4',
     },
     default: 'triangle-after-black_toggle',
     error: 'triangle-after-red_toggle',
@@ -58,12 +60,15 @@ class UITooltip extends Component {
       } = this.props;
 
       const wrapperClass = cls(style.wrapper, extraWrapperClassName);
+      const tooltipOuterClass = cls(
+        style.tooltipOuter,
+        style.placements[placement],
+      );
       const tooltipClass = cls(
         style.common,
-        style.placements[placement],
         style.state[openState],
       );
-      const contentClass = cls(style.content, extraClassName, {
+      const contentClass = cls(style.content.common, extraClassName, {
         [style.content.default]: !error,
         [style.content.error]: error,
       });
@@ -81,10 +86,12 @@ class UITooltip extends Component {
           onMouseEnter={event => this.handleMouseEnter(event)}
           onMouseLeave={event => this.handleMouseLeave(event)}
         >
-          <div className={tooltipClass}>
-            <div className={contentClass}>{content}</div>
-            <div className={triangleWrapperClass}>
-              <div className={triangleClass}></div>
+          <div className={tooltipOuterClass}>
+            <div className={tooltipClass}>
+              <div className={contentClass}>{content}</div>
+              <div className={triangleWrapperClass}>
+                <div className={triangleClass}></div>
+              </div>
             </div>
           </div>
           {children}
