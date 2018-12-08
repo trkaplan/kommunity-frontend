@@ -82,7 +82,7 @@ class Dropdown extends Component {
             <ul className={style.list}>
               {options.map((option, index) => (
                 <li key={index} className={cls('dropdown-item flex items-center', style.item)}
-                    onClick={this.onChangeHandlerFactory(option.id)}>
+                  onClick={this.onChangeHandlerFactory(option.id)}>
                   {option.iconName && (
                     <Icon
                       size="20"
