@@ -1,42 +1,12 @@
 import React from 'react';
 import Header from '@/components/common/header';
-import FeaturedCommunities from './home/featured-communities';
 import Footer from '@/components/common/footer';
 
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
 import HomeHero from './home/hero';
+import FeaturedCommunities from '@/containers/pages/home/featured-communities';
 import Features from './home/features';
 import Testimonials from './home/testimonials';
 import Pricing from './home/pricing';
-
-// Testing apollo client
-// will be deleted
-const TEST_GQL = gql`
-      {
-        allPersons {
-          name 
-          films {
-            director
-          }
-        }
-      }
-    `;
-
-const TestComp = () => (
-  <Query query={TEST_GQL}>
-    {({ loading, error, data }) => {
-      if (loading) return 'Loading...';
-      if (error) return `Error! ${error.message}`;
-      return (
-        <p>
-          Person: {data.allPersons[0].name}
-        </p>
-      );
-    }}
-  </Query>
-);
-//
 
 class Home extends React.Component {
   render() {

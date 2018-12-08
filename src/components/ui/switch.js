@@ -36,11 +36,11 @@ class Switch extends React.Component {
           enabled ? 'bg-primary flex-row-reverse' : 'bg-lightBlueGrey',
           disabled && 'opacity-50')}>
           <input
-          className={'hidden'}
-          onClick={!disabled ? this.handleClick : undefined}
-          type="checkbox"
-          name={name}
-          id={name}
+            className={'hidden'}
+            onClick={!disabled ? this.handleClick : undefined}
+            type="checkbox"
+            name={name}
+            id={name}
           />
           <label className={cls(style.label, disabled && 'cursor-not-allowed')} htmlFor={name}></label>
         </div>
