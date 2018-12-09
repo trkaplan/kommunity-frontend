@@ -18,7 +18,7 @@ const style = {
     lg: 'w-16 h-16',
     md: 'w-12 h-12',
     sm: 'w-8 h-8',
-    xl: 'w-48 h-48',
+    xl: 'w-32 h-32',
     xs: 'w-6 h-6',
   },
 };

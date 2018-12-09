@@ -1054,6 +1054,10 @@ table {
   border-radius: 12px;
 }
 
+.rounded-16 {
+  border-radius: 16px;
+}
+
 .rounded-24 {
   border-radius: 24px;
 }
@@ -1124,6 +1128,26 @@ table {
 .rounded-l-12 {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
+}
+
+.rounded-t-16 {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.rounded-r-16 {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.rounded-b-16 {
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.rounded-l-16 {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
 }
 
 .rounded-t-24 {
@@ -1232,6 +1256,22 @@ table {
 
 .rounded-bl-12 {
   border-bottom-left-radius: 12px;
+}
+
+.rounded-tl-16 {
+  border-top-left-radius: 16px;
+}
+
+.rounded-tr-16 {
+  border-top-right-radius: 16px;
+}
+
+.rounded-br-16 {
+  border-bottom-right-radius: 16px;
+}
+
+.rounded-bl-16 {
+  border-bottom-left-radius: 16px;
 }
 
 .rounded-tl-24 {
@@ -1722,7 +1762,7 @@ table {
   height: 5rem;
 }
 
-.h-48 {
+.h-32 {
   height: 8rem;
 }
 
@@ -2798,6 +2838,10 @@ table {
   max-width: 100%;
 }
 
+.min-h-32 {
+  min-height: 8rem;
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -2816,6 +2860,10 @@ table {
 
 .opacity-60 {
   opacity: .6;
+}
+
+.opacity-70 {
+  opacity: .7;
 }
 
 .opacity-80 {
@@ -2844,6 +2892,10 @@ table {
 
 .hover\:opacity-60:hover {
   opacity: .6;
+}
+
+.hover\:opacity-70:hover {
+  opacity: .7;
 }
 
 .hover\:opacity-80:hover {
@@ -3973,8 +4025,12 @@ table {
   width: 5rem;
 }
 
-.w-48 {
+.w-32 {
   width: 8rem;
+}
+
+.w-112 {
+  width: 28rem;
 }
 
 .w-1\/4 {
@@ -4055,6 +4111,10 @@ table {
 
 .z-10 {
   z-index: 10;
+}
+
+.z-20 {
+  z-index: 20;
 }
 
 .container {
@@ -4330,7 +4390,7 @@ table {
     height: 5rem;
   }
 
-  .sm\:h-48 {
+  .sm\:h-32 {
     height: 8rem;
   }
 
@@ -6305,8 +6365,12 @@ table {
     width: 5rem;
   }
 
-  .sm\:w-48 {
+  .sm\:w-32 {
     width: 8rem;
+  }
+
+  .sm\:w-112 {
+    width: 28rem;
   }
 
   .sm\:w-1\/4 {
@@ -6597,7 +6661,7 @@ table {
     height: 5rem;
   }
 
-  .md\:h-48 {
+  .md\:h-32 {
     height: 8rem;
   }
 
@@ -8572,8 +8636,12 @@ table {
     width: 5rem;
   }
 
-  .md\:w-48 {
+  .md\:w-32 {
     width: 8rem;
+  }
+
+  .md\:w-112 {
+    width: 28rem;
   }
 
   .md\:w-1\/4 {
@@ -8864,7 +8932,7 @@ table {
     height: 5rem;
   }
 
-  .lg\:h-48 {
+  .lg\:h-32 {
     height: 8rem;
   }
 
@@ -10839,8 +10907,12 @@ table {
     width: 5rem;
   }
 
-  .lg\:w-48 {
+  .lg\:w-32 {
     width: 8rem;
+  }
+
+  .lg\:w-112 {
+    width: 28rem;
   }
 
   .lg\:w-1\/4 {
