@@ -34,17 +34,17 @@
   }
   
   .theme-black {
-      --primary : #ff3e3e;
-      --primaryLight: #0f97ff;
-      --primaryDark: #ffffff;
-      --gunmetal:#454f5b;
-      --battleshipGrey:#637381;
-      --blueyGrey: #19a560;
-      --lightBlueGrey: #C4CDD5;
-      --paleBlue: #DFE3E8;
-      --paleGrey: #F4F6F8;
-      --white: #212B36;
-      --green: #19A560;
-      --yellow: #EDC200;
-      --red: #FF3E3E;
+    --primary : #ff3e3e;
+    --primaryLight: #0f97ff;
+    --primaryDark: #ffffff;
+    --gunmetal:#454f5b;
+    --battleshipGrey:#637381;
+    --blueyGrey: #19a560;
+    --lightBlueGrey: #C4CDD5;
+    --paleBlue: #DFE3E8;
+    --paleGrey: #F4F6F8;
+    --white: #212B36;
+    --green: #19A560;
+    --yellow: #EDC200;
+    --red: #FF3E3E;
   }
