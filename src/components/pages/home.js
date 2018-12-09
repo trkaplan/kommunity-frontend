@@ -11,7 +11,7 @@ import Pricing from './home/pricing';
 class Home extends React.Component {
   render() {
     return (
-      <div>
+      <div className="theme-black">
         <div className="bg-gray-gradient">
           <div className="container">
             <Header/>
