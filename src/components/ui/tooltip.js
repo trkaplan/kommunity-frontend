@@ -16,7 +16,7 @@ const style = {
     open: 'inline-block',
   },
   wrapper: 'tooltip-wrapper relative inline-block',
-  tooltipOuter: 'absolute flex w-full items-end',
+  tooltipOuter: 'absolute flex items-end',
   content: {
     common: 'tooltip-content px-2 py-1 rounded leading-base font-light whitespace-no-wrap',
     default: 'bg-gunmetal',
@@ -29,8 +29,8 @@ const style = {
       left: 'justify-start ml-4',
       right: 'justify-end mr-4',
     },
-    default: 'triangle-after-black_toggle',
-    error: 'triangle-after-red_toggle',
+    default: 'triangle-after-black_tooltip',
+    error: 'triangle-after-red_tooltip',
   },
 };
 
@@ -39,11 +39,11 @@ class UITooltip extends Component {
       open: false,
     }
 
-    handleMouseEnter() {
+    handleMouseEnter = () => {
       this.setState({ open: true });
     }
 
-    handleMouseLeave() {
+    handleMouseLeave= () => {
       this.setState({ open: false });
     }
 
@@ -83,8 +83,8 @@ class UITooltip extends Component {
       return (
         <div
           className={wrapperClass}
-          onMouseEnter={event => this.handleMouseEnter(event)}
-          onMouseLeave={event => this.handleMouseLeave(event)}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
         >
           <div className={tooltipOuterClass}>
             <div className={tooltipClass}>

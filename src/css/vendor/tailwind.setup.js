@@ -808,11 +808,11 @@ module.exports = {
     require('./tailwind-add-variants.plugin.js')(),
     require('./plugins/tailwindcss-triangle-after')({
       triangles: {
-        black_toggle: {
+        black_tooltip: {
           color: colors['black'],
           size: [8, 4],
         },
-        red_toggle: {
+        red_tooltip: {
           color: colors['red'],
           size: [8, 4],
         }

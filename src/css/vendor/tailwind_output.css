@@ -3217,13 +3217,13 @@ table {
   z-index: 10;
 }
 
-.triangle-after-black_toggle {
+.triangle-after-black_tooltip {
   height: 4px;
   width: 4px;
   position: relative;
 }
 
-.triangle-after-black_toggle::after {
+.triangle-after-black_tooltip::after {
   border-color: transparent;
   border-style: solid;
   content: "";
@@ -3235,13 +3235,13 @@ table {
   border-width: 4px 4px 0 4px;
 }
 
-.triangle-after-red_toggle {
+.triangle-after-red_tooltip {
   height: 4px;
   width: 4px;
   position: relative;
 }
 
-.triangle-after-red_toggle::after {
+.triangle-after-red_tooltip::after {
   border-color: transparent;
   border-style: solid;
   content: "";
