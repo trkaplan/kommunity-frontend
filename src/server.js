@@ -14,6 +14,9 @@ import i18nextMiddleware from 'i18next-express-middleware';
 import App from '@/components/app';
 import setupStore from '@/state/store';
 
+import { ApolloProvider } from 'react-apollo';
+import client from '@/api/apollo';
+
 let assets;
 if (process.env.RAZZLE_ASSETS_MANIFEST) {
   // eslint-disable-next-line
@@ -29,23 +32,27 @@ if (process.env.NODE_ENV !== 'test') {
 }
 server.disable('x-powered-by');
 server.use(express.static(publicDir));
-server.get('/*', (req, res) => {
+server.get('/*', async (req, res) => {
   // STORE
   const preloadedState = {};
   const history = createMemoryHistory();
   const store = setupStore(history, preloadedState);
   const context = {};
-  const markup = renderToString(
-    <Provider store={store}>
-      <StaticRouter location={req.path} context={context}>
-        <App />
-      </StaticRouter>
-    </Provider>,
+  const Root = () => (
+    <ApolloProvider client={client}>
+      <Provider store={store}>
+        <StaticRouter location={req.path} context={context}>
+          <App />
+        </StaticRouter>
+      </Provider>
+    </ApolloProvider>
   );
+
+  const markup = renderToString(<Root />);
 
   // Grab the initial state from our Redux store
   const finalState = store.getState();
-  const cssAssetUrl = _get(assets, 'css/fonts.css');
+  const cssAssetUrl = _get(assets, 'client.css');
   const jsAssetUrl = _get(assets, 'client.js');
 
   if (context.url) {
@@ -67,9 +74,9 @@ server.get('/*', (req, res) => {
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta charset="utf-8" />
-  <title>Welcome to Razzle</title>
+  <title>Join, and build amazing communities! Kommunity.app</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  ${cssAssetUrl ? `<link rel="stylesheet" href="${cssAssetUrl}">` : ''}
+  ${cssAssetUrl ? `<link rel="stylesheet" type="text/css" href="${cssAssetUrl}">` : ''}
   ${process.env.NODE_ENV === 'production'
     ? `<script src="${jsAssetUrl}" defer></script>`
     : `<script src="${jsAssetUrl}" defer crossorigin></script>`}
@@ -80,7 +87,7 @@ server.get('/*', (req, res) => {
     };
   </script>
 </head>
-<body class="font-sans font-normal text-black">
+<body class="theme-light font-sans font-normal text-dark">
   <div id="root">${markup}</div>
     <script>
       window.__PRELOADED_STATE__ = ${serialize(finalState)}

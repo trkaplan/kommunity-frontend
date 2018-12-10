@@ -3,9 +3,7 @@ import { shallow } from 'enzyme';
 import { Avatar } from '@/components/ui';
 
 describe('UI Component: <Avatar />', () => {
-  const wrapper = shallow(
-    <Avatar />,
-  );
+  const wrapper = shallow(<Avatar />);
 
   test('renders all sizes correctly', () => {
     wrapper.setProps({ size: 'xs' });
@@ -17,12 +15,17 @@ describe('UI Component: <Avatar />', () => {
     wrapper.setProps({ size: 'lg' });
     expect(wrapper.find('div').hasClass('w-16 h-16')).toEqual(true);
     wrapper.setProps({ size: 'xl' });
-    expect(wrapper.find('div').hasClass('w-48 h-48')).toEqual(true);
+    expect(wrapper.find('div').hasClass('w-32 h-32')).toEqual(true);
   });
 
   test('renders given letters correctly', () => {
     wrapper.setProps({ letters: 'AB' });
-    expect(wrapper.find('p').children().text()).toEqual('AB');
+    expect(
+      wrapper
+        .find('p')
+        .children()
+        .text(),
+    ).toEqual('AB');
   });
 
   test('renders given image correctly', () => {
