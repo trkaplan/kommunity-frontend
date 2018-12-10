@@ -15,6 +15,7 @@ import CheckboxGroup from './checkbox-group';
 import Switch from './switch';
 import Notification from './notification';
 import Popup from './popup';
+import Tooltip from './tooltip';
 
 export {
   Avatar,
@@ -34,4 +35,5 @@ export {
   Checkbox,
   CheckboxGroup,
   Popup,
+  Tooltip,
 };

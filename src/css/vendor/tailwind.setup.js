@@ -801,6 +801,19 @@ module.exports = {
     }),
     // eslint-disable-next-line
     require('./tailwind-add-variants.plugin.js')(),
+    require('./plugins/tailwindcss-triangle-after')({
+      triangles: {
+        black_tooltip: {
+          color: colors['gunmetal'],
+          size: [8, 4],
+        },
+        red_tooltip: {
+          color: colors['red'],
+          size: [8, 4],
+        }
+      },
+    }),
+    
   ],
 
   /*
