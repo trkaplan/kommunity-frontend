@@ -87,7 +87,7 @@ server.get('/*', async (req, res) => {
     };
   </script>
 </head>
-<body class="font-sans font-normal text-dark">
+<body class="theme-light font-sans font-normal text-dark">
   <div id="root">${markup}</div>
     <script>
       window.__PRELOADED_STATE__ = ${serialize(finalState)}

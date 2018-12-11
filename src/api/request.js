@@ -28,6 +28,23 @@ export const signup = (email, password) => {
   });
 };
 
+export const forgotPassword = (email) => {
+  // TODO(mustaphaturhan): we gonna add forgot password request later.
+  // return makeRequest('post', '/api/v1/member/forgotPassword', {
+  //   email,
+  // });
+
+  // fake response, replace with actual call
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (email === 'example@mail.com') {
+        resolve('correct');
+      }
+      reject(new Error('credentials failed!'));
+    }, 500);
+  });
+};
+
 export const logout = () => {
   makeRequest('post', '/member/logout');
 };

@@ -4,7 +4,7 @@ import {
   Card, Button, Input, Title, Paragraph, Icon,
 } from '@/components/ui';
 import Recaptcha from 'react-google-recaptcha';
-import { RECAPTCHA_API_KEY } from '@/constants';
+import { RECAPTCHA_API_KEY, mailPattern } from '@/constants';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -80,7 +80,7 @@ class Signup extends React.Component {
             placeholder="enter your e-mail"
             value={email}
             onChange={this.handleInputChange}
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            pattern={mailPattern}
             required
             errorText={errors.email}
             iconLeft={<Icon name="Mail" className="text-lightBlueGrey"/>}

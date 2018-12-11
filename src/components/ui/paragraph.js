@@ -12,7 +12,11 @@ const style = {
 
 const UIParagraph = (props) => {
   return (
-    <p className={cls(style[props.type], props.extraClassName)}>
+    <p className={cls((
+      props.className ? props.className : style[props.type]),
+    props.extraClassName)}
+      style={props.style}
+    >
       {props.children}
     </p>
   );
@@ -23,8 +27,13 @@ UIParagraph.defaultProps = {
 };
 
 UIParagraph.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+  className: PropTypes.string,
   extraClassName: PropTypes.string,
+  style: PropTypes.object,
   type: PropTypes.string,
 };
 

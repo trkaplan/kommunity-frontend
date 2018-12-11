@@ -21,11 +21,11 @@
     "container:web-sh": "docker-compose exec web sh",
     "container:reset": "docker-compose stop && docker-compose rm -f && run-s -nl container:start"
   },
-  "pre-push": [
-    "check-if-not-committed",
-    "lint",
-    "cover"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run check-if-not-committed && npm run lint && npm run cover"
+    }
+  },
   "dependencies": {
     "apollo-boost": "^0.1.22",
     "apollo-cache-inmemory": "^1.3.11",
@@ -72,6 +72,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "glob-all": "^3.1.0",
+    "husky": "^1.2.0",
     "jest": "^23.6.0",
     "npm-run-all": "^4.1.3",
     "pre-push": "^0.1.1",
@@ -79,7 +80,8 @@
     "purgecss": "^1.1.0",
     "purgecss-webpack-plugin": "^1.3.1",
     "sinon": "^7.1.0",
-    "tailwindcss": "^0.7.2"
+    "tailwindcss": "^0.7.2",
+    "tailwindcss-transforms": "^1.0.2"
   },
   "engines": {
     "node": "8.11.4"
