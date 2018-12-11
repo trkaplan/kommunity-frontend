@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class RadioButtonGroup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedValue: props.initialValue || undefined
+      selectedValue: props.initialValue || undefined,
     };
   }
 
@@ -22,7 +22,7 @@ class RadioButtonGroup extends React.Component {
       return React.cloneElement(child, {
         disabled,
         onChange: this.onChange(child.props.value),
-        selected: selectedValue === child.props.value
+        selected: selectedValue === child.props.value,
       });
     });
 
@@ -34,7 +34,7 @@ RadioButtonGroup.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   disabled: PropTypes.bool,
   extraClassName: PropTypes.string,
-  initialValue: PropTypes.string
+  initialValue: PropTypes.string,
 };
 
 export default RadioButtonGroup;

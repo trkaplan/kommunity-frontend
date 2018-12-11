@@ -72,7 +72,7 @@ class FindCommunities extends React.Component {
         searchValue === ''
           ? popularCommunities.map(community => (
             <CommunityCard key={community.id} name={community.name} />
-          ))
+            ))
           : // Else Show search results!
             results.map(community => <CommunityCard key={community.id} name={community.name} />)}
       </section>
