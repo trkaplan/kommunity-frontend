@@ -10,6 +10,8 @@ import Link from './link';
 import TextArea from './text-area';
 import Title from './title';
 import Input from './input';
+import RadioButton from './radio-button';
+import RadioButtonGroup from './radio-button-group';
 import Checkbox from './checkbox';
 import CheckboxGroup from './checkbox-group';
 import Switch from './switch';
@@ -32,6 +34,8 @@ export {
   Switch,
   TextArea,
   Title,
+  RadioButton,
+  RadioButtonGroup,
   Checkbox,
   CheckboxGroup,
   Popup,

@@ -6336,7 +6336,7 @@ table {
   .sm\:focus\:text-primaryDark:focus {
     color: var(--primaryDark);
   }
-
+  
   .sm\:focus\:text-dark:focus {
     color: var(--dark);
   }
@@ -7700,7 +7700,7 @@ table {
   .md\:last-child\:ml-4:last-child {
     margin-left: 1rem;
   }
-
+  
   .md\:last-child\:mt-5:last-child {
     margin-top: 1.25rem;
   }
@@ -9342,7 +9342,7 @@ table {
     margin-top: 4rem;
     margin-bottom: 4rem;
   }
-
+  
   .lg\:mx-16 {
     margin-left: 4rem;
     margin-right: 4rem;

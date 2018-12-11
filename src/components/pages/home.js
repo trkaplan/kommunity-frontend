@@ -40,7 +40,7 @@ class Home extends React.Component {
             <Pricing/>
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }
