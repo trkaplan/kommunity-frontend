@@ -62,10 +62,20 @@ describe('UI Component: <Input />', () => {
   });
 
   test('renders given Left Icon correctly', () => {
-    expect(wrapper.find('.icon-left').childAt(0).hasClass(iconLeftClass)).toBe(true);
+    expect(
+      wrapper
+        .find('.icon-left')
+        .childAt(0)
+        .hasClass(iconLeftClass),
+    ).toBe(true);
   });
 
   test('renders given Right Icon correctly', () => {
-    expect(wrapper.find('.icon-right').childAt(0).hasClass(iconRightClass)).toBe(true);
+    expect(
+      wrapper
+        .find('.icon-right')
+        .childAt(0)
+        .hasClass(iconRightClass),
+    ).toBe(true);
   });
 });

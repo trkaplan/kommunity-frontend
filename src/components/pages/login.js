@@ -19,23 +19,21 @@ const style = {
   },
 };
 
-class Auth extends React.Component {
-  render() {
-    return (
-      <div style={style.page}>
-        <Header/>
-        <div style={style.container}>
-          <div style={style.section}>
-            <Signup/>
-          </div>
-          <div style={style.section}>
-            <Login/>
-          </div>
+const Auth = () => {
+  return (
+    <div style={style.page}>
+      <Header />
+      <div style={style.container}>
+        <div style={style.section}>
+          <Signup />
         </div>
-        <Footer/>
+        <div style={style.section}>
+          <Login />
+        </div>
       </div>
-    );
-  }
-}
+      <Footer />
+    </div>
+  );
+};
 
 export default Auth;

@@ -11,7 +11,7 @@ describe('Components: <Home />', () => {
     const wrapper = shallow(
       <MemoryRouter>
         <ApolloProvider client={client}>
-          <Home/>
+          <Home />
         </ApolloProvider>
       </MemoryRouter>,
     );

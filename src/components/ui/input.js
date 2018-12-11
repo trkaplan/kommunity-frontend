@@ -4,10 +4,10 @@ import cls from 'classnames';
 
 const style = {
   common:
-    'ui-input inline-block border border-lightBlueGrey w-full px-4 rounded-4 '
-    + 'bg-white leading-2xl text-base disabled:bg-paleGrey '
-    + 'focus:text-dark focus:bg-white focus:border-primary '
-    + 'focus:shadow-input-primary focus:outline-none',
+    'ui-input inline-block border border-lightBlueGrey w-full px-4 rounded-4 ' +
+    'bg-white leading-2xl text-base disabled:bg-paleGrey ' +
+    'focus:text-dark focus:bg-white focus:border-primary ' +
+    'focus:shadow-input-primary focus:outline-none',
   errorText: 'error-text text-red my-2 leading-base',
   helpText: 'help-text text-blueyGrey leading-base',
   icon: 'h-full w-12 leading-base absolute inline-flex items-center justify-center',
@@ -25,6 +25,7 @@ const style = {
 
 class UIInput extends Component {
   state = {
+    // eslint-disable-next-line react/destructuring-assignment
     value: this.props.value,
   };
 
@@ -59,6 +60,8 @@ class UIInput extends Component {
       minLength,
     } = this.props;
 
+    const { value } = this.state;
+
     const wrapperClass = cls(style.wrapper, extraWrapperClassName);
     const inputClass = cls(style.common, extraClassName, {
       [style.state.default]: !errorText,
@@ -69,7 +72,9 @@ class UIInput extends Component {
 
     // TODO: add labelFor
     const labelElem = label ? (
-      <label className={style.label}>{label}</label>
+      <label htmlFor={name} className={style.label}>
+        {label}
+      </label>
     ) : null;
     const iconLeftElem = iconLeft ? (
       <div className={cls(style.icon, style.iconLeft)}>{iconLeft}</div>
@@ -77,12 +82,8 @@ class UIInput extends Component {
     const iconRightElem = iconRight ? (
       <div className={cls(style.icon, style.iconRight)}>{iconRight}</div>
     ) : null;
-    const helpTextElem = helpText ? (
-      <div className={style.helpText}>{helpText}</div>
-    ) : null;
-    const errorTextElem = errorText ? (
-      <div className={style.errorText}>{errorText}</div>
-    ) : null;
+    const helpTextElem = helpText ? <div className={style.helpText}>{helpText}</div> : null;
+    const errorTextElem = errorText ? <div className={style.errorText}>{errorText}</div> : null;
     return (
       <Fragment>
         {labelElem}
@@ -94,12 +95,13 @@ class UIInput extends Component {
             className={inputClass}
             autoComplete={autoComplete}
             disabled={disabled}
-            value={this.state.value}
+            value={value}
             onChange={event => this.onChangeHandler(event, onChange)}
             required={required}
             pattern={pattern}
             minLength={minLength}
             name={name}
+            id={name}
           />
           {iconRightElem}
         </div>

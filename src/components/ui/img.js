@@ -2,20 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import LazyLoad from 'react-lazyload';
 
-const UIImage = (props) => {
-  const {
-    src, alt, lazy, height, extraClassName, extraStyle,
-  } = props;
+const UIImage = props => {
+  const { src, alt, lazy, height, extraClassName, extraStyle } = props;
   const Image = () => <img src={src} alt={alt} className={extraClassName} style={extraStyle} />;
-  return (
-    lazy
-      ? <LazyLoad height={height}><Image/></LazyLoad>
-      : <Image/>
+  return lazy ? (
+    <LazyLoad height={height}>
+      <Image />
+    </LazyLoad>
+  ) : (
+    <Image />
   );
 };
 
-UIImage.defaultProps = {
-};
+UIImage.defaultProps = {};
 
 UIImage.propTypes = {
   alt: PropTypes.string,

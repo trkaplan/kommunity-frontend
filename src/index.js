@@ -10,7 +10,7 @@ let currentApp = app;
 const getEnv = c => process.env[c];
 const port = getEnv('PORT');
 
-server.listen(port, (error) => {
+server.listen(port, error => {
   if (error) {
     console.log(error);
   }

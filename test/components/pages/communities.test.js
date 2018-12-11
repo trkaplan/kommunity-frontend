@@ -7,7 +7,7 @@ describe('Components: <CommunityList />', () => {
   test('renders without exploding', () => {
     const wrapper = shallow(
       <MemoryRouter>
-        <CommunityList/>
+        <CommunityList />
       </MemoryRouter>,
     );
     expect(wrapper.html()).toContain('div');

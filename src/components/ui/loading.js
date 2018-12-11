@@ -6,10 +6,11 @@ const style = {
   animation: 'spin 2s linear infinite',
 };
 
-const Loading = (props) => {
+const Loading = props => {
+  const { size } = props;
   return (
     <div className="text-center my-3">
-      <Icon name="Loader" size={props.size} style={style} />
+      <Icon name="Loader" size={size} style={style} />
     </div>
   );
 };

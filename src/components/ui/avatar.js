@@ -23,14 +23,15 @@ const style = {
   },
 };
 
-const Avatar = (props) => {
+const Avatar = props => {
   const { size, src, letters } = props;
   return (
     <div className={cls(style.common, style.size[size])}>
-      { src
-        ? <UIImage className ={cls(style.img)} src={src} height="100%" width="100%" alt=""/>
-        : <p className ={cls(style.letter[size])}>{letters}</p>
-      }
+      {src ? (
+        <UIImage className={cls(style.img)} src={src} height="100%" width="100%" alt="" />
+      ) : (
+        <p className={cls(style.letter[size])}>{letters}</p>
+      )}
     </div>
   );
 };

@@ -4,9 +4,9 @@ import cls from 'classnames';
 
 const style = {
   common:
-    'ui-textarea inline-block border border-lgray w-full px-4 rounded-4 bg-white '
-    + 'leading-2xl text-base focus:text-black focus:bg-white '
-    + 'focus:border-blue focus:border-2 focus:outline-none disabled:bg-xlgray',
+    'ui-textarea inline-block border border-lgray w-full px-4 rounded-4 bg-white ' +
+    'leading-2xl text-base focus:text-black focus:bg-white ' +
+    'focus:border-blue focus:border-2 focus:outline-none disabled:bg-xlgray',
   errorText: 'error-text text-red my-2 leading-base',
   helpText: 'help-text text-gray leading-base',
   label: 'label text-black block leading-base font-normal',
@@ -19,6 +19,7 @@ const style = {
 
 class UITextArea extends Component {
   state = {
+    // eslint-disable-next-line react/destructuring-assignment
     value: this.props.value,
   };
 
@@ -43,7 +44,10 @@ class UITextArea extends Component {
       extraClassName,
       onChange,
       extraWrapperClassName,
+      id,
     } = this.props;
+
+    const { value } = this.state;
 
     const wrapperClass = cls(style.wrapper, extraWrapperClassName);
     const inputClass = cls(style.common, extraClassName, {
@@ -53,23 +57,22 @@ class UITextArea extends Component {
 
     // TODO: add labelFor
     const labelElem = label ? (
-      <label className={style.label}>{label}</label>
+      <label htmlFor={id} className={style.label}>
+        {label}
+      </label>
     ) : null;
-    const helpTextElem = helpText ? (
-      <div className={style.helpText}>{helpText}</div>
-    ) : null;
-    const errorTextElem = errorText ? (
-      <div className={style.errorText}>{errorText}</div>
-    ) : null;
+    const helpTextElem = helpText ? <div className={style.helpText}>{helpText}</div> : null;
+    const errorTextElem = errorText ? <div className={style.errorText}>{errorText}</div> : null;
     return (
       <Fragment>
         {labelElem}
         <div className={wrapperClass}>
           <textarea
+            id={id}
             placeholder={placeholder}
             className={inputClass}
             disabled={disabled}
-            value={this.state.value}
+            value={value}
             onChange={event => this.onChangeHandler(event, onChange)}
           />
         </div>
@@ -80,8 +83,7 @@ class UITextArea extends Component {
   }
 }
 
-UITextArea.defaultProps = {
-};
+UITextArea.defaultProps = {};
 
 UITextArea.propTypes = {
   disabled: PropTypes.bool,
@@ -89,6 +91,7 @@ UITextArea.propTypes = {
   extraClassName: PropTypes.string,
   extraWrapperClassName: PropTypes.string,
   helpText: PropTypes.string,
+  id: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,

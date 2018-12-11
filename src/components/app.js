@@ -16,7 +16,7 @@ const App = () => (
     <Route exact path="/logout" component={Logout} />
     <Route exact path="/member/profile" component={MemberProfile} />
     <Route exact path="/communities" component={CommunityList} />
-    <Route component={Error404}/>
+    <Route component={Error404} />
   </Switch>
 );
 

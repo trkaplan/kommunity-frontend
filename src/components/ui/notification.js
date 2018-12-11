@@ -32,37 +32,39 @@ class UINotification extends React.Component {
 
   dismiss = () => {
     this.setState({ display: false });
-  }
+  };
 
   render() {
-    const {
-      extraClassName, title, text, styleType, buttons, dismissable,
-    } = this.props;
+    const { extraClassName, title, text, styleType, buttons, dismissable } = this.props;
+
+    const { display } = this.state;
 
     return (
-      this.state.display
-        && <div
-          className={cls(style.common, style.container[styleType], extraClassName)}
-        >
+      display && (
+        <div className={cls(style.common, style.container[styleType], extraClassName)}>
           {icons[styleType]}
           <div className={cls(style.textArea)}>
             {title && <Paragraph extraClassName="font-extrabold mb-2 text-lg">{title}</Paragraph>}
             <Paragraph>{text}</Paragraph>
             {buttons}
           </div>
-          {dismissable
-          && <Icon name="X" className="text-lgray cursor-pointer flex-no-shrink" onClick={() => { this.dismiss(); }}/>
-        }
+          {dismissable && (
+            <Icon
+              name="X"
+              className="text-lgray cursor-pointer flex-no-shrink"
+              onClick={() => {
+                this.dismiss();
+              }}
+            />
+          )}
         </div>
+      )
     );
   }
 }
 
 UINotification.propTypes = {
-  buttons: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.arrayOf(PropTypes.object),
-  ]),
+  buttons: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.object)]),
   dismissable: PropTypes.bool,
   extraClassName: PropTypes.string,
   styleType: PropTypes.oneOf(['success', 'warning', 'danger', 'info']).isRequired,

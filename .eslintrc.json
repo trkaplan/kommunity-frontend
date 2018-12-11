@@ -1,5 +1,6 @@
 {
-  "extends": ["eslint:recommended", "airbnb-base", "plugin:react/recommended"],
+  "extends": ["eslint:recommended", "airbnb", "prettier"],
+  "plugins": ["prettier"],
   "parser": "babel-eslint",
   "rules": {
     "max-len": ["error", { "code": 120 }],
@@ -11,7 +12,18 @@
     "no-multiple-empty-lines": ["error", { "max": 1 }],
     "import/no-unresolved": 0,
     "import/prefer-default-export": 0,
-    "arrow-body-style": 0
+    "arrow-body-style": 0,
+    "react/jsx-filename-extension": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": {
+          "every": "id"
+        }
+      }
+    ],
+    "jsx-a11y/click-events-have-key-events": 0
   },
   "globals": {
     "describe": true,

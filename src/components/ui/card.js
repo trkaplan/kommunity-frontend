@@ -11,15 +11,16 @@ const style = {
   tiny: 'shadow',
 };
 
-const Card = (props) => {
-  const {
-    applyPadding, extraClassName, extraStyle, shadow,
-  } = props;
+const Card = props => {
+  const { applyPadding, extraClassName, extraStyle, shadow, children } = props;
   return (
-    <div className={cls(extraClassName, style[shadow], style.common, {
-      [style.padding]: applyPadding,
-    })} style={extraStyle}>
-      {props.children}
+    <div
+      className={cls(extraClassName, style[shadow], style.common, {
+        [style.padding]: applyPadding,
+      })}
+      style={extraStyle}
+    >
+      {children}
     </div>
   );
 };

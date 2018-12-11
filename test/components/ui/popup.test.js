@@ -4,7 +4,7 @@ import Popup from '@/components/ui/popup';
 
 describe('UI Component: <Popup />', () => {
   const wrapper = shallow(
-    <Popup show={true}>
+    <Popup show>
       <p>Hello World!</p>
     </Popup>,
   );

@@ -5,12 +5,12 @@ const server = http.createServer(app);
 const port = 5000;
 server.listen(5000);
 
-test('server - returns 200', (done) => {
-  http.get(`http://localhost:${port}`, (res) => {
+test('server - returns 200', done => {
+  http.get(`http://localhost:${port}`, res => {
     expect(res.statusCode).toBe(200);
 
     let response = '';
-    res.on('data', (chunk) => {
+    res.on('data', chunk => {
       response += chunk;
     });
 
@@ -21,6 +21,6 @@ test('server - returns 200', (done) => {
   });
 });
 
-afterAll((done) => {
+afterAll(done => {
   server.close(done);
 });

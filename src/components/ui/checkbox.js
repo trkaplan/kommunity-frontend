@@ -13,6 +13,7 @@ class Checkbox extends React.Component {
 
   getClassname = () => {
     const { disabled } = this.props;
+    const { selected } = this.state;
     const style = {
       container: [
         'flex items-center m-1',
@@ -27,43 +28,48 @@ class Checkbox extends React.Component {
           'border rounded',
           'focus:outline-none',
           {
-            'border-lightBlueGrey': !this.state.selected,
+            'border-lightBlueGrey': !selected,
             'focus:border-2': !disabled,
-            'focus:border-blueyGrey': !this.state.selected && !disabled,
+            'focus:border-blueyGrey': !selected && !disabled,
             'opacity-60 text-lightBlueGrey bg-paleGrey': disabled,
-            'text-primary border-primary focus:border-primary': this.state.selected && !disabled,
+            'text-primary border-primary focus:border-primary': selected && !disabled,
           },
         ],
         medium: 'w-6 h-6',
         small: 'w-4 h-4',
       },
-      icon: { block: this.state.selected, hidden: !this.state.selected },
+      icon: { block: selected, hidden: !selected },
       label: 'text-dark flex items-center leading-base ml-2 select-none',
     };
     return style;
   };
 
   onChange = (val, checked) => {
+    const { onChange } = this.props;
     this.setState({ selected: checked });
-    this.props.onChange(val, checked);
+    onChange(val, checked);
   };
 
   render() {
-    const {
-      size, disabled, value, label, extraClassName, defaultChecked,
-    } = this.props;
+    const { size, disabled, value, label, extraClassName, defaultChecked, name } = this.props;
     const style = this.getClassname();
     return (
-      <label className={cls(style.container, extraClassName)}>
+      <label htmlFor={name} className={cls(style.container, extraClassName)}>
         <input
           type="checkbox"
+          id={name}
+          name={name}
           className="absolute invisible"
           disabled={disabled}
           defaultChecked={defaultChecked}
           onChange={e => this.onChange(JSON.parse(e.target.value)[0], e.target.checked)}
           value={JSON.stringify([value])}
         />
-        <div className={cls(style.customCheckbox.common, style.customCheckbox[size])} tabIndex={0}>
+        <div
+          className={cls(style.customCheckbox.common, style.customCheckbox[size])}
+          role="button"
+          tabIndex={0}
+        >
           <Icon name="Check" size="15" className={cls(style.icon)} />
         </div>
         <p className={style.label}>{label}</p>
@@ -83,8 +89,10 @@ Checkbox.propTypes = {
   disabled: PropTypes.bool,
   extraClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   label: PropTypes.string,
+  name: PropTypes.string,
   onChange: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium']),
+  // eslint-disable-next-line react/forbid-prop-types
   value: PropTypes.any,
 };
 

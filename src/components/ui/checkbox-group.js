@@ -6,11 +6,9 @@ const styles = {
   horizontal: 'flex',
   vertical: 'flex flex-col items-start',
 };
-const CheckBoxGroup = (props) => {
-  const {
-    size, extraClassName, orientation, children, onChange,
-  } = props;
-  const newCheckboxes = React.Children.map(children, (child) => {
+const CheckBoxGroup = props => {
+  const { size, extraClassName, orientation, children, onChange } = props;
+  const newCheckboxes = React.Children.map(children, child => {
     return React.cloneElement(child, {
       extraClassName: { 'w-full': orientation === 'vertical' },
       onChange,

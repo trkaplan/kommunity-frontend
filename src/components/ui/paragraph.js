@@ -10,14 +10,15 @@ const style = {
   xs: 'text-xs leading-xs',
 };
 
-const UIParagraph = (props) => {
+const UIParagraph = props => {
+  const { className, type, extraClassName, children } = props;
+  // TODO: we can use props.extraStyle instead of props.style
   return (
-    <p className={cls((
-      props.className ? props.className : style[props.type]),
-    props.extraClassName)}
-      style={props.style}
+    <p
+      className={cls(className || style[type], extraClassName)}
+      style={props.style} // eslint-disable-line react/destructuring-assignment
     >
-      {props.children}
+      {children}
     </p>
   );
 };
@@ -27,13 +28,10 @@ UIParagraph.defaultProps = {
 };
 
 UIParagraph.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   className: PropTypes.string,
   extraClassName: PropTypes.string,
-  style: PropTypes.object,
+  style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   type: PropTypes.string,
 };
 

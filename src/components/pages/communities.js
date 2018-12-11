@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* eslint-disable react/no-unescaped-entities */
+import React from 'react';
 
 import CommunityCard from '@/components/common/cards/community-card';
 import Header from '@/components/common/header';
@@ -41,19 +42,17 @@ const style = {
   },
 };
 
-class CommunityList extends Component {
-  render() {
-    return (
-      <div style={style.container}>
-        <Header />
-        <div style={style.searchBar}>Search Bar!</div>
-        <h3>{i18n.t('communities.title')}</h3>
-        <div style={style.middle}>
-          <div style={style.userCommunities}>
-            {[1, 2, 3, 4].map((item, idx) => (
-              <CommunityCard value={item} key={idx} />
-            ))}
-          </div>
+const CommunityList = () => {
+  return (
+    <div style={style.container}>
+      <Header />
+      <div style={style.searchBar}>Search Bar!</div>
+      <h3>{i18n.t('communities.title')}</h3>
+      <div style={style.middle}>
+        <div style={style.userCommunities}>
+          {[1, 2, 3, 4].map((item, idx) => (
+            <CommunityCard value={item} key={idx.toString()} />
+          ))}
         </div>
         <h3>Fresh Communities</h3>
         <div style={style.middle}>
@@ -64,20 +63,34 @@ class CommunityList extends Component {
           </div>
         </div>
         <div style={style.createCommunities}>
-          <div style={style.text}>{"Can't find what you are looking for?"}</div>
+          <div style={style.text}>Can't find what you are looking for?</div>
           <span style={style.button}>
-            <Button label="Create Your Community"
+            <Button
+              label="Create Your Community"
               onClick={() => {}}
               size="large"
               styleType="secondary"
-              extraClassName="items-center"/>
+              extraClassName="items-center"
+            />
           </span>
         </div>
-        <Footer />
       </div>
-    );
-  }
-}
+      <div style={style.createCommunities}>
+        <div style={style.text}>Can't find what you are looking for?</div>
+        <span style={style.button}>
+          <Button
+            label="Create Your Community"
+            onClick={() => {}}
+            size="large"
+            styleType="secondary"
+            extraClassName="items-center"
+          />
+        </span>
+      </div>
+      <Footer />
+    </div>
+  );
+};
 
 CommunityList.propTypes = {};
 

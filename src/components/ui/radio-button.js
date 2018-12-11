@@ -2,16 +2,8 @@ import React from 'react';
 import cls from 'classnames';
 import PropTypes from 'prop-types';
 
-const RadioButton = (props) => {
-  const {
-    disabled,
-    extraClassName,
-    label,
-    onChange,
-    selected,
-    size,
-    value,
-  } = props;
+const RadioButton = props => {
+  const { disabled, extraClassName, label, onChange, selected, size, value } = props;
   const style = {
     container: [
       'text-blueyGrey m-1 flex items-center',

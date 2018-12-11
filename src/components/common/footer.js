@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Link, Input, Paragraph, Icon,
-} from '@/components/ui';
+import { Link, Input, Paragraph, Icon } from '@/components/ui';
 import Logo from '@/components/common/logo';
 
 const classes = {
@@ -39,19 +37,25 @@ const Footer = () => {
     <div>
       <div className="flex py-10">
         <div className="w-1/4 ml-auto">
-          <Logo/>
+          <Logo />
         </div>
         <div className="w-2/12">
           <Paragraph className={classes.caption}>Product</Paragraph>
           <ul className={classes.list}>
             <li className={classes.listItem}>
-              <Link className={classes.listItemLink} color={classes.linkColor} to="/communities">Communities</Link>
+              <Link className={classes.listItemLink} color={classes.linkColor} to="/communities">
+                Communities
+              </Link>
             </li>
             <li className={classes.listItem}>
-              <Link className={classes.listItemLink} color={classes.linkColor} to="/features">Features</Link>
+              <Link className={classes.listItemLink} color={classes.linkColor} to="/features">
+                Features
+              </Link>
             </li>
             <li className={classes.listItem}>
-              <Link className={classes.listItemLink} color={classes.linkColor} to="/our-story">Our Story</Link>
+              <Link className={classes.listItemLink} color={classes.linkColor} to="/our-story">
+                Our Story
+              </Link>
             </li>
           </ul>
         </div>
@@ -59,13 +63,19 @@ const Footer = () => {
           <Paragraph className={classes.caption}>Get in touch</Paragraph>
           <ul className={classes.list}>
             <li className={classes.listItem}>
-              <Link className={classes.listItemLink} color={classes.linkColor} to="/contact">Contact</Link>
+              <Link className={classes.listItemLink} color={classes.linkColor} to="/contact">
+                Contact
+              </Link>
             </li>
             <li className={classes.listItem}>
-              <Link className={classes.listItemLink} color={classes.linkColor} to="/feedback">Feedback</Link>
+              <Link className={classes.listItemLink} color={classes.linkColor} to="/feedback">
+                Feedback
+              </Link>
             </li>
             <li className={classes.listItem}>
-              <Link className={classes.listItemLink} color={classes.linkColor} to="/roadmap">Roadmap</Link>
+              <Link className={classes.listItemLink} color={classes.linkColor} to="/roadmap">
+                Roadmap
+              </Link>
             </li>
           </ul>
         </div>
@@ -78,29 +88,22 @@ const Footer = () => {
             name="email"
             type="email"
             placeholder="Your mail adress"
-            iconRight={
-              <Icon
-                name="Send"
-                className="text-primary cursor-pointer"
-                />
-              }
+            iconRight={<Icon name="Send" className="text-primary cursor-pointer" />}
             extraWrapperClassName="my-4"
-            />
+          />
         </div>
       </div>
       <div className="flex justify-between border-t py-10 border-pale-blue w-10/12 mx-auto">
-        <div className='flex'>
-          <Paragraph className={classes.inlineListItem}>
-            Made with &hearts; in&nbsp;
-          </Paragraph>
-          <div className='overflow-hidden h-6'>
+        <div className="flex">
+          <Paragraph className={classes.inlineListItem}>Made with &hearts; in&nbsp;</Paragraph>
+          <div className="overflow-hidden h-6">
             <div style={style.cityWrapper}>
               {cities.map((c, i) => {
                 return (
                   <Paragraph
                     className={classes.inlineListItem}
                     style={style.city}
-                    key={i}
+                    key={i.toString()}
                   >
                     {c}
                   </Paragraph>
@@ -115,7 +118,8 @@ const Footer = () => {
             <Link
               className={classes.inlineListItemLink}
               color={classes.footerLinkColor}
-              to="/privacy-policy">
+              to="/privacy-policy"
+            >
               Privacy Policy
             </Link>
           </li>
@@ -123,13 +127,15 @@ const Footer = () => {
             <Link
               className={classes.inlineListItemLink}
               color={classes.footerLinkColor}
-              to="/terms-of-use">
+              to="/terms-of-use"
+            >
               Terms Of Use
             </Link>
           </li>
           <li className={classes.inlineListItem}>
             <Paragraph className={classes.inlineListItem}>
-              © {new Date().getFullYear()} All Rights Reserved.
+              ©{new Date().getFullYear()}
+              All Rights Reserved.
             </Paragraph>
           </li>
         </ul>

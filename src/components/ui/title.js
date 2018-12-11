@@ -11,13 +11,9 @@ const style = {
   h6: 'text-lg leading-base font-light',
 };
 
-const Title = (props) => {
-  const { type: HeaderType } = props;
-  return (
-    <HeaderType className={cls(props.extraClassName, style[HeaderType])}>
-      {props.children}
-    </HeaderType>
-  );
+const Title = props => {
+  const { type: HeaderType, extraClassName, children } = props;
+  return <HeaderType className={cls(extraClassName, style[HeaderType])}>{children}</HeaderType>;
 };
 
 Title.propTypes = {

@@ -10,8 +10,8 @@ const HomeHero = () => (
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     </Title>
     <div>
-      <Button extraClassName="mr-6" label="Create Community" size="large" styleType="primary"/>
-      <Button label="Discover Communities" size="large" styleType="outline"/>
+      <Button extraClassName="mr-6" label="Create Community" size="large" styleType="primary" />
+      <Button label="Discover Communities" size="large" styleType="outline" />
     </div>
   </div>
 );

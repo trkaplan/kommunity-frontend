@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
 import cls from 'classnames';
@@ -14,37 +15,41 @@ class Switch extends React.Component {
 
   handleClick = () => {
     const { enabled } = this.state;
-    const { disabled } = this.props;
+    const { disabled, onClick } = this.props;
     if (!disabled) {
       this.setState({
         enabled: !enabled,
       });
     }
-    if (this.props.onClick) {
-      this.props.onClick();
+    if (onClick) {
+      onClick();
     }
-  }
+  };
 
   render() {
     const { enabled } = this.state;
-    const {
-      extraClassname, name, disabled, displayText,
-    } = this.props;
+    const { extraClassname, name, disabled, displayText } = this.props;
     return (
       <div className={cls('flex', 'items-center', extraClassname)}>
-        <div className={cls(style.container,
-          enabled ? 'bg-primary flex-row-reverse' : 'bg-lightBlueGrey',
-          disabled && 'opacity-50')}>
+        <div
+          className={cls(
+            style.container,
+            enabled ? 'bg-primary flex-row-reverse' : 'bg-lightBlueGrey',
+            disabled && 'opacity-50',
+          )}
+        >
           <input
-            className={'hidden'}
+            className="hidden"
             onClick={!disabled ? this.handleClick : undefined}
             type="checkbox"
             name={name}
             id={name}
           />
-          <label className={cls(style.label, disabled && 'cursor-not-allowed')} htmlFor={name}></label>
+          <label className={cls(style.label, disabled && 'cursor-not-allowed')} htmlFor={name} />
         </div>
-        <label className={cls('text-dark', !displayText && 'hidden')} htmlFor={name}>{name}</label>
+        <label className={cls('text-dark', !displayText && 'hidden')} htmlFor={name}>
+          {name}
+        </label>
       </div>
     );
   }

@@ -10,12 +10,17 @@ export const makeRequest = (type, path, body) => {
   return instance[type](path, body);
 };
 
-instance.interceptors.response.use((response:{}) => {
-  // Do something with response data
-  return response.data;
-}, (error) => {
-  const code = error.response.data && error.response.data.code;
-  return Promise.reject(new Error({
-    code,
-  }));
-});
+instance.interceptors.response.use(
+  (response: {}) => {
+    // Do something with response data
+    return response.data;
+  },
+  error => {
+    const code = error.response.data && error.response.data.code;
+    return Promise.reject(
+      new Error({
+        code,
+      }),
+    );
+  },
+);

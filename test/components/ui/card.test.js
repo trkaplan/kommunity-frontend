@@ -4,7 +4,7 @@ import { Card } from '@/components/ui';
 
 describe('UI Component: <Card />', () => {
   const wrapper = shallow(
-    <Card shadow='md'>
+    <Card shadow="md">
       <p>I am children</p>
     </Card>,
   );

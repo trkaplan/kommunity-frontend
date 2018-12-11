@@ -16,12 +16,8 @@ const style = {
 
 class Dropdown extends Component {
   state = {
-    selectedOption: this.props.selectedOption,
+    selectedOption: this.props.selectedOption, // eslint-disable-line react/destructuring-assignment
     showDropdown: false,
-  };
-
-  setWrapperRef = (node) => {
-    this.wrapperRef = node;
   };
 
   componentDidMount() {
@@ -32,13 +28,17 @@ class Dropdown extends Component {
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
-  handleClickOutside = (event) => {
+  setWrapperRef = node => {
+    this.wrapperRef = node;
+  };
+
+  handleClickOutside = event => {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
       this.setState({ showDropdown: false });
     }
   };
 
-  onChangeHandlerFactory = (id) => {
+  onChangeHandlerFactory = id => {
     const { onSelect, options } = this.props;
     return () => {
       this.setState({
@@ -53,15 +53,15 @@ class Dropdown extends Component {
   };
 
   toggleDropdown = () => {
-    if (!this.props.disabled) {
-      this.setState({ showDropdown: !this.state.showDropdown });
+    const { disabled } = this.props;
+    const { showDropdown } = this.state;
+    if (!disabled) {
+      this.setState({ showDropdown: !showDropdown });
     }
   };
 
   render() {
-    const {
-      disabled, extraClassName, options, placeholder,
-    } = this.props;
+    const { disabled, extraClassName, options, placeholder } = this.props;
     const { selectedOption, showDropdown } = this.state;
 
     return (
@@ -69,26 +69,22 @@ class Dropdown extends Component {
         <div
           className={cls(style.selected, { [style.disabled]: disabled })}
           onClick={this.toggleDropdown}
+          role="button"
+          tabIndex="0"
         >
-          <span>
-            {selectedOption || placeholder}
-          </span>
-          <Icon
-            className={cls(style.icon, { [style.disabled]: disabled })}
-            name="ChevronDown"/>
+          <span>{selectedOption || placeholder}</span>
+          <Icon className={cls(style.icon, { [style.disabled]: disabled })} name="ChevronDown" />
         </div>
         {showDropdown && (
           <div className={style.card}>
             <ul className={style.list}>
               {options.map((option, index) => (
-                <li key={index} className={cls('dropdown-item flex items-center', style.item)}
-                  onClick={this.onChangeHandlerFactory(option.id)}>
-                  {option.iconName && (
-                    <Icon
-                      size="20"
-                      className="mr-4"
-                      name={option.iconName}/>
-                  )}
+                <li
+                  key={index.toString()}
+                  className={cls('dropdown-item flex items-center', style.item)}
+                  onClick={this.onChangeHandlerFactory(option.id)}
+                >
+                  {option.iconName && <Icon size="20" className="mr-4" name={option.iconName} />}
 
                   {option.imgSrc && (
                     <div
@@ -98,9 +94,7 @@ class Dropdown extends Component {
                       }}
                     />
                   )}
-                  <span>
-                    {option.value}
-                  </span>
+                  <span>{option.value}</span>
                 </li>
               ))}
             </ul>
@@ -123,6 +117,7 @@ Dropdown.propTypes = {
   onSelect: PropTypes.func,
   options: PropTypes.arrayOf(PropTypes.object),
   placeholder: PropTypes.string,
+  // eslint-disable-next-line react/forbid-prop-types
   selectedOption: PropTypes.object,
 };
 

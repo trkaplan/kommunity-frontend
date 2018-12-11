@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import CommunityCard from '@/components/common/cards/community-card';
 import UserCard from '@/components/common/cards/user-card';
 import Header from '@/components/common/header';
@@ -29,30 +28,24 @@ const style = {
   },
 };
 
-class MemeberProfile extends React.Component {
-  render() {
-    return (
-      <div style={style.container}>
-        <Header />
-        <div style={style.topImage}>big img</div>
-        <div style={style.middle}>
-          <div style={style.userInfo}>
-            <UserCard />
-          </div>
-          <div style={style.userCommunities}>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, idx) => (
-              <CommunityCard value={item} key={idx} />
-            ))}
-          </div>
+const MemberProfile = () => {
+  return (
+    <div style={style.container}>
+      <Header />
+      <div style={style.topImage}>big img</div>
+      <div style={style.middle}>
+        <div style={style.userInfo}>
+          <UserCard />
         </div>
-        <Footer/>
+        <div style={style.userCommunities}>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, idx) => (
+            <CommunityCard value={item} key={idx.toString()} />
+          ))}
+        </div>
       </div>
-    );
-  }
-}
-const mapStateToProps = state => ({ state });
-const mapActionsToProps = {};
-export default connect(
-  mapStateToProps,
-  mapActionsToProps,
-)(MemeberProfile);
+      <Footer />
+    </div>
+  );
+};
+
+export default MemberProfile;

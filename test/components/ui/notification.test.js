@@ -3,9 +3,7 @@ import { shallow } from 'enzyme';
 import { Notification } from '@/components/ui';
 
 describe('UI Component: <Notification />', () => {
-  const wrapper = shallow(
-    <Notification styleType='danger' text="notification text"/>,
-  );
+  const wrapper = shallow(<Notification styleType="danger" text="notification text" />);
 
   test('renders notification', () => {
     expect(wrapper.length).toEqual(1);
@@ -25,7 +23,7 @@ describe('UI Component: <Notification />', () => {
   test('is dismissable', () => {
     wrapper.setProps({ dismissable: true });
 
-    const closer = wrapper.find('Icon').filterWhere((item) => {
+    const closer = wrapper.find('Icon').filterWhere(item => {
       return item.prop('name') === 'X';
     });
 
@@ -35,4 +33,3 @@ describe('UI Component: <Notification />', () => {
     expect(wrapper.html()).toEqual(null);
   });
 });
-

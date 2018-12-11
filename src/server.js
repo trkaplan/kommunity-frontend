@@ -61,7 +61,7 @@ server.get('/*', async (req, res) => {
     const initialI18nStore = {};
     let initialLanguage;
     if (req.i18n) {
-      req.i18n.languages.forEach((lang) => {
+      req.i18n.languages.forEach(lang => {
         initialI18nStore[lang] = req.i18n.services.resourceStore.data[lang];
       });
       initialLanguage = req.i18n.language;
@@ -77,9 +77,11 @@ server.get('/*', async (req, res) => {
   <title>Join, and build amazing communities! Kommunity.app</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   ${cssAssetUrl ? `<link rel="stylesheet" type="text/css" href="${cssAssetUrl}">` : ''}
-  ${process.env.NODE_ENV === 'production'
-    ? `<script src="${jsAssetUrl}" defer></script>`
-    : `<script src="${jsAssetUrl}" defer crossorigin></script>`}
+  ${
+    process.env.NODE_ENV === 'production'
+      ? `<script src="${jsAssetUrl}" defer></script>`
+      : `<script src="${jsAssetUrl}" defer crossorigin></script>`
+  }
   <script>
     window.i18n = {
       store: JSON.parse('${JSON.stringify(initialI18nStore)}'),

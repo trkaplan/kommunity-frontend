@@ -49,9 +49,9 @@ const colors = {
   primary: 'var(--primary)',
   primaryLight: 'var(--primaryLight)',
   primaryDark: 'var(--primaryDark)',
-  dark:'var(--dark)',
-  gunmetal:'var(--gunmetal)',
-  battleshipGrey:'var(--battleshipGrey)',
+  dark: 'var(--dark)',
+  gunmetal: 'var(--gunmetal)',
+  battleshipGrey: 'var(--battleshipGrey)',
   blueyGrey: 'var(--blueyGrey)',
   lightBlueGrey: 'var(--lightBlueGrey)',
   paleBlue: 'var(--paleBlue)',
@@ -150,14 +150,7 @@ module.exports = {
       'Georgia',
       'serif',
     ],
-    mono: [
-      'Menlo',
-      'Monaco',
-      'Consolas',
-      'Liberation Mono',
-      'Courier New',
-      'monospace',
-    ],
+    mono: ['Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
   },
 
   /*
@@ -251,7 +244,7 @@ module.exports = {
 
   tracking: {
     normal: '0',
-    tight: '-0.025rem'
+    tight: '-0.025rem',
   },
 
   /*
@@ -416,7 +409,7 @@ module.exports = {
     '10/12': '83.33333%',
     '11/12': '91.66666%',
     '12/12': '100%',
-    '1/5' : '20%',
+    '1/5': '20%',
     '3/10': '30%',
     full: '100%',
     screen: '100vw',
@@ -503,7 +496,7 @@ module.exports = {
 
   maxWidth: {
     full: '100%',
-    '9/12': '75%'
+    '9/12': '75%',
   },
 
   /*
@@ -821,10 +814,9 @@ module.exports = {
         red_tooltip: {
           color: colors['red'],
           size: [8, 4],
-        }
+        },
       },
     }),
-    
   ],
 
   /*

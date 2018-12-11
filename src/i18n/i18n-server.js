@@ -15,13 +15,12 @@ if (!i18n.isInitialized) {
   i18n
     .use(Backend)
     .use(i18nextMiddleware.LanguageDetector)
-    .init(
-      {
-        ...options,
-        backend: {
-          loadPath: `${appSrc}/i18n/translations/{{lng}}.json`,
-        },
-        /*
+    .init({
+      ...options,
+      backend: {
+        loadPath: `${appSrc}/i18n/translations/{{lng}}.json`,
+      },
+      /*
         detection: {
           // order and from where user language should be detected
           order: ['path', 'session', 'querystring', 'cookie', 'header'],
@@ -44,9 +43,8 @@ if (!i18n.isInitialized) {
           cookieSecure: true // if need secure cookie
         },
       */
-        preload: ['en-US'],
-      },
-    );
+      preload: ['en-US'],
+    });
 }
 
 export default i18n;

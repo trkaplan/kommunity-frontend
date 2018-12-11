@@ -4,4 +4,7 @@ import Error404 from '@/components/pages/404';
 const mapStateToProps = () => ({});
 const mapActionsToProps = {};
 
-export default connect(mapStateToProps, mapActionsToProps)(Error404);
+export default connect(
+  mapStateToProps,
+  mapActionsToProps,
+)(Error404);

@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import cls from 'classnames';
 
-const UILink = props => (
-  <NavLink className={cls(props.color, props.className, props.extraClassName)} to={props.to}>
-    {props.children}
-  </NavLink>
-);
+const UILink = props => {
+  const { color, className, extraClassName, children, to } = props;
+  return (
+    <NavLink className={cls(color, className, extraClassName)} to={to}>
+      {children}
+    </NavLink>
+  );
+};
 
 UILink.defaultProps = {
   className: 'text-base leading-base no-underline',
@@ -15,10 +18,7 @@ UILink.defaultProps = {
 };
 
 UILink.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   className: PropTypes.string,
   color: PropTypes.string,
   extraClassName: PropTypes.string,

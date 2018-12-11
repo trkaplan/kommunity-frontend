@@ -7,8 +7,8 @@ import { isServer } from '../utils';
 
 export default new ApolloClient({
   cache: !isServer()
-    // eslint-disable-next-line no-underscore-dangle
-    ? new InMemoryCache().restore(window.__APOLLO_STATE__)
+    ? // eslint-disable-next-line no-underscore-dangle
+      new InMemoryCache().restore(window.__APOLLO_STATE__)
     : new InMemoryCache(),
   connectToDevTools: process.env.NODE_ENV === 'development',
   link: new HttpLink({

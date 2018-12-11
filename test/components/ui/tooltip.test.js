@@ -3,11 +3,7 @@ import { shallow } from 'enzyme';
 import { Tooltip } from '@/components/ui';
 
 describe('UI Component: <Tooltip />', () => {
-  const wrapper = shallow(
-    <Tooltip content="Tooltip Content">
-      Hover Me!
-    </Tooltip>,
-  );
+  const wrapper = shallow(<Tooltip content="Tooltip Content">Hover Me!</Tooltip>);
 
   const tooltip = wrapper.find('.tooltip-wrapper');
 

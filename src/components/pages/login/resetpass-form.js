@@ -1,7 +1,6 @@
+/* eslint-disable react/no-unused-state */
 import React from 'react';
-import {
-  Button, Input, Title, Paragraph, Icon, Link,
-} from '@/components/ui';
+import { Button, Input, Title, Paragraph, Icon, Link } from '@/components/ui';
 import { forgotPassword } from '@/api/request';
 import Recaptcha from 'react-google-recaptcha';
 import { RECAPTCHA_API_KEY, mailPattern } from '@/constants';
@@ -25,7 +24,7 @@ class ResetPassword extends React.Component {
     this.captcha = React.createRef();
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
 
     this.setState({ errors: [] });
@@ -35,9 +34,10 @@ class ResetPassword extends React.Component {
 
   // captcha verification
   onVerify = () => {
+    const { email } = this.state;
     // todo mustaphaturhan: there will be an action after backend comes.
     // show server message with a notification component
-    forgotPassword(this.state.email, this.state.password)
+    forgotPassword(email)
       .then(response => this.setState({ response }))
       .catch(error => this.setState(oldState => ({ errors: [...oldState.errors, error] })));
   };
@@ -52,7 +52,7 @@ class ResetPassword extends React.Component {
     }));
   };
 
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -67,12 +67,10 @@ class ResetPassword extends React.Component {
           <Title type="h5" extraClassName="font-extrabold">
             Reset your password
           </Title>
-          <Paragraph extraClassName="pt-2">
-            Send a reset link to your mail address
-          </Paragraph>
+          <Paragraph extraClassName="pt-2">Send a reset link to your mail address</Paragraph>
           {/* TODO mustaphaturhan: there will be notification instead of paragraph */}
-          {errors
-            && errors.map((error, i) => (
+          {errors &&
+            errors.map((error, i) => (
               <Paragraph key={i.toString()} extraClassName="text-red">
                 {error.message}
               </Paragraph>

@@ -28,7 +28,7 @@ export const signup = (email, password) => {
   });
 };
 
-export const forgotPassword = (email) => {
+export const forgotPassword = email => {
   // TODO(mustaphaturhan): we gonna add forgot password request later.
   // return makeRequest('post', '/api/v1/member/forgotPassword', {
   //   email,

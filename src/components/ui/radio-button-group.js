@@ -9,7 +9,7 @@ class RadioButtonGroup extends React.Component {
     };
   }
 
-  onChange = (value) => {
+  onChange = value => {
     return () => {
       this.setState({ selectedValue: value });
     };
@@ -17,7 +17,7 @@ class RadioButtonGroup extends React.Component {
 
   render() {
     const { disabled, extraClassName, children } = this.props;
-    const newRadioButtons = React.Children.map(children, (child) => {
+    const newRadioButtons = React.Children.map(children, child => {
       return React.cloneElement(child, {
         disabled,
         onChange: this.onChange(child.props.value),

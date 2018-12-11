@@ -4,9 +4,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 describe('UI Component: <Icon />', () => {
-  const wrapper = shallow(
-    <Icon name="Camera" className="my-6" custom="random" />,
-  );
+  const wrapper = shallow(<Icon name="Camera" className="my-6" custom="random" />);
 
   test('renders icon correctly', () => {
     expect(wrapper.find(Camera).length).toBe(1);

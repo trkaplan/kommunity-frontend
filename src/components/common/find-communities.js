@@ -12,9 +12,7 @@ class FindCommunities extends React.Component {
         { id: '236273', name: 'Antalya Topluluğu' },
         { id: '313666', name: 'Test Topluluk' },
       ],
-      results: [
-        { id: '239273', name: 'Arama sonucu bu' },
-      ],
+      results: [{ id: '239273', name: 'Arama sonucu bu' }],
       searchValue: '',
     };
   }
@@ -23,12 +21,15 @@ class FindCommunities extends React.Component {
     this.getPopularCommunities();
   }
 
-  handleChange = (e) => {
+  handleChange = e => {
     // Update searchValue State
-    this.setState({
-      searchValue: e.target.value,
-    }, this.getResults);
-  }
+    this.setState(
+      {
+        searchValue: e.target.value,
+      },
+      this.getResults,
+    );
+  };
 
   // TODO: Get popular communities data and update state[popularCommunities]
   // if response is empty, set displayCommunities false
@@ -36,8 +37,7 @@ class FindCommunities extends React.Component {
     // this.setState({
     //   popularCommunities
     // });
-
-  }
+  };
 
   // TODO: Get search results data and update state[results]
   // if response is empty, set displayCommunities false
@@ -45,17 +45,17 @@ class FindCommunities extends React.Component {
     // this.setState({
     //   results
     // });
-  }
+  };
 
   render() {
-    const {
-      searchValue, results, popularCommunities, displayCommunities,
-    } = this.state;
+    const { searchValue, results, popularCommunities, displayCommunities } = this.state;
 
     return (
       <section className="px-4 py-16">
         <div className="text-center">
-          <Title extraClassName="text-center" type="h5">Find Communities!</Title>
+          <Title extraClassName="text-center" type="h5">
+            Find Communities!
+          </Title>
           <Input
             extraWrapperClassName="w-6/12 mt-4 inline-block"
             extraClassName="rounded-24"
@@ -68,15 +68,13 @@ class FindCommunities extends React.Component {
         <Paragraph extraClassName="mt-8 text-center">
           {displayCommunities ? 'Results' : 'No communities found'}
         </Paragraph>
-        {
-          // If search box is empty display popular communities
-          searchValue === ''
-            ? popularCommunities.map(community => <CommunityCard key={community.id}
-              name={community.name} />)
-            // Else Show search results!
-            : results.map(community => <CommunityCard key={community.id}
-              name={community.name} />)
-        }
+        {// If search box is empty display popular communities
+        searchValue === ''
+          ? popularCommunities.map(community => (
+              <CommunityCard key={community.id} name={community.name} />
+            ))
+          : // Else Show search results!
+            results.map(community => <CommunityCard key={community.id} name={community.name} />)}
       </section>
     );
   }

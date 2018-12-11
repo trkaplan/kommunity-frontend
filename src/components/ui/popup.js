@@ -27,7 +27,7 @@ class Popup extends Component {
     document.removeEventListener('keydown', this.inlineKeyDown);
   }
 
-  inlineKeyDown = (e) => {
+  inlineKeyDown = e => {
     const { onKeyDown, onClose, dismissable } = this.props;
     // what if user wants to create onKeyDown for spesific popup?
     if (onKeyDown) {
@@ -49,14 +49,7 @@ class Popup extends Component {
   };
 
   render() {
-    const {
-      children,
-      dismissable,
-      onClose,
-      show,
-      extraClassName,
-      onCloseIconClick,
-    } = this.props;
+    const { children, dismissable, onClose, show, extraClassName, onCloseIconClick } = this.props;
 
     return (
       show && (
@@ -64,10 +57,13 @@ class Popup extends Component {
           <div
             className={cls(style.overlay, extraClassName)}
             onClick={this.onOverlayClick}
+            onKeyDown={this.inlineKeyDown}
+            role="button"
+            tabIndex="0"
           />
           {/* todo: we can add this width to tailwind setup so we can use media
             queries. */}
-          <div className={cls(style.wrapper)} style={styles.wrapper}>
+          <div className={style.wrapper} style={styles.wrapper}>
             {dismissable && (
               <Icon
                 name="X"
@@ -86,11 +82,10 @@ class Popup extends Component {
 
 Popup.defaultProps = {
   dismissable: true,
-  show: false,
 };
 
 Popup.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   dismissable: PropTypes.bool,
   extraClassName: PropTypes.string,
   onClose: PropTypes.func.isRequired,

@@ -26,36 +26,39 @@ const style = {
 
 class UIButton extends React.Component {
   getClassnames = () => {
-    const {
-      disabled, size, groupOrder, styleType,
-    } = this.props;
+    const { disabled, size, groupOrder, styleType } = this.props;
 
-    return cls(style.common, style.groupOrder[groupOrder],
-      style.label[size], style.container[styleType], {
+    return cls(
+      style.common,
+      style.groupOrder[groupOrder],
+      style.label[size],
+      style.container[styleType],
+      {
         // remove border-left on first item except outline styleType
         'border-l-0': groupOrder === 'first' && ['outline'].indexOf(styleType) < 0,
         // remove border-right on last item except outline styleType
         'border-r-0': groupOrder === 'last' && ['outline'].indexOf(styleType) < 0,
         // remove border-top-bottom and add bordercolor except outline styleType
-        'border-transparent20 border-t-0 border-b-0': groupOrder !== 'none' && ['outline'].indexOf(styleType) < 0,
+        'border-transparent20 border-t-0 border-b-0':
+          groupOrder !== 'none' && ['outline'].indexOf(styleType) < 0,
         'cursor-not-allowed': disabled,
         'hover:opacity-80': !disabled && ['primary', 'secondary'].indexOf(styleType) > -1,
         'opacity-20': disabled && styleType !== 'plain',
         'text-lightBlueGrey hover:text-lightBlueGrey': disabled && styleType === 'plain',
-      });
-  }
+      },
+    );
+  };
 
   render() {
-    const {
-      extraClassName, label, onClick, type, disabled,
-    } = this.props;
+    const { extraClassName, label, onClick, type, disabled } = this.props;
 
     return (
+      // eslint-disable-next-line react/button-has-type
       <button
         onClick={onClick}
         className={cls(this.getClassnames(), extraClassName)}
         disabled={disabled}
-        type={type}
+        type={type || 'submit'}
       >
         {label}
       </button>
@@ -66,8 +69,6 @@ class UIButton extends React.Component {
 UIButton.defaultProps = {
   disabled: false,
   groupOrder: 'none',
-  size: 'medium',
-  styleType: 'primary',
 };
 
 UIButton.propTypes = {

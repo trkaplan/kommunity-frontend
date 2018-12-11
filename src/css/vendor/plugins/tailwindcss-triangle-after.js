@@ -4,10 +4,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const _ = require('lodash');
 
-module.exports = function triangleAfter({
-  triangles,
-  variants,
-}) {
+module.exports = function triangleAfter({ triangles, variants }) {
   const baseTriangle = {
     borderColor: 'transparent',
     borderStyle: 'solid',

@@ -17,7 +17,7 @@ describe('Components: <App />', () => {
       <ApolloProvider client={client}>
         <Provider store={store}>
           <MemoryRouter>
-            <App/>
+            <App />
           </MemoryRouter>
         </Provider>
       </ApolloProvider>,

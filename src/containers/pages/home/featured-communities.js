@@ -8,19 +8,13 @@ const FeaturedCommunitiesContainer = () => (
   <Query query={POPULAR_COMMUNITIES}>
     {({ loading, error, data }) => {
       if (loading) {
-        return <Loading/>;
+        return <Loading />;
       }
       // TODO style error message
       if (error) {
-        return (
-          <div className="text-center">
-            {"Sorry, we couldn't fetch popular communities."}
-          </div>
-        );
+        return <div className="text-center">{"Sorry, we couldn't fetch popular communities."}</div>;
       }
-      return (
-        <FeaturedCommunities communityList={data.popularCommunities} />
-      );
+      return <FeaturedCommunities communityList={data.popularCommunities} />;
     }}
   </Query>
 );

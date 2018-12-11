@@ -6,10 +6,12 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 // required for react-slick slider
-window.matchMedia = window.matchMedia || function matchMedia() {
-  return {
-    addListener() {},
-    matches: false,
-    removeListener() {},
+window.matchMedia =
+  window.matchMedia ||
+  function matchMedia() {
+    return {
+      addListener() {},
+      matches: false,
+      removeListener() {},
+    };
   };
-};
