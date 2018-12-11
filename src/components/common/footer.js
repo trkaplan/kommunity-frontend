@@ -37,17 +37,29 @@ const Footer = () => {
         <div className="w-2/12">
           <Paragraph className={classes.caption}>Product</Paragraph>
           <ul className={classes.list}>
-            <li className={classes.listItem}><Link className={classes.listItemLink} color={classes.linkColor} to="/communities">Communities</Link></li>
-            <li className={classes.listItem}><Link className={classes.listItemLink} color={classes.linkColor} to="/features">Features</Link></li>
-            <li className={classes.listItem}><Link className={classes.listItemLink} color={classes.linkColor} to="/our-story">Our Story</Link></li>
+            <li className={classes.listItem}>
+              <Link className={classes.listItemLink} color={classes.linkColor} to="/communities">Communities</Link>
+            </li>
+            <li className={classes.listItem}>
+              <Link className={classes.listItemLink} color={classes.linkColor} to="/features">Features</Link>
+            </li>
+            <li className={classes.listItem}>
+              <Link className={classes.listItemLink} color={classes.linkColor} to="/our-story">Our Story</Link>
+            </li>
           </ul>
         </div>
         <div className="w-2/12">
           <Paragraph className={classes.caption}>Get in touch</Paragraph>
           <ul className={classes.list}>
-            <li className={classes.listItem}><Link className={classes.listItemLink} color={classes.linkColor} to="/contact">Contact</Link></li>
-            <li className={classes.listItem}><Link className={classes.listItemLink} color={classes.linkColor} to="/feedback">Feedback</Link></li>
-            <li className={classes.listItem}><Link className={classes.listItemLink} color={classes.linkColor} to="/roadmap">Roadmap</Link></li>
+            <li className={classes.listItem}>
+              <Link className={classes.listItemLink} color={classes.linkColor} to="/contact">Contact</Link>
+            </li>
+            <li className={classes.listItem}>
+              <Link className={classes.listItemLink} color={classes.linkColor} to="/feedback">Feedback</Link>
+            </li>
+            <li className={classes.listItem}>
+              <Link className={classes.listItemLink} color={classes.linkColor} to="/roadmap">Roadmap</Link>
+            </li>
           </ul>
         </div>
         <div className="w-1/4 mr-auto">
@@ -92,10 +104,26 @@ const Footer = () => {
         </div>
 
         <ul className={classes.inlineList}>
-          <li className={classes.inlineListItem}><Link className={classes.inlineListItemLink} color={classes.footerLinkColor} to="/privacy-policy">Privacy Policy</Link></li>
-          <li className={classes.inlineListItem}><Link className={classes.inlineListItemLink} color={classes.footerLinkColor} to="/terms-of-use">Terms Of Use</Link></li>
-          <li className={classes.inlineListItem}><Paragraph className={classes.inlineListItem}>
-              © {new Date().getFullYear()} All Rights Reserved.</Paragraph>
+          <li className={classes.inlineListItem}>
+            <Link
+              className={classes.inlineListItemLink}
+              color={classes.footerLinkColor}
+              to="/privacy-policy">
+              Privacy Policy
+            </Link>
+          </li>
+          <li className={classes.inlineListItem}>
+            <Link
+              className={classes.inlineListItemLink}
+              color={classes.footerLinkColor}
+              to="/terms-of-use">
+              Terms Of Use
+            </Link>
+          </li>
+          <li className={classes.inlineListItem}>
+            <Paragraph className={classes.inlineListItem}>
+              © {new Date().getFullYear()} All Rights Reserved.
+            </Paragraph>
           </li>
         </ul>
       </div>

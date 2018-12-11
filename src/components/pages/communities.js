@@ -66,7 +66,11 @@ class CommunityList extends Component {
         <div style={style.createCommunities}>
           <div style={style.text}>{"Can't find what you are looking for?"}</div>
           <span style={style.button}>
-            <Button label="Create Your Community" onClick={() => {}} size="large" styleType="secondary" extraClassName="items-center"/>
+            <Button label="Create Your Community"
+              onClick={() => {}}
+              size="large"
+              styleType="secondary"
+              extraClassName="items-center"/>
           </span>
         </div>
         <Footer />

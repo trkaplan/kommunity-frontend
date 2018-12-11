@@ -4,7 +4,10 @@ import cls from 'classnames';
 
 const style = {
   common:
-    'ui-input inline-block border border-lightBlueGrey w-full px-4 rounded-4 bg-white leading-2xl text-base focus:text-dark focus:bg-white focus:border-primary focus:shadow-input-primary focus:outline-none disabled:bg-paleGrey',
+    'ui-input inline-block border border-lightBlueGrey w-full px-4 rounded-4 '
+    + 'bg-white leading-2xl text-base disabled:bg-paleGrey '
+    + 'focus:text-dark focus:bg-white focus:border-primary '
+    + 'focus:shadow-input-primary focus:outline-none',
   errorText: 'error-text text-red my-2 leading-base',
   helpText: 'help-text text-blueyGrey leading-base',
   icon: 'h-full w-12 leading-base absolute inline-flex items-center justify-center',

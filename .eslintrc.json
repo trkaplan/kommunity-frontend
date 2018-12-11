@@ -2,6 +2,7 @@
   "extends": ["eslint:recommended", "airbnb-base", "plugin:react/recommended"],
   "parser": "babel-eslint",
   "rules": {
+    "max-len": ["error", { "code": 120 }],
     "react/jsx-indent": ["error", 2],
     "react/jsx-indent-props": ["error", 2],
     "sort-keys": ["error", "asc", { "caseSensitive": true, "natural": true }],

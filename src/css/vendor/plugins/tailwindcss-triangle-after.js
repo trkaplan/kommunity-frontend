@@ -31,7 +31,11 @@ module.exports = function triangleAfter({
 
   return function results({ e, addUtilities }) {
     const utilities = _.map(triangles, (triangle, name) => ({
-      [`.triangle-after-${e(name)}`]: { height: `${triangle.size[0] / 2}px`, width: `${triangle.size[1]}px`, position: 'relative' },
+      [`.triangle-after-${e(name)}`]: {
+        height: `${triangle.size[0] / 2}px`,
+        width: `${triangle.size[1]}px`,
+        position: 'relative',
+      },
       [`.triangle-after-${e(name)}::after`]: getTriangle(triangle),
     }));
     addUtilities(utilities, variants);
