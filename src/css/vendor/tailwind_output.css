@@ -2838,6 +2838,10 @@ table {
   max-width: 100%;
 }
 
+.max-w-9\/12 {
+  max-width: 75%;
+}
+
 .min-h-32 {
   min-height: 8rem;
 }

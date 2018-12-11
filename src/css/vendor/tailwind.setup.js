@@ -498,6 +498,7 @@ module.exports = {
 
   maxWidth: {
     full: '100%',
+    '9/12': '75%'
   },
 
   /*
