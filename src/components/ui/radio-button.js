@@ -40,9 +40,12 @@ const RadioButton = props => {
     radio: cls('absolute invisible'),
   };
 
+  // TODO there could be multiple elements with the same value on the page.
+  // We should refactor id/htmlFor below.
   return (
-    <label className={cls(style.container, extraClassName)}>
+    <label htmlFor={value} className={cls(style.container, extraClassName)}>
       <input
+        id={value}
         type="radio"
         value={value}
         onClick={onChange}
@@ -50,7 +53,7 @@ const RadioButton = props => {
         defaultChecked={selected}
         disabled={disabled}
       />
-      <div className={cls(style.customRadio.common, style.customRadio[size])} tabIndex={0}>
+      <div className={cls(style.customRadio.common, style.customRadio[size])}>
         <div className={cls(style.inside[size], style.inside.common)} />
       </div>
       <p className={cls(style.label.common, style.label[size])}>{label}</p>
@@ -69,7 +72,7 @@ RadioButton.propTypes = {
   label: PropTypes.string,
   onChange: PropTypes.func,
   selected: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'medium']).isRequired,
+  size: PropTypes.oneOf(['small', 'medium']),
   value: PropTypes.string,
 };
 

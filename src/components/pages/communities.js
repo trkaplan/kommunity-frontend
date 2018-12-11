@@ -58,6 +58,7 @@ const CommunityList = () => {
         <div style={style.middle}>
           <div style={style.userCommunities}>
             {[1, 2, 3, 4].map((item, idx) => (
+              /* eslint-disable-next-line */
               <CommunityCard value={item} key={idx} />
             ))}
           </div>

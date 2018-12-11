@@ -107,7 +107,8 @@ class ResetPassword extends React.Component {
         </div>
         <div className={style.bottomContent}>
           <Paragraph>
-            Return to{' '}
+            Return to
+            {' '}
             <Link color="text-primary hover:text-primaryDark" to="/">
               sign in
             </Link>

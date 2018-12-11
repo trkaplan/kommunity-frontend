@@ -71,8 +71,8 @@ class FindCommunities extends React.Component {
         {// If search box is empty display popular communities
         searchValue === ''
           ? popularCommunities.map(community => (
-              <CommunityCard key={community.id} name={community.name} />
-            ))
+            <CommunityCard key={community.id} name={community.name} />
+          ))
           : // Else Show search results!
             results.map(community => <CommunityCard key={community.id} name={community.name} />)}
       </section>
