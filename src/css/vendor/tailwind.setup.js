@@ -180,11 +180,13 @@ module.exports = {
   */
 
   textSizes: {
+    '1xs': '.625rem', // 10px
     xs: '.75rem', // 12px
     sm: '.875rem', // 14px
     base: '1rem', // 16px
     lg: '1.125rem', // 18px
-    xl: '1.5rem', // 24px
+    xl: '1.25rem', // 20px
+    '1xl': '1.5rem', // 24px
     '2xl': '2rem', // 32px
     '3xl': '2.5rem', // 40px
     '4xl': '3rem', // 48px
@@ -249,6 +251,7 @@ module.exports = {
 
   tracking: {
     normal: '0',
+    tight: '-0.025rem'
   },
 
   /*
@@ -413,6 +416,8 @@ module.exports = {
     '10/12': '83.33333%',
     '11/12': '91.66666%',
     '12/12': '100%',
+    '1/5' : '20%',
+    '3/10': '30%',
     full: '100%',
     screen: '100vw',
   },
@@ -603,7 +608,12 @@ module.exports = {
   |
   */
 
-  negativeMargin: {},
+  negativeMargin: {
+    1: '0.25rem',
+    2: '0.5rem',
+    3: '0.75rem',
+    4: '1rem',
+  },
 
   /*
   |-----------------------------------------------------------------------------
@@ -755,7 +765,7 @@ module.exports = {
     maxWidth: [],
     minHeight: [],
     minWidth: [],
-    negativeMargin: false,
+    negativeMargin: [],
     opacity: ['hover'],
     outline: ['focus'],
     overflow: ['responsive'],

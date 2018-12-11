@@ -1,53 +1,104 @@
 import React from 'react';
+import {
+  Link, Input, Paragraph, Icon,
+} from '@/components/ui';
+import Logo from '@/components/common/logo';
 
-const styles = {
-  footer: {
-    backgroundColor: '#000',
-    color: '#fff',
-    display: 'flex',
-    justifyContent: 'space-between',
+const classes = {
+  caption: 'leading-base text-blueyGrey text-xs mb-6 uppercase tracking-tight',
+  footerLinkColor: 'text-blueyGrey hover:text-primary',
+  inlineList: 'list-reset flex',
+  inlineListItem: 'leading-base text-xs tracking-tight text-blueyGrey',
+  inlineListItemLink: 'leading-base no-underline text-xs tracking-tight text-blueyGrey mr-6 ',
+  linkColor: 'text-gunmetal hover:text-primary',
+  list: 'list-reset',
+  listItem: 'mb-6',
+  listItemLink: 'leading-base no-underline',
+};
+
+const style = {
+  city: {
+    animation: '3s city-fade infinite',
   },
-  link: {
-    borderRight: '1px solid #fff',
-    padding: '0 12px',
-  },
-  linkBorderless: {
-    padding: '0 12px',
-  },
-  links: {
-    display: 'flex',
-    listStyle: 'none',
-    paddingLeft: 0,
-  },
-  logo: {
-    backgroundColor: 'red',
-    height: '50px',
-    lineHeight: '50px',
-    textAlign: 'center',
-    width: '80px',
+  cityWrapper: {
+    animation: '9s city-move 1.5s step-start infinite',
   },
 };
 
+const cities = ['Istanbul', 'San Francisco', 'Seattle'];
+
 const Footer = () => {
-  const links = ['Home', 'Communities', 'About', 'Contact'];
   return (
-    <div style={styles.footer}>
-      <div style={styles.logo}>
-        Logo
+    <div>
+      <div className="flex py-10">
+        <div className="w-1/4 ml-auto">
+          <Logo/>
+        </div>
+        <div className="w-2/12">
+          <Paragraph className={classes.caption}>Product</Paragraph>
+          <ul className={classes.list}>
+            <li className={classes.listItem}><Link className={classes.listItemLink} color={classes.linkColor} to="/communities">Communities</Link></li>
+            <li className={classes.listItem}><Link className={classes.listItemLink} color={classes.linkColor} to="/features">Features</Link></li>
+            <li className={classes.listItem}><Link className={classes.listItemLink} color={classes.linkColor} to="/our-story">Our Story</Link></li>
+          </ul>
+        </div>
+        <div className="w-2/12">
+          <Paragraph className={classes.caption}>Get in touch</Paragraph>
+          <ul className={classes.list}>
+            <li className={classes.listItem}><Link className={classes.listItemLink} color={classes.linkColor} to="/contact">Contact</Link></li>
+            <li className={classes.listItem}><Link className={classes.listItemLink} color={classes.linkColor} to="/feedback">Feedback</Link></li>
+            <li className={classes.listItem}><Link className={classes.listItemLink} color={classes.linkColor} to="/roadmap">Roadmap</Link></li>
+          </ul>
+        </div>
+        <div className="w-1/4 mr-auto">
+          <Paragraph className={classes.caption}>Newsletter</Paragraph>
+          <Paragraph>Subscribe to our updates</Paragraph>
+          {/* TODO: bariscc - maket input type subscribe and implement subscribe function */}
+          <Input
+            extraClassName="w-full block"
+            name="email"
+            type="email"
+            placeholder="Your mail adress"
+            iconRight={
+              <Icon
+                name="Send"
+                className="text-primary cursor-pointer"
+                />
+              }
+            extraWrapperClassName="my-4"
+            />
+        </div>
       </div>
-      <ul style={styles.links}>
-        {
-          links.map((title, i) => {
-            return (
-              <li
-                key={i}
-                style={(i !== links.length - 1) ? styles.link : styles.linkBorderless}>
-                {title}
-              </li>
-            );
-          })
-        }
-      </ul>
+      <div className="flex justify-between border-t py-10 border-pale-blue w-10/12 mx-auto">
+        <div className='flex'>
+          <Paragraph className={classes.inlineListItem}>
+            Made with &hearts; in&nbsp;
+          </Paragraph>
+          <div className='overflow-hidden h-6'>
+            <div style={style.cityWrapper}>
+              {cities.map((c, i) => {
+                return (
+                  <Paragraph
+                    className={classes.inlineListItem}
+                    style={style.city}
+                    key={i}
+                  >
+                    {c}
+                  </Paragraph>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <ul className={classes.inlineList}>
+          <li className={classes.inlineListItem}><Link className={classes.inlineListItemLink} color={classes.footerLinkColor} to="/privacy-policy">Privacy Policy</Link></li>
+          <li className={classes.inlineListItem}><Link className={classes.inlineListItemLink} color={classes.footerLinkColor} to="/terms-of-use">Terms Of Use</Link></li>
+          <li className={classes.inlineListItem}><Paragraph className={classes.inlineListItem}>
+              © {new Date().getFullYear()} All Rights Reserved.</Paragraph>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

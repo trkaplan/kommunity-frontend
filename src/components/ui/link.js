@@ -15,7 +15,10 @@ UILink.defaultProps = {
 };
 
 UILink.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   className: PropTypes.string,
   color: PropTypes.string,
   extraClassName: PropTypes.string,
