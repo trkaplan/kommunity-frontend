@@ -3,20 +3,14 @@ import cls from 'classnames';
 import PropTypes from 'prop-types';
 
 const RadioButton = (props) => {
-  const onChange = (val, checked) => {
-    props.onChange(props.id, val, checked);
-  };
-
   const {
-    size,
-    name,
     disabled,
-    value,
-    label,
     extraClassName,
-    defaultChecked,
-    selectedId,
-    id,
+    label,
+    onChange,
+    selected,
+    size,
+    value,
   } = props;
   const style = {
     container: [
@@ -25,10 +19,10 @@ const RadioButton = (props) => {
     ],
     customRadio: {
       common: cls('flex items-center justify-center rounded-full border focus:outline-none', {
-        'border-lightBlueGrey': selectedId !== id,
-        'border-primary focus:border-primary': selectedId === id && !disabled,
+        'border-lightBlueGrey': selected,
+        'border-primary focus:border-primary': selected && !disabled,
         'focus:border-2': !disabled,
-        'focus:border-blueyGrey': selectedId !== id && !disabled,
+        'focus:border-blueyGrey': !selected && !disabled,
         'opacity-60 bg-paleGrey': disabled,
       }),
       medium: 'w-6 h-6',
@@ -38,9 +32,9 @@ const RadioButton = (props) => {
       common: [
         'rounded-full',
         {
-          'bg-blueyGrey': selectedId === id && disabled,
-          'bg-primary': selectedId === id && !disabled,
-          hidden: selectedId !== id,
+          'bg-blueyGrey': selected && disabled,
+          'bg-primary': selected && !disabled,
+          hidden: !selected,
         },
       ],
       medium: 'h-2 w-2',
@@ -53,15 +47,15 @@ const RadioButton = (props) => {
     },
     radio: cls('absolute invisible'),
   };
+
   return (
     <label className={cls(style.container, extraClassName)}>
       <input
         type="radio"
-        value={JSON.stringify([value])}
-        onChange={e => onChange(JSON.parse(e.target.value)[0], e.target.checked)}
+        value={value}
+        onClick={onChange}
         className={cls(style.radio)}
-        name={name}
-        defaultChecked={defaultChecked}
+        defaultChecked={selected}
         disabled={disabled}
       />
       <div className={cls(style.customRadio.common, style.customRadio[size])} tabIndex={0}>
@@ -71,23 +65,20 @@ const RadioButton = (props) => {
     </label>
   );
 };
+
 RadioButton.defaultProps = {
-  defaultChecked: false,
-  disabled: false,
-  onChange() {},
   size: 'medium',
 };
+
 RadioButton.propTypes = {
-  defaultChecked: PropTypes.bool,
+  // RadioButtonGroup overrides disabled key, don't use it
   disabled: PropTypes.bool,
   extraClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  id: PropTypes.string,
   label: PropTypes.string,
-  name: PropTypes.string,
   onChange: PropTypes.func,
-  selectedId: PropTypes.string,
+  selected: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium']).isRequired,
-  value: PropTypes.any,
+  value: PropTypes.string,
 };
 
 export default RadioButton;
