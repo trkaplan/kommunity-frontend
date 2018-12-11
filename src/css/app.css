@@ -27,16 +27,31 @@
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
-/* Footer city animations */
-/* each city requires top margin of -1.5rem (Height of each item) */
+/*  Footer city animations  */
+/*
+    Move:
+    controls the position of parent element which holds the city titles.
+    each child requires top margin of -1.5rem (Height of each item)
+    so in case we have 4, it should be:
+    0%   { margin-top: 0; }
+    25%  { margin-top: -1.5rem; }
+    50%  { margin-top: -3rem; }
+    75%  { margin-top: -4.5rem; }
+    100% { margin-top: 0; }
+*/
 @keyframes city-move { 
-    0%  {margin-top: 0}
-    33.33%  {margin-top: -1.5rem}
-    66.66%  {margin-top: -3rem}
-    100% {margin-top: 0;}
+    0% { margin-top: 0; }
+    33.33% { margin-top: -1.5rem; }
+    66.66% { margin-top: -3rem; }
+    100% { margin-top: 0; }
 }
+/*  
+    Fade:
+    controls the fading of a city title.
+    to change the speed of fading, you can tweak the first and last lines' second values.
+*/
 @keyframes city-fade {
-    0%, 20% { opacity: 1 }
-    50% { opacity: 0 }
-    80%, 100% { opacity: 1 }
+    0%, 20% { opacity: 1; }
+    50% { opacity: 0; }
+    80%, 100% { opacity: 1; }
 }

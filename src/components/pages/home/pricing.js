@@ -42,11 +42,11 @@ const Pricing = () => (
             {pricing.label}
           </Title>
           <div className="flex bg-paleGrey px-10 py-5">
-            <div className="text-5xl leading-xl font-bold mr-1">
+            <div className="text-6xl leading-xl font-bold mr-1">
               {pricing.price}
             </div>
             <div className="flex flex-1 flex-col">
-              <Paragraph extraClassName="font-bold">{pricing.currency}</Paragraph>
+              <Paragraph className="font-bold text-xl">{pricing.currency}</Paragraph>
               <Paragraph extraClassName="text-blueyGrey" type="sm">{pricing.period}</Paragraph>
             </div>
           </div>

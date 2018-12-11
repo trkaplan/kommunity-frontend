@@ -11,7 +11,7 @@ const style = {
     lg: 'text-xl',
     md: 'text-base',
     sm: 'text-sm',
-    xl: 'text-3xl',
+    xl: 'text-4xl',
     xs: 'text-xs',
   },
   size: {

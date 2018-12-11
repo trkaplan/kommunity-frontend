@@ -6,7 +6,7 @@ const HomeHero = () => (
     <Title type="h2" extraClassName="mb-4">
       Join, Start and Create Online Communities
     </Title>
-    <Title type="h5" extraClassName="mb-18">
+    <Title type="h5" extraClassName="mb-18 text-blueyGrey">
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     </Title>
     <div>

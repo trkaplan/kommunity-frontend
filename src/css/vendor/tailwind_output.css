@@ -3901,7 +3901,7 @@ table {
   color: var(--red);
 }
 
-.text-1xs {
+.text-2xs {
   font-size: .625rem;
 }
 
@@ -3925,23 +3925,23 @@ table {
   font-size: 1.25rem;
 }
 
-.text-1xl {
+.text-2xl {
   font-size: 1.5rem;
 }
 
-.text-2xl {
+.text-3xl {
   font-size: 2rem;
 }
 
-.text-3xl {
+.text-4xl {
   font-size: 2.5rem;
 }
 
-.text-4xl {
+.text-5xl {
   font-size: 3rem;
 }
 
-.text-5xl {
+.text-6xl {
   font-size: 3.5rem;
 }
 
@@ -6381,7 +6381,7 @@ table {
     color: var(--red);
   }
 
-  .sm\:text-1xs {
+  .sm\:text-2xs {
     font-size: .625rem;
   }
 
@@ -6405,23 +6405,23 @@ table {
     font-size: 1.25rem;
   }
 
-  .sm\:text-1xl {
+  .sm\:text-2xl {
     font-size: 1.5rem;
   }
 
-  .sm\:text-2xl {
+  .sm\:text-3xl {
     font-size: 2rem;
   }
 
-  .sm\:text-3xl {
+  .sm\:text-4xl {
     font-size: 2.5rem;
   }
 
-  .sm\:text-4xl {
+  .sm\:text-5xl {
     font-size: 3rem;
   }
 
-  .sm\:text-5xl {
+  .sm\:text-6xl {
     font-size: 3.5rem;
   }
 
@@ -8668,7 +8668,7 @@ table {
     color: var(--red);
   }
 
-  .md\:text-1xs {
+  .md\:text-2xs {
     font-size: .625rem;
   }
 
@@ -8692,23 +8692,23 @@ table {
     font-size: 1.25rem;
   }
 
-  .md\:text-1xl {
+  .md\:text-2xl {
     font-size: 1.5rem;
   }
 
-  .md\:text-2xl {
+  .md\:text-3xl {
     font-size: 2rem;
   }
 
-  .md\:text-3xl {
+  .md\:text-4xl {
     font-size: 2.5rem;
   }
 
-  .md\:text-4xl {
+  .md\:text-5xl {
     font-size: 3rem;
   }
 
-  .md\:text-5xl {
+  .md\:text-6xl {
     font-size: 3.5rem;
   }
 
@@ -10955,7 +10955,7 @@ table {
     color: var(--red);
   }
 
-  .lg\:text-1xs {
+  .lg\:text-2xs {
     font-size: .625rem;
   }
 
@@ -10979,23 +10979,23 @@ table {
     font-size: 1.25rem;
   }
 
-  .lg\:text-1xl {
+  .lg\:text-2xl {
     font-size: 1.5rem;
   }
 
-  .lg\:text-2xl {
+  .lg\:text-3xl {
     font-size: 2rem;
   }
 
-  .lg\:text-3xl {
+  .lg\:text-4xl {
     font-size: 2.5rem;
   }
 
-  .lg\:text-4xl {
+  .lg\:text-5xl {
     font-size: 3rem;
   }
 
-  .lg\:text-5xl {
+  .lg\:text-6xl {
     font-size: 3.5rem;
   }
 

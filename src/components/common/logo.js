@@ -8,7 +8,7 @@ const Logo = () => {
       <Link
         className="text-xl leading-base no-underline font-bold text-right"
         color='text-dark hover:text-lightBlueGrey' to="/">
-        <Paragraph className="text-blueyGrey text-1xs leading-base font-extrabold -mb-2">BETA</Paragraph>
+        <Paragraph className="text-blueyGrey text-2xs leading-base font-extrabold -mb-2">BETA</Paragraph>
         <span>kommunity</span><span className="text-primary">.app</span>
       </Link>
     </div>

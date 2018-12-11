@@ -16,16 +16,23 @@ const classes = {
   listItemLink: 'leading-base no-underline',
 };
 
-const style = {
-  city: {
-    animation: '3s city-fade infinite',
-  },
-  cityWrapper: {
-    animation: '9s city-move 1.5s step-start infinite',
-  },
-};
+/*
+IN CASE NUMBER OF CITIES CHANGES: you need to update the app.css line 32 as well!
+
+duration is the amount of time a city appears and fades,
+can be changed to any value, doesn't require any other update.
+*/
 
 const cities = ['Istanbul', 'San Francisco', 'Seattle'];
+const duration = 3; // seconds
+const style = {
+  city: {
+    animation: `${duration}s city-fade infinite`,
+  },
+  cityWrapper: {
+    animation: `${cities.length * duration}s city-move ${duration / 2}s step-start infinite`,
+  },
+};
 
 const Footer = () => {
   return (
@@ -65,7 +72,7 @@ const Footer = () => {
         <div className="w-1/4 mr-auto">
           <Paragraph className={classes.caption}>Newsletter</Paragraph>
           <Paragraph>Subscribe to our updates</Paragraph>
-          {/* TODO: bariscc - maket input type subscribe and implement subscribe function */}
+          {/* TODO: bariscc - make input type subscribe and implement subscribe function */}
           <Input
             extraClassName="w-full block"
             name="email"

@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const style = {
-  h1: 'text-5xl leading-4xli font-bold',
-  h2: 'text-4xl leading-3xl font-bold',
-  h3: 'text-3xl leading-2xl font-normal',
-  h4: 'text-2xl leading-xl font-normal',
-  h5: 'text-xl leading-lg font-normal',
+  h1: 'text-6xl leading-4xl font-bold',
+  h2: 'text-5xl leading-3xl font-bold',
+  h3: 'text-4xl leading-2xl font-normal',
+  h4: 'text-3xl leading-xl font-normal',
+  h5: 'text-2xl leading-lg font-normal',
   h6: 'text-lg leading-base font-light',
 };
 
