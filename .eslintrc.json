@@ -1,11 +1,8 @@
 {
-  "extends": ["eslint:recommended", "airbnb", "prettier"],
-  "plugins": ["prettier"],
+  "extends": ["eslint:recommended", "airbnb", "plugin:prettier/recommended", "prettier/react"],
   "parser": "babel-eslint",
   "rules": {
     "max-len": ["error", { "code": 120 }],
-    "react/jsx-indent": ["error", 2],
-    "react/jsx-indent-props": ["error", 2],
     "sort-keys": ["error", "asc", { "caseSensitive": true, "natural": true }],
     "no-console": 2,
     "class-methods-use-this": 0,
