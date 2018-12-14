@@ -26,13 +26,7 @@ const FeaturedCommunities = ({ communityList }) => (
                 />
               </div>
               <div className="pt-12 pb-6 px-6">
-                <Link
-                  color="text-dark hover:text-primary"
-                  extraClassName="font-bold"
-                  to={`/community/${uuid}`}
-                >
-                  {name}
-                </Link>
+                <span className="text-dark font-bold">{name}</span>
                 <Paragraph extraClassName="mb-6">{desc}</Paragraph>
                 <Button label="Join" styleType="outline" size="small" />
               </div>

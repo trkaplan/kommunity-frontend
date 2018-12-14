@@ -38,8 +38,10 @@ const Home = () => {
         <div className="featured-communities mt-32">
           <Pricing />
         </div>
+        <div className="mt-20">
+          <Footer />
+        </div>
       </div>
-      <Footer />
     </div>
   );
 };

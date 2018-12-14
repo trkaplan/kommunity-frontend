@@ -135,7 +135,7 @@ const Footer = () => {
           <li className={classes.inlineListItem}>
             <Paragraph className={classes.inlineListItem}>
               ©{new Date().getFullYear()}
-              All Rights Reserved.
+              <span>&nbsp;All Rights Reserved.</span>
             </Paragraph>
           </li>
         </ul>
