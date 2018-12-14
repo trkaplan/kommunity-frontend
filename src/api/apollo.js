@@ -15,7 +15,7 @@ export default new ApolloClient({
     fetch,
     // TODO make it work for windows
     // uri: 'http://192.168.99.100:3008/gql',
-    uri: 'http://localhost:3000/gql',
+    uri: 'http://localhost:3008/gql',
   }),
   ssrMode: isServer(),
 });
