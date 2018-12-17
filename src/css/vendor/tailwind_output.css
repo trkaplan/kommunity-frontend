@@ -586,6 +586,26 @@ table {
   background-color: var(--red);
 }
 
+.bg-blue {
+  background-color: var(--blue);
+}
+
+.bg-faintGreen {
+  background-color: var(--faint-green);
+}
+
+.bg-faintYellow {
+  background-color: var(--faint-yellow);
+}
+
+.bg-faintRed {
+  background-color: var(--faint-red);
+}
+
+.bg-faintBlue {
+  background-color: var(--faint-blue);
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
@@ -648,6 +668,26 @@ table {
 
 .hover\:bg-red:hover {
   background-color: var(--red);
+}
+
+.hover\:bg-blue:hover {
+  background-color: var(--blue);
+}
+
+.hover\:bg-faintGreen:hover {
+  background-color: var(--faint-green);
+}
+
+.hover\:bg-faintYellow:hover {
+  background-color: var(--faint-yellow);
+}
+
+.hover\:bg-faintRed:hover {
+  background-color: var(--faint-red);
+}
+
+.hover\:bg-faintBlue:hover {
+  background-color: var(--faint-blue);
 }
 
 .focus\:bg-transparent:focus {
@@ -714,6 +754,26 @@ table {
   background-color: var(--red);
 }
 
+.focus\:bg-blue:focus {
+  background-color: var(--blue);
+}
+
+.focus\:bg-faintGreen:focus {
+  background-color: var(--faint-green);
+}
+
+.focus\:bg-faintYellow:focus {
+  background-color: var(--faint-yellow);
+}
+
+.focus\:bg-faintRed:focus {
+  background-color: var(--faint-red);
+}
+
+.focus\:bg-faintBlue:focus {
+  background-color: var(--faint-blue);
+}
+
 .disabled\:bg-transparent:disabled {
   background-color: transparent;
 }
@@ -776,6 +836,26 @@ table {
 
 .disabled\:bg-red:disabled {
   background-color: var(--red);
+}
+
+.disabled\:bg-blue:disabled {
+  background-color: var(--blue);
+}
+
+.disabled\:bg-faintGreen:disabled {
+  background-color: var(--faint-green);
+}
+
+.disabled\:bg-faintYellow:disabled {
+  background-color: var(--faint-yellow);
+}
+
+.disabled\:bg-faintRed:disabled {
+  background-color: var(--faint-red);
+}
+
+.disabled\:bg-faintBlue:disabled {
+  background-color: var(--faint-blue);
 }
 
 .bg-bottom {
@@ -914,6 +994,26 @@ table {
   border-color: var(--red);
 }
 
+.border-blue {
+  border-color: var(--blue);
+}
+
+.border-faintGreen {
+  border-color: var(--faint-green);
+}
+
+.border-faintYellow {
+  border-color: var(--faint-yellow);
+}
+
+.border-faintRed {
+  border-color: var(--faint-red);
+}
+
+.border-faintBlue {
+  border-color: var(--faint-blue);
+}
+
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
@@ -978,6 +1078,26 @@ table {
   border-color: var(--red);
 }
 
+.hover\:border-blue:hover {
+  border-color: var(--blue);
+}
+
+.hover\:border-faintGreen:hover {
+  border-color: var(--faint-green);
+}
+
+.hover\:border-faintYellow:hover {
+  border-color: var(--faint-yellow);
+}
+
+.hover\:border-faintRed:hover {
+  border-color: var(--faint-red);
+}
+
+.hover\:border-faintBlue:hover {
+  border-color: var(--faint-blue);
+}
+
 .focus\:border-transparent:focus {
   border-color: transparent;
 }
@@ -1040,6 +1160,26 @@ table {
 
 .focus\:border-red:focus {
   border-color: var(--red);
+}
+
+.focus\:border-blue:focus {
+  border-color: var(--blue);
+}
+
+.focus\:border-faintGreen:focus {
+  border-color: var(--faint-green);
+}
+
+.focus\:border-faintYellow:focus {
+  border-color: var(--faint-yellow);
+}
+
+.focus\:border-faintRed:focus {
+  border-color: var(--faint-red);
+}
+
+.focus\:border-faintBlue:focus {
+  border-color: var(--faint-blue);
 }
 
 .rounded-4 {
@@ -3773,6 +3913,26 @@ table {
   color: var(--red);
 }
 
+.text-blue {
+  color: var(--blue);
+}
+
+.text-faintGreen {
+  color: var(--faint-green);
+}
+
+.text-faintYellow {
+  color: var(--faint-yellow);
+}
+
+.text-faintRed {
+  color: var(--faint-red);
+}
+
+.text-faintBlue {
+  color: var(--faint-blue);
+}
+
 .hover\:text-transparent:hover {
   color: transparent;
 }
@@ -3837,6 +3997,26 @@ table {
   color: var(--red);
 }
 
+.hover\:text-blue:hover {
+  color: var(--blue);
+}
+
+.hover\:text-faintGreen:hover {
+  color: var(--faint-green);
+}
+
+.hover\:text-faintYellow:hover {
+  color: var(--faint-yellow);
+}
+
+.hover\:text-faintRed:hover {
+  color: var(--faint-red);
+}
+
+.hover\:text-faintBlue:hover {
+  color: var(--faint-blue);
+}
+
 .focus\:text-transparent:focus {
   color: transparent;
 }
@@ -3899,6 +4079,26 @@ table {
 
 .focus\:text-red:focus {
   color: var(--red);
+}
+
+.focus\:text-blue:focus {
+  color: var(--blue);
+}
+
+.focus\:text-faintGreen:focus {
+  color: var(--faint-green);
+}
+
+.focus\:text-faintYellow:focus {
+  color: var(--faint-yellow);
+}
+
+.focus\:text-faintRed:focus {
+  color: var(--faint-red);
+}
+
+.focus\:text-faintBlue:focus {
+  color: var(--faint-blue);
 }
 
 .text-2xs {
@@ -4335,8 +4535,13 @@ table {
   --paleGrey: #f4f6f8;
   --white: #fff;
   --green: #19a560;
+  --faint-green: #19a560;
   --yellow: #edc200;
+  --faint-yellow: #fffceb;
   --red: #ff3e3e;
+  --faint-red: #ffebeb;
+  --blue: #08aeea;
+  --faint-blue: #eaf6fc;
 }
 
 .theme-black {
@@ -4353,6 +4558,13 @@ table {
   --green: #19a560;
   --yellow: #edc200;
   --red: #ff3e3e;
+  --faint-green: #19a560;
+  --yellow: #edc200;
+  --faint-yellow: #fffceb;
+  --red: #ff3e3e;
+  --faint-red: #ffebeb;
+  --blue: #08aeea;
+  --faint-blue: #eaf6fc;
 }
 
 @media (max-width: 767px) {
@@ -6253,6 +6465,26 @@ table {
     color: var(--red);
   }
 
+  .sm\:text-blue {
+    color: var(--blue);
+  }
+
+  .sm\:text-faintGreen {
+    color: var(--faint-green);
+  }
+
+  .sm\:text-faintYellow {
+    color: var(--faint-yellow);
+  }
+
+  .sm\:text-faintRed {
+    color: var(--faint-red);
+  }
+
+  .sm\:text-faintBlue {
+    color: var(--faint-blue);
+  }
+
   .sm\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -6317,6 +6549,26 @@ table {
     color: var(--red);
   }
 
+  .sm\:hover\:text-blue:hover {
+    color: var(--blue);
+  }
+
+  .sm\:hover\:text-faintGreen:hover {
+    color: var(--faint-green);
+  }
+
+  .sm\:hover\:text-faintYellow:hover {
+    color: var(--faint-yellow);
+  }
+
+  .sm\:hover\:text-faintRed:hover {
+    color: var(--faint-red);
+  }
+
+  .sm\:hover\:text-faintBlue:hover {
+    color: var(--faint-blue);
+  }
+
   .sm\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -6379,6 +6631,26 @@ table {
 
   .sm\:focus\:text-red:focus {
     color: var(--red);
+  }
+
+  .sm\:focus\:text-blue:focus {
+    color: var(--blue);
+  }
+
+  .sm\:focus\:text-faintGreen:focus {
+    color: var(--faint-green);
+  }
+
+  .sm\:focus\:text-faintYellow:focus {
+    color: var(--faint-yellow);
+  }
+
+  .sm\:focus\:text-faintRed:focus {
+    color: var(--faint-red);
+  }
+
+  .sm\:focus\:text-faintBlue:focus {
+    color: var(--faint-blue);
   }
 
   .sm\:text-2xs {
@@ -8540,6 +8812,26 @@ table {
     color: var(--red);
   }
 
+  .md\:text-blue {
+    color: var(--blue);
+  }
+
+  .md\:text-faintGreen {
+    color: var(--faint-green);
+  }
+
+  .md\:text-faintYellow {
+    color: var(--faint-yellow);
+  }
+
+  .md\:text-faintRed {
+    color: var(--faint-red);
+  }
+
+  .md\:text-faintBlue {
+    color: var(--faint-blue);
+  }
+
   .md\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -8604,6 +8896,26 @@ table {
     color: var(--red);
   }
 
+  .md\:hover\:text-blue:hover {
+    color: var(--blue);
+  }
+
+  .md\:hover\:text-faintGreen:hover {
+    color: var(--faint-green);
+  }
+
+  .md\:hover\:text-faintYellow:hover {
+    color: var(--faint-yellow);
+  }
+
+  .md\:hover\:text-faintRed:hover {
+    color: var(--faint-red);
+  }
+
+  .md\:hover\:text-faintBlue:hover {
+    color: var(--faint-blue);
+  }
+
   .md\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -8666,6 +8978,26 @@ table {
 
   .md\:focus\:text-red:focus {
     color: var(--red);
+  }
+
+  .md\:focus\:text-blue:focus {
+    color: var(--blue);
+  }
+
+  .md\:focus\:text-faintGreen:focus {
+    color: var(--faint-green);
+  }
+
+  .md\:focus\:text-faintYellow:focus {
+    color: var(--faint-yellow);
+  }
+
+  .md\:focus\:text-faintRed:focus {
+    color: var(--faint-red);
+  }
+
+  .md\:focus\:text-faintBlue:focus {
+    color: var(--faint-blue);
   }
 
   .md\:text-2xs {
@@ -10827,6 +11159,26 @@ table {
     color: var(--red);
   }
 
+  .lg\:text-blue {
+    color: var(--blue);
+  }
+
+  .lg\:text-faintGreen {
+    color: var(--faint-green);
+  }
+
+  .lg\:text-faintYellow {
+    color: var(--faint-yellow);
+  }
+
+  .lg\:text-faintRed {
+    color: var(--faint-red);
+  }
+
+  .lg\:text-faintBlue {
+    color: var(--faint-blue);
+  }
+
   .lg\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -10891,6 +11243,26 @@ table {
     color: var(--red);
   }
 
+  .lg\:hover\:text-blue:hover {
+    color: var(--blue);
+  }
+
+  .lg\:hover\:text-faintGreen:hover {
+    color: var(--faint-green);
+  }
+
+  .lg\:hover\:text-faintYellow:hover {
+    color: var(--faint-yellow);
+  }
+
+  .lg\:hover\:text-faintRed:hover {
+    color: var(--faint-red);
+  }
+
+  .lg\:hover\:text-faintBlue:hover {
+    color: var(--faint-blue);
+  }
+
   .lg\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -10953,6 +11325,26 @@ table {
 
   .lg\:focus\:text-red:focus {
     color: var(--red);
+  }
+
+  .lg\:focus\:text-blue:focus {
+    color: var(--blue);
+  }
+
+  .lg\:focus\:text-faintGreen:focus {
+    color: var(--faint-green);
+  }
+
+  .lg\:focus\:text-faintYellow:focus {
+    color: var(--faint-yellow);
+  }
+
+  .lg\:focus\:text-faintRed:focus {
+    color: var(--faint-red);
+  }
+
+  .lg\:focus\:text-faintBlue:focus {
+    color: var(--faint-blue);
   }
 
   .lg\:text-2xs {

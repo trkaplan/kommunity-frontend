@@ -60,6 +60,11 @@ const colors = {
   green: 'var(--green)',
   yellow: 'var(--yellow)',
   red: 'var(--red)',
+  blue: 'var(--blue)',
+  faintGreen: 'var(--faint-green)',
+  faintYellow: 'var(--faint-yellow)',
+  faintRed: 'var(--faint-red)',
+  faintBlue: 'var(--faint-blue)',
 };
 
 module.exports = {

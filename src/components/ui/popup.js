@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Icon from './icon';
 
 const style = {
-  dismissable: 'absolute cursor-pointer pin-r pin-t mr-4 mt-4',
+  dismissable: 'absolute cursor-pointer pin-r pin-t mr-4 mt-4 text-lightBlueGrey',
   overlay: 'fixed w-full h-full bg-gunmetal opacity-70 pin z-10',
   wrapper: 'bg-white z-20 shadow-xl fixed rounded-16 p-4 pt-10 w-112 min-h-32',
 };
@@ -49,7 +49,15 @@ class Popup extends Component {
   };
 
   render() {
-    const { children, dismissable, onClose, show, extraClassName, onCloseIconClick } = this.props;
+    const {
+      children,
+      dismissable,
+      onClose,
+      show,
+      extraClassName,
+      wrapperExtraClassName,
+      onCloseIconClick,
+    } = this.props;
 
     return (
       show && (
@@ -63,7 +71,7 @@ class Popup extends Component {
           />
           {/* todo: we can add this width to tailwind setup so we can use media
             queries. */}
-          <div className={style.wrapper} style={styles.wrapper}>
+          <div className={cls(style.wrapper, wrapperExtraClassName)} style={styles.wrapper}>
             {dismissable && (
               <Icon
                 name="X"
@@ -93,6 +101,7 @@ Popup.propTypes = {
   onKeyDown: PropTypes.func,
   onOverlayClick: PropTypes.func,
   show: PropTypes.bool.isRequired,
+  wrapperExtraClassName: PropTypes.string,
 };
 
 export default Popup;

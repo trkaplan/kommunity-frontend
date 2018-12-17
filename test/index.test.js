@@ -15,7 +15,7 @@ test('server - returns 200', done => {
     });
 
     res.on('end', () => {
-      expect(response).toContain('kommunity.app');
+      expect(response).toContain('kommunity');
       done();
     });
   });

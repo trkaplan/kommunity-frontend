@@ -53,6 +53,7 @@ class UIInput extends Component {
       onChange,
       iconLeft,
       iconRight,
+      id,
       extraWrapperClassName,
       required,
       pattern,
@@ -101,7 +102,14 @@ class UIInput extends Component {
             pattern={pattern}
             minLength={minLength}
             name={name}
-            id={name}
+            /* TODO bariscc:
+              giving name as id causes an error on chrome 63+'
+              when there are more than one inputs with same name on the page; for example:
+              email input for subscriptions in footer conflicts with email input on signup form
+
+              Triaged: id is now a required prop
+            */
+            id={id}
           />
           {iconRightElem}
         </div>
@@ -126,6 +134,7 @@ UIInput.propTypes = {
   helpText: PropTypes.string,
   iconLeft: PropTypes.element,
   iconRight: PropTypes.element,
+  id: PropTypes.string.isRequired,
   label: PropTypes.string,
   minLength: PropTypes.string,
   name: PropTypes.string,

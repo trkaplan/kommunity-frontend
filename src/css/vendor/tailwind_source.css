@@ -31,6 +31,11 @@
     --green: #19A560;
     --yellow: #EDC200;
     --red: #FF3E3E;
+    --blue: #08aeea;
+    --faint-green: #19A560;
+    --faint-yellow: #FFFCEB;
+    --faint-red: #FFEBEB;
+    --faint-blue: #eaf6fc;
   }
   
   .theme-black {
@@ -47,4 +52,9 @@
     --green: #19A560;
     --yellow: #EDC200;
     --red: #FF3E3E;
+    --blue: #08aeea;
+    --faint-green: #19A560;
+    --faint-yellow: #FFFCEB;
+    --faint-red: #FFEBEB;
+    --faint-blue: #eaf6fc;
   }
