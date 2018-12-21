@@ -10,7 +10,7 @@ import Pricing from './home/pricing';
 
 const Home = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <div className="bg-gray-gradient">
         <div className="container">
           <Header />
@@ -19,7 +19,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="container overflow-hidden">
+      <div className="container">
         <div className="featured-communities mt-10 pt-20">
           <FeaturedCommunities />
         </div>
@@ -27,14 +27,14 @@ const Home = () => {
           <Features />
         </div>
       </div>
-      <div className="bg-primary mt-32 overflow-hidden">
+      <div className="bg-primary mt-32">
         <div className="container">
           <div className="testimonials pt-20 pb-32">
             <Testimonials />
           </div>
         </div>
       </div>
-      <div className="container overflow-hidden">
+      <div className="container">
         <div className="featured-communities mt-32">
           <Pricing />
         </div>
