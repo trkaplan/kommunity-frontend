@@ -19,7 +19,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container overflow-hidden">
         <div className="featured-communities mt-10 pt-20">
           <FeaturedCommunities />
         </div>
@@ -27,14 +27,14 @@ const Home = () => {
           <Features />
         </div>
       </div>
-      <div className="bg-primary mt-32">
+      <div className="bg-primary mt-32 overflow-hidden">
         <div className="container">
           <div className="testimonials pt-20 pb-32">
             <Testimonials />
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container overflow-hidden">
         <div className="featured-communities mt-32">
           <Pricing />
         </div>
