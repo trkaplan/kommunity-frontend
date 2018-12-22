@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link, Button, Input, Icon, Popup, Title, Paragraph } from '@/components/ui';
 import throttle from 'lodash.throttle';
+import cls from 'classnames';
 import i18n from '@/i18n';
 import Login from '@/components/pages/login/login-form';
 import Signup from '@/components/pages/login/signup-form';
 import Logo from '@/components/common/logo';
 
-const DELTA = 50;
+const DELTA_PX = 5;
 const THROTTLE_WAIT = 250;
 let navbarHeight;
 class Header extends React.Component {
@@ -45,7 +46,7 @@ class Header extends React.Component {
     const st = window.scrollY;
     const { lastScrollTop } = this.state;
 
-    if (Math.abs(lastScrollTop - st) <= DELTA && st > 0) return;
+    if (Math.abs(lastScrollTop - st) <= DELTA_PX && st > 0) return;
 
     if (st < lastScrollTop && st === 0) {
       // Scrolling Up
@@ -132,30 +133,41 @@ class Header extends React.Component {
                     sm:hover:text-white sm:w-full sm:leading-xl sm:py-0 sm:ml-1 sm:mr-2`,
       buttonSignup: `text-base border-lightBlueGrey sm:border-lightBlueGrey sm:border-2 sm:w-full
                      sm:leading-xl sm:py-0 sm:ml-2 sm:mr-1`,
-      buttonsWrapper: `sm:fixed sm:pin-b sm:pin-l sm:z-20 sm:bg-white sm:w-full sm:p-4 sm:flex sm:justify-around`,
-      header: `container flex items-center w-full h-24 sm:my-0 sm:items-start sm:flex-wrap sm:justify-between
-              sm:h-18 sm:p-4 ${isMenuOpen ? 'sm:h-auto' : ''}`,
+      buttonsWrapper:
+        'sm:fixed sm:pin-b sm:pin-l sm:z-20 sm:bg-white sm:w-full sm:p-4 sm:flex sm:justify-around',
+      header: cls(
+        'container flex items-center w-full h-24 sm:my-0 sm:items-start sm:flex-wrap sm:justify-between sm:h-18 sm:p-4',
+        { 'sm:h-auto': isMenuOpen },
+      ),
       headerBottomShadow: 'hidden sm:block absolute w-full h-4 pin-l pin-t shadow-md',
       headerPlaceHolder: 'h-24',
-      headerWrapper: `flex justify-center nav-transition ${
-        headerPosition === 'fixed' ? 'fixed bg-white w-full pin-t pin-l z-20 shadow-md' : 'nav-up'
-      } ${isHeaderVisible === false ? 'nav-up sm:nav-up shadow-none' : ''} ${
-        isMenuOpen ? 'sm:h-full shadow-none' : ''
-      }`,
+      headerWrapper: cls('flex justify-center nav-transition', {
+        'fixed bg-white w-full pin-t pin-l z-20 shadow-md': headerPosition === 'fixed',
+        'nav-up sm:nav-up shadow-none': isHeaderVisible === false,
+        'sm:h-full shadow-none': isMenuOpen,
+      }),
+      isSearchInputCollapsed: 'stroke-current text-lightBlueGrey border-none hidden sm:block mt-2',
       link: 'px-4 py-2 hover:font-bold sm:text-xl leading-xl py-3',
       linkColor: 'hover:text-primary',
-      linksWrapper: `flex flex-grow sm:order-3 sm:flex-col sm:pt-4 sm:pl-3 sm:bg-white 
-      sm:z-20 sm:absolute sm:pin-t-56 sm:pin-l sm:overflow-hidden sm:w-full sm:h-full ${
-        isMenuOpen && isHeaderVisible ? '' : 'sm:hidden'
-      }`,
-      logo: `wrapper sm:flex sm:justify-between mt-1 sm:order-1 ${
-        isSearchExpanded ? 'sm:!hidden' : 'sm:flex'
-      }`,
-      menuIcon: `iconButton hidden sm:inline-block sm:order-2 p-2 ${
-        isSearchExpanded ? 'sm:hidden' : 'sm:inline-block'
-      }`,
-      searchInput: `sm:order-0 ${isSearchExpanded ? 'sm:block' : 'sm:hidden'}`,
-      searchInputCollapsed: 'stroke-current text-lightBlueGrey border-none hidden sm:block mt-2',
+      linksWrapper: cls(
+        'flex flex-grow sm:order-3 sm:flex-col sm:pt-4 sm:pl-3 sm:bg-white sm:z-20',
+        'sm:absolute sm:pin-t-56 sm:pin-l sm:overflow-hidden sm:w-full sm:h-full',
+        {
+          'sm:hidden': !(isMenuOpen && isHeaderVisible),
+        },
+      ),
+      logo: cls('wrapper sm:flex sm:justify-between mt-1 sm:order-1', {
+        'sm:!hidden': isSearchExpanded,
+        'sm:flex': !isSearchExpanded,
+      }),
+      menuIcon: cls('iconButton hidden sm:inline-block sm:order-2 p-2', {
+        'sm:hidden': isSearchExpanded,
+        'sm:inline-block': !isSearchExpanded,
+      }),
+      searchInput: cls('sm:order-0', {
+        'sm:block': isSearchExpanded,
+        'sm:hidden': !isSearchExpanded,
+      }),
     };
 
     const content = {
@@ -169,7 +181,7 @@ class Header extends React.Component {
       title: showLogin ? `${this.greet()}!` : 'Create your account',
     };
 
-    const searchInputCollapsed = isSearchExpanded ? (
+    const searchInputToggleElem = isSearchExpanded ? (
       <Button
         onClick={this.toggleSearch}
         styleType="custom"
@@ -178,7 +190,7 @@ class Header extends React.Component {
         size="small"
       />
     ) : (
-      <Icon name="Search" className={classes.searchInputCollapsed} onClick={this.toggleSearch} />
+      <Icon name="Search" className={classes.isSearchInputCollapsed} onClick={this.toggleSearch} />
     );
 
     return (
@@ -207,7 +219,7 @@ class Header extends React.Component {
               type="text"
               id="header-search"
             />
-            {searchInputCollapsed}
+            {searchInputToggleElem}
             {/* TODO: replace div with IconButton component when it is deployed #72 icon button */}
             <div className={classes.menuIcon}>
               <Icon
@@ -255,7 +267,7 @@ class Header extends React.Component {
                   size="small"
                   styleType="plain"
                   label={content.label}
-                  onClick={() => this.switchPopup()}
+                  onClick={this.switchPopup}
                 />
               </Paragraph>
             </Popup>
