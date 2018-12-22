@@ -1,34 +1,34 @@
 import React from 'react';
 import { Link, Button, Input, Icon, Popup, Title, Paragraph } from '@/components/ui';
+import throttle from 'lodash.throttle';
 import i18n from '@/i18n';
 import Login from '@/components/pages/login/login-form';
 import Signup from '@/components/pages/login/signup-form';
 import Logo from '@/components/common/logo';
-import { throttle } from 'throttle-debounce';
 
-const delta = 5;
+const DELTA = 50;
+const THROTTLE_WAIT = 250;
+let navbarHeight;
 class Header extends React.Component {
   state = {
     headerPosition: 'static',
-    headerVisible: true,
+    isHeaderVisible: true,
+    isMenuOpen: false,
+    isSearchExpanded: false,
     lastScrollTop: 0,
-    menuOpen: false,
-    searchExpanded: false,
     showLogin: false,
     showSignup: false,
   };
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
+    navbarHeight = this.headerElement.clientHeight;
+    this.throttledScrollHandle = throttle(this.hasScrolled, THROTTLE_WAIT);
+    window.addEventListener('scroll', this.throttledScrollHandle);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('scroll', this.throttledScrollHandle);
   }
-
-  handleScroll = () => {
-    throttle(this.hasScrolled(), 250);
-  };
 
   getDocHeight = () => {
     return Math.max(
@@ -44,21 +44,23 @@ class Header extends React.Component {
   hasScrolled = () => {
     const st = window.scrollY;
     const { lastScrollTop } = this.state;
-    if (Math.abs(lastScrollTop - st) <= delta && st > 0) return;
-    if (st < lastScrollTop && st < 1) {
+
+    if (Math.abs(lastScrollTop - st) <= DELTA && st > 0) return;
+
+    if (st < lastScrollTop && st === 0) {
       // Scrolling Up
       // Set Header position back to 'static' from 'fixed' if scrolled up to top of the page
-      this.setState({ headerPosition: 'static', headerVisible: true });
+      this.setState({ headerPosition: 'static', isHeaderVisible: true });
       return;
     }
-    if (st > lastScrollTop && st > 96) {
+    if (st > lastScrollTop && st > navbarHeight) {
       // Scrolling Down
       // Set header position to fixed and hide it while scrolling down
-      this.setState({ headerPosition: 'fixed', headerVisible: false });
+      this.setState({ headerPosition: 'fixed', isHeaderVisible: false });
     } else if (st < lastScrollTop && st < this.getDocHeight()) {
       // Scrolling Up
       // Make Header visible while scrolling up
-      this.setState({ headerVisible: true });
+      this.setState({ isHeaderVisible: true });
     }
 
     this.setState({
@@ -67,22 +69,22 @@ class Header extends React.Component {
   };
 
   toggleMenu = () => {
-    const { menuOpen } = this.state;
-    if (!menuOpen) {
+    const { isMenuOpen } = this.state;
+    if (!isMenuOpen) {
       document.body.classList.add('overflow-hidden');
     } else {
       document.body.classList.remove('overflow-hidden');
     }
 
     this.setState({
-      menuOpen: !menuOpen,
+      isMenuOpen: !isMenuOpen,
     });
   };
 
   toggleSearch = () => {
-    const { searchExpanded } = this.state;
+    const { isSearchExpanded } = this.state;
     this.setState({
-      searchExpanded: !searchExpanded,
+      isSearchExpanded: !isSearchExpanded,
     });
   };
 
@@ -111,14 +113,18 @@ class Header extends React.Component {
     return 'Good evening';
   };
 
+  setHeaderRef = element => {
+    this.headerElement = element;
+  };
+
   render() {
     const {
       showLogin,
       showSignup,
-      menuOpen,
-      searchExpanded,
+      isMenuOpen,
+      isSearchExpanded,
       headerPosition,
-      headerVisible,
+      isHeaderVisible,
     } = this.state;
 
     const classes = {
@@ -128,27 +134,27 @@ class Header extends React.Component {
                      sm:leading-xl sm:py-0 sm:ml-2 sm:mr-1`,
       buttonsWrapper: `sm:fixed sm:pin-b sm:pin-l sm:z-20 sm:bg-white sm:w-full sm:p-4 sm:flex sm:justify-around`,
       header: `container flex items-center w-full h-24 sm:my-0 sm:items-start sm:flex-wrap sm:justify-between
-              sm:h-18 sm:p-4 ${menuOpen ? 'sm:h-auto' : ''}`,
+              sm:h-18 sm:p-4 ${isMenuOpen ? 'sm:h-auto' : ''}`,
       headerBottomShadow: 'hidden sm:block absolute w-full h-4 pin-l pin-t shadow-md',
       headerPlaceHolder: 'h-24',
       headerWrapper: `flex justify-center nav-transition ${
         headerPosition === 'fixed' ? 'fixed bg-white w-full pin-t pin-l z-20 shadow-md' : 'nav-up'
-      } ${headerVisible === false ? 'nav-up sm:nav-up shadow-none' : ''} ${
-        menuOpen ? 'sm:h-full shadow-none' : ''
+      } ${isHeaderVisible === false ? 'nav-up sm:nav-up shadow-none' : ''} ${
+        isMenuOpen ? 'sm:h-full shadow-none' : ''
       }`,
       link: 'px-4 py-2 hover:font-bold sm:text-xl leading-xl py-3',
       linkColor: 'hover:text-primary',
       linksWrapper: `flex flex-grow sm:order-3 sm:flex-col sm:pt-4 sm:pl-3 sm:bg-white 
       sm:z-20 sm:absolute sm:pin-t-56 sm:pin-l sm:overflow-hidden sm:w-full sm:h-full ${
-        menuOpen && headerVisible ? '' : 'sm:hidden'
+        isMenuOpen && isHeaderVisible ? '' : 'sm:hidden'
       }`,
       logo: `wrapper sm:flex sm:justify-between mt-1 sm:order-1 ${
-        searchExpanded ? 'sm:!hidden' : 'sm:flex'
+        isSearchExpanded ? 'sm:!hidden' : 'sm:flex'
       }`,
       menuIcon: `iconButton hidden sm:inline-block sm:order-2 p-2 ${
-        searchExpanded ? 'sm:hidden' : 'sm:inline-block'
+        isSearchExpanded ? 'sm:hidden' : 'sm:inline-block'
       }`,
-      searchInput: `sm:order-0 ${searchExpanded ? 'sm:block' : 'sm:hidden'}`,
+      searchInput: `sm:order-0 ${isSearchExpanded ? 'sm:block' : 'sm:hidden'}`,
       searchInputCollapsed: 'stroke-current text-lightBlueGrey border-none hidden sm:block mt-2',
     };
 
@@ -163,7 +169,7 @@ class Header extends React.Component {
       title: showLogin ? `${this.greet()}!` : 'Create your account',
     };
 
-    const searchInputCollapsed = searchExpanded ? (
+    const searchInputCollapsed = isSearchExpanded ? (
       <Button
         onClick={this.toggleSearch}
         styleType="custom"
@@ -177,7 +183,7 @@ class Header extends React.Component {
 
     return (
       <div className={classes.headerPlaceHolder}>
-        <div className={classes.headerWrapper}>
+        <div ref={this.setHeaderRef} className={classes.headerWrapper}>
           <header className={classes.header}>
             <Logo extraClassName={classes.logo} />
             <div className={classes.linksWrapper}>
@@ -205,7 +211,7 @@ class Header extends React.Component {
             {/* TODO: replace div with IconButton component when it is deployed #72 icon button */}
             <div className={classes.menuIcon}>
               <Icon
-                name={menuOpen ? 'X' : 'Menu'}
+                name={isMenuOpen ? 'X' : 'Menu'}
                 className="text-lightBlueGrey"
                 onClick={this.toggleMenu}
                 title={i18n.t('navbar.menu')}
@@ -232,6 +238,7 @@ class Header extends React.Component {
           {(showLogin || showSignup) && (
             <Popup
               show
+              styleType=""
               wrapperExtraClassName="text-center"
               onClose={() => this.togglePopup(content.onClose)}
             >
