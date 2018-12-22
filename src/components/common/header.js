@@ -238,7 +238,6 @@ class Header extends React.Component {
           {(showLogin || showSignup) && (
             <Popup
               show
-              styleType=""
               wrapperExtraClassName="text-center"
               onClose={() => this.togglePopup(content.onClose)}
             >
