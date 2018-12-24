@@ -1,6 +1,7 @@
 import React from 'react';
 import { login } from '@/api/request';
-import { Card, Button, Input, Title, Paragraph, Icon } from '@/components/ui';
+import { Button, Input, Notification, Icon } from '@/components/ui';
+import { Redirect } from 'react-router-dom';
 
 class Login extends React.Component {
   constructor(props) {
@@ -20,8 +21,6 @@ class Login extends React.Component {
 
     this.setState({ disabled: true, error: null });
 
-    // TODO bariscc: redirect user to homepage on success
-    // otherwise show server error message with a notification component
     login(username, password)
       .then(response => this.setState({ disabled: false, response }))
       .catch(error => this.setState({ disabled: false, error }));
@@ -36,21 +35,23 @@ class Login extends React.Component {
   render() {
     const { username, password, disabled, response, error } = this.state;
 
-    // TODO bariscc: redirect user to homepage on success and remove this.
+    // TODO bariscc: maybe we should redirect within handlesubmit and use browser history instead of this
     if (response) {
-      return <div>login successful</div>;
+      if (!response.username) {
+        return <Redirect to="/boarding" />;
+      }
+      return <Redirect to="/" />;
     }
 
     return (
-      <Card shadow="lg">
-        {error && <Paragraph extraClassName="text-red">{error.message}</Paragraph>}
-        <Title type="h6">Existing member?</Title>
-        <Title type="h5">Login to your account</Title>
+      <div>
+        {error && <Notification styleType="danger" text={error.message} flat />}
         <form onSubmit={this.handleSubmit}>
           <Input
             extraClassName="w-full block"
             name="username"
             type="text"
+            id="login-username"
             placeholder="your username"
             value={username}
             onChange={this.handleInputChange}
@@ -62,6 +63,7 @@ class Login extends React.Component {
             extraClassName="w-full block"
             type="password"
             name="password"
+            id="login-password"
             placeholder="your password"
             value={password}
             onChange={this.handleInputChange}
@@ -70,7 +72,7 @@ class Login extends React.Component {
             extraWrapperClassName="my-4"
           />
           <Button
-            extraClassName="w-full block my-6 font-semibold"
+            extraClassName="w-full block my-4 font-semibold"
             size="large"
             styleType="primary"
             type="submit"
@@ -78,7 +80,7 @@ class Login extends React.Component {
             disabled={disabled}
           />
         </form>
-      </Card>
+      </div>
     );
   }
 }

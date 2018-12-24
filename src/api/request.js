@@ -21,8 +21,9 @@ export const login = (username, password) => {
   });
 };
 
-export const signup = (email, password) => {
+export const signup = (email, password, captchaResponse) => {
   return makeRequest('post', '/api/v1/member/signup', {
+    captchaResponse,
     email,
     password,
   });

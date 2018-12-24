@@ -87,6 +87,7 @@ const Footer = () => {
             extraClassName="w-full block"
             name="email"
             type="email"
+            id="subscribe-email"
             placeholder="Your mail adress"
             iconRight={<Icon name="Send" className="text-primary cursor-pointer" />}
             extraWrapperClassName="my-4"

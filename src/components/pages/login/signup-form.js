@@ -1,54 +1,69 @@
 import React from 'react';
 import { signup } from '@/api/request';
-import { Card, Button, Input, Title, Paragraph, Icon } from '@/components/ui';
+import { Button, Input, Link, Paragraph, Icon, Notification } from '@/components/ui';
 import Recaptcha from 'react-google-recaptcha';
 import { RECAPTCHA_API_KEY, mailPattern } from '@/constants';
+import { Redirect } from 'react-router-dom';
 
 class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      captchaResponse: null,
       email: '',
-      error: null, // server validation
-      errors: {}, // frontend validation
+      inputError: {}, // frontend validation
       password: '',
       passwordRepeat: '',
       response: null,
+      serverError: null, // server validation
     };
 
     // reference for invisible captcha
-    this.captcha = null;
+    this.captcha = React.createRef();
   }
 
   handleSubmit = e => {
     e.preventDefault();
 
-    this.setState({ error: null, errors: {} });
+    this.setState({ inputError: {}, serverError: null });
 
     // password match validation
-    const { password, passwordRepeat } = this.state;
+    const { password, passwordRepeat, captchaResponse } = this.state;
 
     if (password !== passwordRepeat) {
-      this.setState({ errors: { passwordRepeat: "passwords don't match!" } });
+      this.setState({ inputError: { passwordRepeat: "passwords don't match!" } });
+    } else if (captchaResponse) {
+      this.executeRequest();
     } else {
-      this.captcha.execute();
+      this.captcha.current.execute();
     }
   };
 
-  // captcha verification
-  onVerify = () => {
-    const { email, password } = this.state;
-    // TODO bariscc: redirect user to boarding page on success
-    // otherwise show server error message with a notification component
-    signup(email, password)
+  // make the actual call
+  executeRequest = () => {
+    const { email, password, captchaResponse } = this.state;
+
+    signup(email, password, captchaResponse)
       .then(response => this.setState({ response }))
-      .catch(error => this.setState({ error }));
+      .catch(serverError => {
+        if (serverError.response) {
+          this.setState({ serverError });
+        } else {
+          this.setState({ serverError: { message: 'Server is not responding.' } });
+        }
+      });
+  };
+
+  // captcha verification
+  onVerify = captchaRes => {
+    this.setState({ captchaResponse: captchaRes });
+    this.executeRequest();
   };
 
   // captcha error, probably connection issue.
   onError = () => {
     this.setState({
-      errors: {
+      inputError: {
         verification: 'Error occured on verification. Check your connection and try again.',
       },
     });
@@ -61,29 +76,31 @@ class Signup extends React.Component {
   };
 
   render() {
-    const { email, password, passwordRepeat, response, errors, error } = this.state;
+    const { email, password, passwordRepeat, response, inputError, serverError } = this.state;
 
-    // TODO bariscc: redirect user to boarding page on success and remove this.
+    // TODO bariscc: maybe we should redirect within handlesubmit and use browser history instead of this
     if (response) {
-      return <div>registration successful</div>;
+      return <Redirect to="/boarding" />;
     }
 
     return (
-      <Card shadow="lg">
-        {error && <Paragraph extraClassName="text-red">{error.message}</Paragraph>}
-        <Title type="h6">New member?</Title>
-        <Title type="h5">Signup now!</Title>
+      <div>
+        {serverError && <Notification styleType="danger" text={serverError.message} flat />}
+        {inputError.verification && (
+          <Notification styleType="danger" text={inputError.verification} flat />
+        )}
         <form onSubmit={this.handleSubmit} method="POST">
           <Input
             extraClassName="w-full block"
             name="email"
             type="email"
+            id="signup-email"
             placeholder="enter your e-mail"
             value={email}
             onChange={this.handleInputChange}
             pattern={mailPattern}
             required
-            errorText={errors.email}
+            errorText={inputError.email}
             iconLeft={<Icon name="Mail" className="text-lightBlueGrey" />}
             extraWrapperClassName="my-4"
           />
@@ -91,12 +108,13 @@ class Signup extends React.Component {
             extraClassName="w-full block"
             type="password"
             name="password"
+            id="signup-password"
             placeholder="set a password"
             value={password}
             onChange={this.handleInputChange}
             minLength="6"
             required
-            errorText={errors.password}
+            errorText={inputError.password}
             iconLeft={<Icon name="Lock" className="text-lightBlueGrey" />}
             extraWrapperClassName="my-4"
           />
@@ -104,35 +122,41 @@ class Signup extends React.Component {
             extraClassName="w-full block"
             type="password"
             name="passwordRepeat"
+            id="signup-password-repeat"
             placeholder="repeat password"
             value={passwordRepeat}
             onChange={this.handleInputChange}
             required
-            errorText={errors.passwordRepeat}
+            errorText={inputError.passwordRepeat}
             iconLeft={<Icon name="Lock" className="text-lightBlueGrey" />}
             extraWrapperClassName="my-4"
           />
           <Recaptcha
-            ref={e => {
-              this.captcha = e;
-            }}
+            ref={this.captcha}
             sitekey={RECAPTCHA_API_KEY}
             size="invisible"
             onChange={this.onVerify}
             onErrored={this.onError}
           />
-          {errors.verification && (
-            <Paragraph extraClassName="text-red">{errors.verification}</Paragraph>
-          )}
           <Button
-            extraClassName="w-full block my-6 font-semibold"
+            extraClassName="w-full block my-4 font-semibold"
             size="large"
             styleType="primary"
             type="submit"
-            label="Signup"
+            label="Sign Up"
           />
+          <Paragraph className="text-blueyGrey text-xs">
+            By signing up, you agree to &nbsp;
+            <Link className="text-xs no-underline" color="text-primary" to="/terms-of-use">
+              Terms of Use
+            </Link>{' '}
+            & &nbsp;
+            <Link className="text-xs no-underline" color="text-primary" to="/privacy-policy">
+              Privacy Policy
+            </Link>
+          </Paragraph>
         </form>
-      </Card>
+      </div>
     );
   }
 }
