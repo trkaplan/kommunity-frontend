@@ -5,6 +5,7 @@ import cls from 'classnames';
 const style = {
   common: 'button inline-block text-center cursor-pointer border border-transparent border-box',
   container: {
+    custom: '',
     danger: 'text-white bg-red',
     outline: 'text-blueyGrey hover:bg-paleGrey border-lightBlueGrey',
     plain: 'text-primary hover:text-primaryDark bg-transparent',
@@ -78,7 +79,8 @@ UIButton.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']).isRequired,
-  styleType: PropTypes.oneOf(['primary', 'secondary', 'outline', 'danger', 'plain']).isRequired,
+  styleType: PropTypes.oneOf(['primary', 'secondary', 'outline', 'danger', 'plain', 'custom'])
+    .isRequired,
   type: PropTypes.string,
 };
 

@@ -58,3 +58,19 @@
     --faint-red: #FFEBEB;
     --faint-blue: #eaf6fc;
   }
+
+  /* Navbar scroll values*/
+  .nav-transition {
+    transition: top 0.1s ease-in-out;
+  }
+  .nav-up {
+    top:-96px;
+  }
+  @media (max-width: 767px) {
+  .sm\:nav-up {
+    top:-72px;
+  }
+  .sm\:pin-t-56 {
+    top:56px;
+  }
+}

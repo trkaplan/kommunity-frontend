@@ -30,7 +30,9 @@
     "beforeAll": true,
     "beforeEach": true,
     "afterAll": true,
-    "afterEach": true
+    "afterEach": true,
+    "window": true,
+    "document": true
   },
   "env": {
     "jest": true
