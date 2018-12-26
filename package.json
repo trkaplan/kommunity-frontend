@@ -54,6 +54,7 @@
     "react-dom": "16.6.1",
     "react-feather": "^1.1.4",
     "react-google-recaptcha": "^1.0.5",
+    "react-image-crop": "^6.0.9",
     "react-lazyload": "^2.3.0",
     "react-redux": "^5.1.0",
     "react-router": "^4.2.0",

@@ -14,7 +14,7 @@ const style = {
   icon: 'h-full w-12 leading-base absolute inline-flex items-center justify-center',
   iconLeft: 'icon-left pin-l',
   iconRight: 'icon-right pin-r',
-  label: 'label text-dark block leading-base font-normal',
+  label: 'label text-dark block leading-base mb-2 font-normal',
   state: {
     default: 'text-blueyGrey',
     error: 'text-dark border-red focus:border-red focus:shadow-input-red',
