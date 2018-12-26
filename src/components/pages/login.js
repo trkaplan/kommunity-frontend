@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
-import Login from './login/login-form';
-import Signup from './login/signup-form';
+import SignupForm from './login/signup-form';
+import LoginForm from './login/login-form';
 import { Card, Title } from '@/components/ui';
 
 const Auth = () => {
@@ -14,14 +14,14 @@ const Auth = () => {
           <Card shadow="lg">
             <Title type="h5">New member?</Title>
             <Title type="h6">Signup now!</Title>
-            <Signup />
+            <SignupForm />
           </Card>
         </div>
         <div className="w-4/12">
           <Card shadow="lg">
             <Title type="h6">Existing member?</Title>
             <Title type="h5">Login to your account</Title>
-            <Login />
+            <LoginForm />
           </Card>
         </div>
       </div>

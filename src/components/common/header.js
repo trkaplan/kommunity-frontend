@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link, Button, Icon, Popup, Title, Paragraph } from '@/components/ui';
+import PropTypes from 'prop-types';
+import { Link, Button, Icon, Popup } from '@/components/ui';
 import throttle from 'lodash.throttle';
 import cls from 'classnames';
 import i18n from '@/i18n';
-import Login from '@/components/pages/login/login-form';
-import Signup from '@/components/pages/login/signup-form';
 import Logo from '@/components/common/logo';
+import LoginForm from '@/components/pages/login/login-form';
+import SignupForm from '@/components/pages/login/signup-form';
+import RequestResetPasswordForm from '@/components/pages/login/request-reset-password-form';
+import FormTemplate from './form-template';
 import NBSearchInput from '@/components/common/navbar-search-input';
 
 const DELTA_PX = 5;
@@ -18,8 +21,7 @@ class Header extends React.Component {
     isMenuOpen: false,
     isSearchExpanded: false,
     lastScrollTop: 0,
-    showLogin: false,
-    showSignup: false,
+    shownPopup: '',
   };
 
   componentDidMount() {
@@ -91,16 +93,9 @@ class Header extends React.Component {
   };
 
   togglePopup = key => {
-    this.setState(oldState => ({
-      [key]: !oldState[key],
-    }));
-  };
-
-  switchPopup = () => {
-    this.setState(oldState => ({
-      showLogin: !oldState.showLogin,
-      showSignup: !oldState.showSignup,
-    }));
+    this.setState({
+      shownPopup: key,
+    });
   };
 
   greet = () => {
@@ -120,9 +115,9 @@ class Header extends React.Component {
   };
 
   render() {
+    const { inline, children, extraClassName } = this.props;
     const {
-      showLogin,
-      showSignup,
+      shownPopup,
       isMenuOpen,
       isSearchExpanded,
       headerPosition,
@@ -176,16 +171,37 @@ class Header extends React.Component {
       }),
     };
 
-    const content = {
-      form: showLogin ? <Login /> : <Signup />,
-      label: showLogin ? 'Sign up now' : 'Log in now',
-      onClose: showLogin ? 'showLogin' : 'showSignup',
-      redirect: showLogin ? "Don't have an account?" : 'Have an account?',
-      subTitle: showLogin
-        ? 'Welcome back to kommunity.app'
-        : 'Discover and create amazing communities.',
-      title: showLogin ? `${this.greet()}!` : 'Create your account',
-    };
+    let popupContent;
+
+    if (shownPopup === 'showLogin') {
+      popupContent = {
+        form: <LoginForm />,
+        redirect: "Don't have an account?",
+        redirectAction: () => this.togglePopup('showSignup'),
+        redirectLabel: 'Sign up now',
+        subTitle: 'Welcome back to kommunity.app',
+        title: `${this.greet()}!`,
+      };
+    } else if (shownPopup === 'showSignup') {
+      popupContent = {
+        form: <SignupForm />,
+        redirect: 'Have an account?',
+        redirectAction: () => this.togglePopup('showLogin'),
+        redirectLabel: 'Log in now',
+        subTitle: 'Discover and create amazing communities.',
+        title: 'Create your account',
+      };
+    } else if (shownPopup === 'showResetPassword') {
+      popupContent = {
+        form: <RequestResetPasswordForm />,
+        redirect: 'Return to',
+        redirectAction: () => this.togglePopup('showLogin'),
+        redirectLabel: 'sign in',
+        subTitle: 'Send a reset link to your mail adress.',
+        title: 'Reset Your Password',
+      };
+    }
+
     const searchInputToggleElem = (
       <div
         className={cls('hidden sm:flex sm:items-center sm:justify-center', {
@@ -212,89 +228,87 @@ class Header extends React.Component {
     return (
       <div className={classes.headerPlaceHolder}>
         <div ref={this.setHeaderRef} className={classes.headerWrapper}>
-          <header className={classes.header}>
+          <header className={cls(classes.header, extraClassName)}>
             <Logo extraClassName={classes.logo} />
-            <div className={classes.linksWrapper}>
-              <div className={classes.headerBottomShadow} />
-              <Link color={classes.linkColor} extraClassName={classes.link} to="/communities">
-                Communities
-              </Link>
-              <Link color={classes.linkColor} extraClassName={classes.link} to="/features">
-                Features
-              </Link>
-              <Link color={classes.linkColor} extraClassName={classes.link} to="/features">
-                Pricing
-              </Link>
-            </div>
-            <div
-              className={cls('relative sm:static flex', {
-                'w-5/12 sm:w-auto': !isSearchExpanded,
-                'w-full': isSearchExpanded,
-              })}
-            >
-              <div className={classes.NBSearchInputWrapper}>
-                <NBSearchInput
-                  expandInput={() => {
-                    this.setState({ isSearchExpanded: true });
-                  }}
-                  shrinkInput={() => {
-                    this.setState({ isSearchExpanded: false });
-                  }}
-                  isSearchExpanded={isSearchExpanded}
-                />
-                {/* TODO: replace div with IconButton component when it is deployed #72 icon button */}
-                {searchInputToggleElem}
-              </div>
-              <div className={classes.buttonsWrapper}>
-                <Button
-                  extraClassName={classes.buttonLogin}
-                  size="small"
-                  styleType="custom"
-                  label="Login"
-                  onClick={() => this.togglePopup('showLogin')}
-                />
-
-                <Button
-                  extraClassName={classes.buttonSignup}
-                  size="small"
-                  styleType="outline"
-                  label="Signup"
-                  onClick={() => this.togglePopup('showSignup')}
-                />
-              </div>
-            </div>
-            <div className={classes.menuIcon}>
-              <Icon
-                name={isMenuOpen ? 'X' : 'Menu'}
-                className="text-lightBlueGrey"
-                onClick={this.toggleMenu}
-                title={i18n.t('navbar.menu')}
-              />
-            </div>
+            {inline === undefined && (
+              <React.Fragment>
+                <div className={classes.linksWrapper}>
+                  <div className={classes.headerBottomShadow} />
+                  <Link color={classes.linkColor} extraClassName={classes.link} to="/communities">
+                    Communities
+                  </Link>
+                  <Link color={classes.linkColor} extraClassName={classes.link} to="/features">
+                    Features
+                  </Link>
+                  <Link color={classes.linkColor} extraClassName={classes.link} to="/features">
+                    Pricing
+                  </Link>
+                </div>
+                <div
+                  className={cls('relative sm:static flex', {
+                    'w-5/12 sm:w-auto': !isSearchExpanded,
+                    'w-full': isSearchExpanded,
+                  })}
+                >
+                  <div className={classes.NBSearchInputWrapper}>
+                    <NBSearchInput
+                      expandInput={() => this.setState({ isSearchExpanded: true })}
+                      shrinkInput={() => this.setState({ isSearchExpanded: false })}
+                      isSearchExpanded={isSearchExpanded}
+                    />
+                    {/* TODO: replace div with IconButton component when it is deployed #72 icon button */}
+                    {searchInputToggleElem}
+                  </div>
+                  <div className={classes.buttonsWrapper}>
+                    <Button
+                      extraClassName={classes.buttonLogin}
+                      size="small"
+                      styleType="custom"
+                      label="Login"
+                      onClick={() => this.togglePopup('showLogin')}
+                    />
+                    <Button
+                      extraClassName={classes.buttonSignup}
+                      size="small"
+                      styleType="outline"
+                      label="Signup"
+                      onClick={() => this.togglePopup('showSignup')}
+                    />
+                  </div>
+                </div>
+                <div className={classes.menuIcon}>
+                  <Icon
+                    name={isMenuOpen ? 'X' : 'Menu'}
+                    className="text-lightBlueGrey"
+                    onClick={this.toggleMenu}
+                    title={i18n.t('navbar.menu')}
+                  />
+                </div>
+              </React.Fragment>
+            )}
+            {inline && <div>{children}</div>}
           </header>
-          {(showLogin || showSignup) && (
-            <Popup
-              show
-              wrapperExtraClassName="text-center"
-              onClose={() => this.togglePopup(content.onClose)}
-            >
-              <div className="px-12">
-                <Title type="h5" extraClassName="font-extrabold mb-2">
-                  {content.title}
-                </Title>
-                <Paragraph extraClassName="text-gunmetal mb-10">{content.subTitle}</Paragraph>
-                {content.form}
-              </div>
-              <Paragraph extraClassName="mt-10 p-1 bg-paleGrey text-blueyGrey rounded-4">
-                {content.redirect}
-                <Button
-                  extraClassName="font-medium text-base pl-2 pr-2"
-                  size="small"
-                  styleType="plain"
-                  label={content.label}
-                  onClick={this.switchPopup}
-                />
-              </Paragraph>
+          {shownPopup !== '' && (
+            <Popup show wrapperExtraClassName="text-center" onClose={() => this.togglePopup('')}>
+              <FormTemplate
+                title={popupContent.title}
+                subTitle={popupContent.subTitle}
+                form={popupContent.form}
+                redirect={popupContent.redirect}
+                redirectLabel={popupContent.redirectLabel}
+                redirectAction={popupContent.redirectAction}
+              >
+                {shownPopup === 'showLogin' && (
+                  <Button
+                    extraClassName="block font-semibold"
+                    size="medium"
+                    styleType="plain"
+                    type="button"
+                    label="Forgot Your Password?"
+                    onClick={() => this.togglePopup('showResetPassword')}
+                  />
+                )}
+              </FormTemplate>
             </Popup>
           )}
         </div>
@@ -302,5 +316,11 @@ class Header extends React.Component {
     );
   }
 }
+
+Header.propTypes = {
+  children: PropTypes.node,
+  extraClassName: PropTypes.string,
+  inline: PropTypes.bool,
+};
 
 export default Header;
