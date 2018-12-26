@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link, Button, Input, Icon, Popup, Title, Paragraph } from '@/components/ui';
+import { Link, Button, Icon, Popup, Title, Paragraph } from '@/components/ui';
 import throttle from 'lodash.throttle';
 import cls from 'classnames';
 import i18n from '@/i18n';
 import Login from '@/components/pages/login/login-form';
 import Signup from '@/components/pages/login/signup-form';
 import Logo from '@/components/common/logo';
+import NBSearchInput from '@/components/common/navbar-search-input';
 
 const DELTA_PX = 5;
 const THROTTLE_WAIT = 250;
@@ -129,12 +130,16 @@ class Header extends React.Component {
     } = this.state;
 
     const classes = {
+      NBSearchInputWrapper: cls({
+        'flex items-center lg:justify-end justify-start': true,
+        'lg:w-10/12 sm:w-full md:w-8/12': isSearchExpanded,
+      }),
       buttonLogin: `text-base hover:text-primary hover:font-bold sm:bg-primary sm:text-white
                     sm:hover:text-white sm:w-full sm:leading-xl sm:py-0 sm:ml-1 sm:mr-2`,
       buttonSignup: `text-base border-lightBlueGrey sm:border-lightBlueGrey sm:border-2 sm:w-full
                      sm:leading-xl sm:py-0 sm:ml-2 sm:mr-1`,
       buttonsWrapper:
-        'sm:fixed sm:pin-b sm:pin-l sm:z-20 sm:bg-white sm:w-full sm:p-4 sm:flex sm:justify-around',
+        'sm:fixed sm:pin-b sm:pin-l sm:z-20 sm:bg-white sm:w-full sm:p-4 sm:flex sm:justify-around absolute pin-r',
       header: cls(
         'container flex items-center w-full h-24 sm:my-0 sm:items-start sm:flex-wrap sm:justify-between sm:h-18 sm:p-4',
         { 'sm:h-auto': isMenuOpen },
@@ -146,13 +151,18 @@ class Header extends React.Component {
         'nav-up sm:nav-up shadow-none': isHeaderVisible === false,
         'sm:h-full shadow-none': isMenuOpen,
       }),
-      isSearchInputCollapsed: 'stroke-current text-lightBlueGrey border-none hidden sm:block mt-2',
+      isSearchInputCollapsedSearchIcon:
+        'stroke-current text-lightBlueGrey border-none hidden sm:block mt-2',
+      isSearchInputExpandedCancelButton:
+        'w-2/12 h-full items-center justify-center text-base text-blueyGrey flex self-center',
       link: 'px-4 py-2 hover:font-bold sm:text-xl leading-xl py-3',
       linkColor: 'hover:text-primary',
       linksWrapper: cls(
-        'flex flex-grow sm:order-3 sm:flex-col sm:pt-4 sm:pl-3 sm:bg-white sm:z-20',
-        'sm:absolute sm:pin-t-56 sm:pin-l sm:overflow-hidden sm:w-full sm:h-full',
+        'sm:flex-col sm:pt-4 sm:pl-3 sm:bg-white sm:z-20',
+        'sm:absolute sm:pin-t-56 sm:pin-l sm:overflow-hidden sm:w-full sm:h-screen',
         {
+          'flex flex-grow sm:order-3': !isSearchExpanded,
+          hidden: isSearchExpanded,
           'sm:hidden': !(isMenuOpen && isHeaderVisible),
         },
       ),
@@ -163,10 +173,6 @@ class Header extends React.Component {
       menuIcon: cls('iconButton hidden sm:inline-block sm:order-2 p-2', {
         'sm:hidden': isSearchExpanded,
         'sm:inline-block': !isSearchExpanded,
-      }),
-      searchInput: cls('sm:order-0', {
-        'sm:block': isSearchExpanded,
-        'sm:hidden': !isSearchExpanded,
       }),
     };
 
@@ -180,19 +186,29 @@ class Header extends React.Component {
         : 'Discover and create amazing communities.',
       title: showLogin ? `${this.greet()}!` : 'Create your account',
     };
-
-    const searchInputToggleElem = isSearchExpanded ? (
-      <Button
-        onClick={this.toggleSearch}
-        styleType="custom"
-        extraClassName="text-base text-blueyGrey self-center "
-        label={i18n.t('navbar.cancelSearch')}
-        size="small"
-      />
-    ) : (
-      <Icon name="Search" className={classes.isSearchInputCollapsed} onClick={this.toggleSearch} />
+    const searchInputToggleElem = (
+      <div
+        className={cls('hidden sm:flex sm:items-center sm:justify-center', {
+          'absolute pin-r w-2/12': isSearchExpanded,
+        })}
+      >
+        {isSearchExpanded ? (
+          <Button
+            onClick={this.toggleSearch}
+            styleType="custom"
+            extraClassName={classes.isSearchInputExpandedCancelButton}
+            label={i18n.t('navbar.cancelSearch')}
+            size="small"
+          />
+        ) : (
+          <Icon
+            name="Search"
+            className={classes.isSearchInputCollapsedSearchIcon}
+            onClick={this.toggleSearch}
+          />
+        )}
+      </div>
     );
-
     return (
       <div className={classes.headerPlaceHolder}>
         <div ref={this.setHeaderRef} className={classes.headerWrapper}>
@@ -210,40 +226,49 @@ class Header extends React.Component {
                 Pricing
               </Link>
             </div>
-            <Input
-              iconLeft={
-                <Icon name="Search" className="stroke-current text-lightBlueGrey border-none" />
-              }
-              placeholder="Search Communities"
-              extraWrapperClassName={classes.searchInput}
-              type="text"
-              id="header-search"
-            />
-            {searchInputToggleElem}
-            {/* TODO: replace div with IconButton component when it is deployed #72 icon button */}
+            <div
+              className={cls('relative sm:static flex', {
+                'w-5/12 sm:w-auto': !isSearchExpanded,
+                'w-full': isSearchExpanded,
+              })}
+            >
+              <div className={classes.NBSearchInputWrapper}>
+                <NBSearchInput
+                  expandInput={() => {
+                    this.setState({ isSearchExpanded: true });
+                  }}
+                  shrinkInput={() => {
+                    this.setState({ isSearchExpanded: false });
+                  }}
+                  isSearchExpanded={isSearchExpanded}
+                />
+                {/* TODO: replace div with IconButton component when it is deployed #72 icon button */}
+                {searchInputToggleElem}
+              </div>
+              <div className={classes.buttonsWrapper}>
+                <Button
+                  extraClassName={classes.buttonLogin}
+                  size="small"
+                  styleType="custom"
+                  label="Login"
+                  onClick={() => this.togglePopup('showLogin')}
+                />
+
+                <Button
+                  extraClassName={classes.buttonSignup}
+                  size="small"
+                  styleType="outline"
+                  label="Signup"
+                  onClick={() => this.togglePopup('showSignup')}
+                />
+              </div>
+            </div>
             <div className={classes.menuIcon}>
               <Icon
                 name={isMenuOpen ? 'X' : 'Menu'}
                 className="text-lightBlueGrey"
                 onClick={this.toggleMenu}
                 title={i18n.t('navbar.menu')}
-              />
-            </div>
-            <div className={classes.buttonsWrapper}>
-              <Button
-                extraClassName={classes.buttonLogin}
-                size="small"
-                styleType="custom"
-                label="Login"
-                onClick={() => this.togglePopup('showLogin')}
-              />
-
-              <Button
-                extraClassName={classes.buttonSignup}
-                size="small"
-                styleType="outline"
-                label="Signup"
-                onClick={() => this.togglePopup('showSignup')}
               />
             </div>
           </header>

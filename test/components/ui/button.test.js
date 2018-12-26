@@ -7,7 +7,7 @@ describe('UI Component: <Button />', () => {
   const onClickSpy = sinon.spy();
 
   const wrapper = shallow(
-    <Button type="primary" size="medium" onClick={onClickSpy} label="button-text" />,
+    <Button styleType="primary" size="medium" onClick={onClickSpy} label="button-text" />,
   );
 
   const button = wrapper.find('.button');
