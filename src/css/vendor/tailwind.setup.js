@@ -387,6 +387,7 @@ module.exports = {
   */
 
   width: {
+    '0': '0',
     '2': '0.5rem',
     '4': '1rem',
     '6': '1.5rem',
@@ -396,7 +397,9 @@ module.exports = {
     '16': '4rem',
     '18': '4.5rem',
     '20': '5rem',
+    '24': '6rem',
     '32': '8rem',
+    '82': '20.5rem',
     '112': '28rem',
     '1/4': '25%',
     '2/4': '50%',
@@ -417,6 +420,7 @@ module.exports = {
     '1/5': '20%',
     '3/10': '30%',
     full: '100%',
+    auto: 'auto',
     screen: '100vw',
   },
 
@@ -444,6 +448,7 @@ module.exports = {
     '16': '4rem',
     '18': '4.5rem',
     '20': '5rem',
+    '24': '6rem',
     '32': '8rem',
     auto: 'auto',
     full: '100%',
@@ -481,6 +486,7 @@ module.exports = {
   */
 
   minHeight: {
+    '13': '3.25rem',
     '32': '8rem',
   },
 
@@ -630,6 +636,7 @@ module.exports = {
   */
 
   shadows: {
+    none: 'none',
     default: '0 0 1px 0 rgba(23,43,77,0.24)',
     md: '0 2px 4px 0 rgba(23,43,77,0.24)',
     lg: '0 6px 8px 0 rgba(23,43,77,0.24)',
@@ -740,23 +747,23 @@ module.exports = {
   modules: {
     appearance: ['responsive'],
     backgroundAttachment: [],
-    backgroundColors: ['hover', 'focus', 'disabled'],
+    backgroundColors: ['hover', 'focus', 'disabled', 'responsive'],
     backgroundPosition: [],
     backgroundRepeat: [],
     backgroundSize: [],
     borderCollapse: [],
-    borderColors: ['hover', 'focus'],
+    borderColors: ['hover', 'focus', 'responsive'],
     borderRadius: [],
     borderStyle: [],
-    borderWidths: ['focus'],
+    borderWidths: ['focus', 'responsive'],
     cursor: [],
-    display: ['responsive'],
+    display: ['responsive', 'important'],
     flexbox: ['responsive'],
     float: false,
     fonts: [],
-    fontWeights: [],
+    fontWeights: ['hover', 'group-hover'],
     height: ['responsive'],
-    leading: [],
+    leading: ['responsive'],
     lists: [],
     margin: ['responsive', 'last-child'],
     maxHeight: [],
@@ -764,28 +771,28 @@ module.exports = {
     minHeight: [],
     minWidth: [],
     negativeMargin: [],
-    opacity: ['hover'],
+    opacity: ['hover', 'placeholder'],
     outline: ['focus'],
     overflow: ['responsive'],
     padding: ['responsive'],
     pointerEvents: [],
     position: ['responsive'],
     resize: [],
-    shadows: ['focus'],
+    shadows: ['focus', 'responsive'],
     svgFill: [],
     svgStroke: [],
     tableLayout: false,
     textAlign: ['responsive'],
-    textColors: ['responsive', 'hover', 'focus'],
+    textColors: ['responsive', 'hover', 'focus', 'group-hover', 'placeholder', 'active'],
     textSizes: ['responsive'],
     textStyle: ['responsive', 'hover'],
     tracking: [],
     userSelect: [],
     verticalAlign: [],
-    visibility: [],
+    visibility: ['responsive'],
     whitespace: [],
     width: ['responsive'],
-    zIndex: [],
+    zIndex: ['responsive'],
   },
 
   /*
@@ -822,6 +829,8 @@ module.exports = {
         },
       },
     }),
+    require('tailwindcss-flexbox-order')([0, 1, 2], ['responsive']),
+    require('tailwindcss-important')(),
   ],
 
   /*

@@ -12,3 +12,17 @@ export const POPULAR_COMMUNITIES = gql`
     }
   }
 `;
+export const NAVBAR_SEARCH = queryText => gql`
+  {
+    searchUsers(queryText:"${queryText}"){
+      username
+      avatarUploadUuid
+      firstName
+      lastName
+    }
+    searchCommunities(name:"${queryText}"){
+      name
+      tagline
+    }
+  }
+`;

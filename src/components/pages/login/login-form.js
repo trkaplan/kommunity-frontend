@@ -3,7 +3,7 @@ import { login } from '@/api/request';
 import { Button, Input, Notification, Icon } from '@/components/ui';
 import { Redirect } from 'react-router-dom';
 
-class Login extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,7 +52,7 @@ class Login extends React.Component {
             name="username"
             type="text"
             id="login-username"
-            placeholder="your username"
+            placeholder="Mail Address"
             value={username}
             onChange={this.handleInputChange}
             required
@@ -64,7 +64,7 @@ class Login extends React.Component {
             type="password"
             name="password"
             id="login-password"
-            placeholder="your password"
+            placeholder="Password"
             value={password}
             onChange={this.handleInputChange}
             required
@@ -72,7 +72,7 @@ class Login extends React.Component {
             extraWrapperClassName="my-4"
           />
           <Button
-            extraClassName="w-full block my-4 font-semibold"
+            extraClassName="w-full block mt-4 font-semibold"
             size="large"
             styleType="primary"
             type="submit"
@@ -85,4 +85,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default LoginForm;
